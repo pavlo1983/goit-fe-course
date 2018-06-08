@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+body {
+    width: 1200 px;
+}
+.menu {
+    text-align: center;
+}
+li {
+    display: inline-block;
+   }
+  a {
+    list-style: none;
+    text-decoration: none;
+    vertical-align: middle;
+    color: black;
+  }
+  
