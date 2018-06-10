@@ -1,11 +1,11 @@
 
 body {
-    width: 1200px;
     height: 2079px;
     font-size: 0;
     font-family: 'Playfair Display', serif;
 }
 .menu {
+    width: 1200px;
     box-sizing: border-box;
     text-align: center;
     padding: 77px 314px 0 315px;
@@ -21,6 +21,9 @@ a {
     color:#626262;
     font-size: 14px;  
   }
+a:hover {
+  color: lightskyblue;
+}
 li:first-child {
     padding-right: 119px;
   }
@@ -34,14 +37,13 @@ main {
     box-sizing: border-box;
     width: 902px;
     margin-left: 150px;  
-   }
-  
+    margin-right: 148px;
+   }  
 article {
     display: inline-block;
     box-sizing: border-box;
     height: 573px;
   }
-    
 .coffee, .alps, .winter {
       margin-left: 60px;
   }
@@ -68,6 +70,7 @@ p {
     line-height: 1.5; 
   }
 footer {
+    margin: 0 auto;
     box-sizing: border-box;
     height: 168px;
     padding: 0 529px 70px 507px;
