@@ -4,6 +4,10 @@ body {
     font-size: 0;
     font-family: 'Playfair Display', serif;
 }
+div .wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .menu {
     width: 1200px;
     box-sizing: border-box;
@@ -12,7 +16,7 @@ body {
     margin-bottom: 101px;
 }
 li {
-  display: inline-block;
+    display: inline-block;
 }
 a {
     list-style: none;
@@ -22,7 +26,7 @@ a {
     font-size: 14px;  
   }
 a:hover {
-  color: lightskyblue;
+    color: lightskyblue;
 }
 li:first-child {
     padding-right: 119px;
@@ -45,7 +49,7 @@ article {
     height: 573px;
   }
 .coffee, .alps, .winter {
-      margin-left: 60px;
+    margin-left: 60px;
   }
 h2 {
     box-sizing: border-box;
@@ -60,14 +64,15 @@ h3 {
     height: 65px;
     width: 420px;
     font-size: 30px;
+    color: #626262;
   }
 p {
     box-sizing: border-box;
     height: 158px;
     width: 420px;
     font-size: 14px;
-    
     line-height: 1.5; 
+    color: #626262;
   }
 footer {
     margin: 0 auto;
