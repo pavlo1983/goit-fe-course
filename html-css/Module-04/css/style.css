@@ -8,7 +8,7 @@ div.wrapper {
 }
 header {
     display: block;
-    max-width: 1100px;
+    max-width: 1110px;
     margin: 40px auto 84px;
 }
 .mart {
@@ -61,11 +61,12 @@ a:hover {
     clear: both;
 }
 main {
-    max-width: 1100px; 
+    max-width: 1110px; 
     margin: 0 auto;
 }
-.articles {
+.article1 {
     margin: 0 auto 84px;
+    padding-bottom: 8px;
 }
 h2 {
     font-size: 48px;
@@ -73,16 +74,18 @@ h2 {
     color: #515151;
     text-transform: uppercase;
     font-family: 'Roboto:300', sans-serif;
-    margin: auto;
+    margin: 0 auto 20px;
     text-align: center;
-    margin-bottom: 20px;
     letter-spacing: -0.96px;
 }
 .greenline {
     background: #1abc9c;
     width: 164px;
     height: 7px;
-    margin: 0 auto 8px;
+    margin: 0 auto;
+}
+.products {
+    margin-bottom: 103px;
 }
 .production {
     box-sizing: border-box;
@@ -101,6 +104,9 @@ h2 {
 .production:nth-child(6),
 .production:nth-child(7) {
     margin-right: 30px;
+}
+.clear {
+    clear: left;
 }
 .picture {
     background: #e9f0fd;
@@ -135,4 +141,24 @@ span {
     text-align: center;
     background: darkgray;
 }
-
+.article2 {
+    margin: 0 auto 67px;
+    padding-bottom: 8px;
+}
+.latest {
+    margin-bottom: 82px;
+    float: left;
+    height: 263px;
+    width: 350px;
+}
+.news:first-child {
+    margin-right: 30px;
+}
+.news:nth-child(2) {
+    margin-right: 30px;
+}
+.ipad {
+    background-image: url(https://ibb.co/igJk9d);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
