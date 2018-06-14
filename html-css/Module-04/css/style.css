@@ -93,7 +93,9 @@ h2 {
     height: 322px;
     float: left;  
     padding: auto;
+    background: #e9f0fd;
 }
+
 .production:nth-child(-n+3) {
     margin-right: 30px;
 }
@@ -109,8 +111,11 @@ h2 {
     clear: left;
 }
 .picture {
-    background: #e9f0fd;
     height: 282px;
+    text-align: center;
+    vertical-align: middle;
+}
+div.img1 {
     text-align: center;
     vertical-align: middle;
 }
@@ -123,6 +128,7 @@ h2 {
     padding-bottom: 11px;
     padding-top: 11px;
 }
+
 span {
     font-size: 18px;
     color: #ffffff;
@@ -142,13 +148,16 @@ span {
     background: darkgray;
 }
 .article2 {
-    margin: 0 auto 67px;
+    margin: 0 auto 68px;
     padding-bottom: 8px;
 }
 .latest {
     margin-bottom: 82px;
+}
+.news {
+    box-sizing: border-box;
     float: left;
-    height: 263px;
+    height: 500px;
     width: 350px;
 }
 .news:first-child {
@@ -157,8 +166,72 @@ span {
 .news:nth-child(2) {
     margin-right: 30px;
 }
+.news:last-child {
+    margin-right: 0;
+}
+.ipad, .girls, .bus {
+    margin-bottom: 15px;
+}
 .ipad {
-    background-image: url(https://ibb.co/igJk9d);
+    height: 266px;
+    width: 350px;
+    box-sizing: border-box;
+    background-image:url(https://image.ibb.co/ckRu2y/ipad_632394_960_720.jpg);
     background-repeat: no-repeat;
+    background-position: 60% -25%;
+    background-size: 135%;
+}
+.girls {
+    height: 266px;
+    width: 350px;
+    box-sizing: border-box;
+    background-image:url(https://image.ibb.co/hpqbFJ/slide1.jpg);
+    background-repeat: no-repeat;
+    background-position: 45% 50%;
     background-size: cover;
+}
+.bus {
+    height: 266px;
+    width: 350px;
+    box-sizing: border-box;
+    background-image:url(https://image.ibb.co/nBMSNy/product_img_5.jpg);
+    background-repeat: no-repeat;
+    background-position: 80% 30%;
+    background-size: 110%;
+}
+
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-weight: semibold;
+    line-height: 1.5;
+    letter-spacing: -0.36px;
+    margin-bottom: 14px;
+}
+.greenline2 {
+    height: 3px;
+    width: 138px;
+    background: #1abc9c;
+    margin-bottom: 37px;
+}
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.28px;
+    text-align: justify;
+    margin-bottom: 9px;
+}
+button {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: light;
+    font-size: 16px;
+    letter-spacing: -0.32px;
+    width: 160px;
+    height: 50px;
+    border: 1px solid #1abc9c;
+    background: #1abc9c;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
 }
