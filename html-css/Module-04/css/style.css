@@ -78,6 +78,11 @@ h2 {
     text-align: center;
     letter-spacing: -0.96px;
 }
+h2:hover::after {
+    content: "";
+    text-decoration: underline;
+
+}
 .greenline {
     background: #1abc9c;
     width: 164px;
@@ -120,32 +125,43 @@ div.img1 {
     vertical-align: middle;
 }
 
-.description, 
-.price {
-    max-height: 40px;
+.description {
+    height: 40px;
     font-family: 'Roboto:300', sans-serif;
-    box-sizing: border-box;
-    padding-bottom: 11px;
-    padding-top: 11px;
+    padding-left: 13px;
+    background: #323232;  
+    border: 1px solid #323232;
+    box-sizing: border-box;   
 }
-
+.description::after {
+    display: border-box;
+    margin: auto;
+    content: "$26";
+    font-size: 18px;
+    background: grey;
+    display: inline;
+    width: 54px;
+    max-height: 38px;
+    float: right;
+    color: #ffffff;
+    padding-top: 14px;
+    padding-bottom: 6px;
+    text-align: center;
+    font-family: 'Roboto:300', sans-serif;
+    font-weight: bold;
+    }
 span {
+    max-height: 38px; 
+    box-sizing: border-box;
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
     font-size: 18px;
     color: #ffffff;
     text-transform: uppercase;
     font-weight: bold;
-}
-.description {
+    max-width: 185px;  
     float: left;
-    width: 201px;
-    padding-left: 13px;
-    background: #323232;
-}
-.price {
-    float: right;
-    width: 54px;
-    text-align: center;
-    background: darkgray;
 }
 .article2 {
     margin: 0 auto 68px;
@@ -203,7 +219,7 @@ span {
 h3 {
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
-    font-weight: semibold;
+    font-weight: bold;
     line-height: 1.5;
     letter-spacing: -0.36px;
     margin-bottom: 14px;
