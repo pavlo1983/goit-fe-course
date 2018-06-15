@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 div.wrapper {
-    max-width: 1840px;
+    max-width: 1650px;
     margin: 0 auto;
 }
 header {
@@ -67,6 +67,7 @@ main {
 .article1 {
     margin: 0 auto 84px;
     padding-bottom: 8px;
+    text-align: center;
 }
 h2 {
     font-size: 48px;
@@ -77,12 +78,38 @@ h2 {
     margin: 0 auto 20px;
     text-align: center;
     letter-spacing: -0.96px;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+}
+h2::before {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #0f0101;
+    left: 50%;
+    bottom: 0;
+}
+h2::after {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #0f0101;
+    left: 50%;
+    bottom: 0;
+}
+h2:hover::before {
+    width: 50%;
+    left: 0;
 }
 h2:hover::after {
-    content: "";
-    text-decoration: underline;
-
+    width: 50%;
 }
+
 .greenline {
     background: #1abc9c;
     width: 164px;
@@ -95,12 +122,24 @@ h2:hover::after {
 .production {
     box-sizing: border-box;
     width: 255px;
-    height: 322px;
+    max-height: 322px;
     float: left;  
     padding: auto;
     background: #e9f0fd;
+    overflow: hidden;
 }
-
+.production::after{
+    display: inline-block;
+    float: left;
+    height: 40px;
+    content: "";
+    width: 255px;
+    margin-top: -40px;
+    opacity: 0.7;
+}
+.production:hover::after {
+    background: #1abc9c;
+}
 .production:nth-child(-n+3) {
     margin-right: 30px;
 }
@@ -120,32 +159,26 @@ h2:hover::after {
     text-align: center;
     vertical-align: middle;
 }
-div.img1 {
-    text-align: center;
-    vertical-align: middle;
-}
-
 .description {
     height: 40px;
     font-family: 'Roboto:300', sans-serif;
     padding-left: 13px;
     background: #323232;  
-    border: 1px solid #323232;
-    box-sizing: border-box;   
+    box-sizing: border-box; 
 }
 .description::after {
     display: border-box;
     margin: auto;
     content: "$26";
     font-size: 18px;
-    background: grey;
+    background: #8c8c8c;
     display: inline;
     width: 54px;
     max-height: 38px;
     float: right;
     color: #ffffff;
-    padding-top: 14px;
-    padding-bottom: 6px;
+    padding-top: 11px;
+    padding-bottom: 11px;
     text-align: center;
     font-family: 'Roboto:300', sans-serif;
     font-weight: bold;
@@ -154,8 +187,8 @@ span {
     max-height: 38px; 
     box-sizing: border-box;
     display: block;
-    margin-top: 14px;
-    margin-bottom: 6px;
+    margin-top: 11px;
+    margin-bottom: 11px;
     font-size: 18px;
     color: #ffffff;
     text-transform: uppercase;
@@ -166,14 +199,12 @@ span {
 .article2 {
     margin: 0 auto 68px;
     padding-bottom: 8px;
-}
-.latest {
-    margin-bottom: 82px;
+    text-align: center;
 }
 .news {
     box-sizing: border-box;
     float: left;
-    height: 500px;
+    max-height: 500px;
     width: 350px;
 }
 .news:first-child {
@@ -189,16 +220,16 @@ span {
     margin-bottom: 15px;
 }
 .ipad {
-    height: 266px;
+    height: 260px;
     width: 350px;
     box-sizing: border-box;
     background-image:url(https://image.ibb.co/ckRu2y/ipad_632394_960_720.jpg);
     background-repeat: no-repeat;
-    background-position: 55% -5%;
+    background-position: 55% 0;
     background-size: 460px 320px;
 }
 .girls {
-    height: 266px;
+    height: 260px;
     width: 350px;
     box-sizing: border-box;
     background-image:url(https://image.ibb.co/hpqbFJ/slide1.jpg);
@@ -207,7 +238,7 @@ span {
     background-size: cover;
 }
 .bus {
-    height: 266px;
+    height: 260px;
     width: 350px;
     box-sizing: border-box;
     background-image:url(https://image.ibb.co/nBMSNy/product_img_5.jpg);
@@ -228,7 +259,7 @@ h3 {
     height: 3px;
     width: 138px;
     background: #1abc9c;
-    margin-bottom: 37px;
+    margin-bottom: 34px;
 }
 p {
     font-family: 'Open Sans', sans-serif;
@@ -244,10 +275,12 @@ button {
     font-size: 16px;
     letter-spacing: -0.32px;
     width: 160px;
-    height: 50px;
+    max-height: 46px;
+    padding-top: 10px;
+    padding-bottom: 18px;
     border: 1px solid #1abc9c;
     background: #1abc9c;
     color: #ffffff;
     text-align: center;
-    vertical-align: middle;
+    margin-bottom: 77px;   
 }
