@@ -30,16 +30,16 @@ header {
 .menu li {
     display: inline-block;
 }
-li:first-child, li:nth-child(5) {
+.menu li:first-child, li:nth-child(5) {
     margin-right: 35px;
 }
-li:nth-child(2) {
+.menu li:nth-child(2) {
     margin-right: 38px;
 }
-li:nth-child(3) {
+.menu li:nth-child(3) {
     margin-right: 31px;
 }
-li:nth-child(4) {
+.menu li:nth-child(4) {
     margin-right: 28px;
 }
 a {
@@ -65,8 +65,7 @@ main {
     margin: 0 auto;
 }
 .article1 {
-    margin: 0 auto 84px;
-    padding-bottom: 8px;
+    margin: 0 auto 103px;
     text-align: center;
 }
 h2 {
@@ -81,6 +80,7 @@ h2 {
     position: relative;
     display: inline-block;
     box-sizing: border-box;
+    padding-bottom: 8px;
 }
 h2::before {
     position: absolute;
@@ -114,7 +114,7 @@ h2:hover::after {
     background: #1abc9c;
     width: 164px;
     height: 7px;
-    margin: 0 auto;
+    margin: 0 auto 84px;
 }
 .products {
     margin-bottom: 103px;
@@ -159,58 +159,49 @@ h2:hover::after {
     text-align: center;
     vertical-align: middle;
 }
-.description {
-    height: 40px;
+
+.description,
+.price {
+    max-height: 40px;
     font-family: 'Roboto:300', sans-serif;
-    padding-left: 13px;
-    background: #323232;  
-    box-sizing: border-box; 
-}
-.description::after {
-    display: border-box;
-    margin: auto;
-    content: "$26";
-    font-size: 18px;
-    background: #8c8c8c;
-    display: inline;
-    width: 54px;
-    max-height: 38px;
-    float: right;
-    color: #ffffff;
-    padding-top: 11px;
-    padding-bottom: 11px;
-    text-align: center;
-    font-family: 'Roboto:300', sans-serif;
-    font-weight: bold;
-    }
-span {
-    max-height: 38px; 
     box-sizing: border-box;
-    display: block;
-    margin-top: 11px;
-    margin-bottom: 11px;
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+span {
     font-size: 18px;
     color: #ffffff;
     text-transform: uppercase;
     font-weight: bold;
-    max-width: 185px;  
-    float: left;
 }
-.article2 {
-    margin: 0 auto 68px;
-    padding-bottom: 8px;
+.description {
+    float: left;
+    width: 201px;
+    padding-left: 13px;
+    background: #323232;
+}
+.price {
+    float: right;
+    width: 54px;
     text-align: center;
+    background: darkgray;
+}
+
+.article2 {
+    margin: 0 auto;
+    text-align: center;
+}
+.greenline1 {
+    background: #1abc9c;
+    width: 164px;
+    height: 7px;
+    margin: 0 auto 73px;
 }
 .news {
     box-sizing: border-box;
     float: left;
     max-height: 500px;
     width: 350px;
-}
-.news:first-child {
-    margin-right: 30px;
-}
-.news:nth-child(2) {
     margin-right: 30px;
 }
 .news:last-child {
@@ -253,13 +244,16 @@ h3 {
     font-weight: bold;
     line-height: 1.5;
     letter-spacing: -0.36px;
-    margin-bottom: 14px;
+    text-align: justify;
 }
-.greenline2 {
+h3::after {
+    content: "";
+    display: block;
     height: 3px;
     width: 138px;
     background: #1abc9c;
-    margin-bottom: 34px;
+    margin-top: 14px;
+    margin-bottom: 34px;   
 }
 p {
     font-family: 'Open Sans', sans-serif;
@@ -282,5 +276,5 @@ button {
     background: #1abc9c;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 77px;   
+    margin-bottom: 77px;
 }
