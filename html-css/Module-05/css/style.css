@@ -3,7 +3,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 div.wrapper {
-    max-width: 1600px;
+    width: 1600px;
     margin: 0 auto;
 }
 
@@ -65,34 +65,45 @@ main {
     width: 1600px; 
     margin: 0 auto;
 }
-
 .tours {
     height: 600px;
     width: 1600px;
     position: relative;
-    z-index: 1;
-    background: url(https://image.ibb.co/eBPApd/slide4.jpg) no-repeat;
-    background-size: 1600px 600px;
-    background-position-y: left;
     
 }
 .girls {
-    position: relative;
-    z-index: 2;
+    box-sizing: border-box;
+    position: absolute;
+    height: 600px;
+    width: 1600px;
+    left: 0;
+    background: url(https://image.ibb.co/eBPApd/slide4.jpg) no-repeat;
+    background-size: 1600px 600px;
+}
+.girls::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    height: 600px;
+    width: 1600px;
+    left: 0;
+    background: #000002 no-repeat;
+    background-size: 1600px 600px;
+    opacity: 0.5;
 }
 
-.slider {
-    background: #000002; 
-    position: relative;
+
+.slider { 
+    position: absolute;
     bottom: 219px;
     margin: 0 auto;
 }
     
-h2 {
+ h2 {
     font-size: 60px;
     font-family: 'Roboto:300', sans-serif;
     color: #ffffff;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: -1.2px;
-}
+} 
