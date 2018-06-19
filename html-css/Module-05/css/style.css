@@ -1,0 +1,98 @@
+body {
+    font-size: 0;
+    font-family: 'Roboto', sans-serif;
+}
+div.wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+header {
+    display: block;
+    max-width: 1110px;
+    margin: 40px auto 20px;
+}
+.mart {
+    float: left;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #555252;
+    padding-bottom: 12px;
+}
+.mart::first-letter {
+    font-family: 'Roboto:300', sans-serif;
+    color: #1abc9c;
+    font-weight: bold;   
+}
+.menu {
+    float: right;
+    margin: 4px 0 22px 0;
+}
+.menu li {
+    display: inline-block;
+}
+.menu li:first-child, li:nth-child(5) {
+    margin-right: 35px;
+}
+.menu li:nth-child(2) {
+    margin-right: 38px;
+}
+.menu li:nth-child(3) {
+    margin-right: 31px;
+}
+.menu li:nth-child(4) {
+    margin-right: 28px;
+}
+a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold; 
+    color: #0f0101;
+    list-style: none;
+    text-decoration: none;  
+    text-transform: uppercase; 
+    letter-spacing: -0.28px;
+}
+a:hover {
+    color: #1abc9c;
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+main {
+    width: 1600px; 
+    margin: 0 auto;
+}
+
+.tours {
+    height: 600px;
+    width: 1600px;
+    position: relative;
+    z-index: 1;
+    background: url(https://image.ibb.co/eBPApd/slide4.jpg) no-repeat;
+    background-size: 1600px 600px;
+    background-position-y: left;
+    
+}
+.girls {
+    position: relative;
+    z-index: 2;
+}
+
+.slider {
+    background: #000002; 
+    position: relative;
+    bottom: 219px;
+    margin: 0 auto;
+}
+    
+h2 {
+    font-size: 60px;
+    font-family: 'Roboto:300', sans-serif;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: -1.2px;
+}

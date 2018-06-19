@@ -128,18 +128,7 @@ h2:hover::after {
     background: #e9f0fd;
     overflow: hidden;
 }
-.production::after{
-    display: inline-block;
-    float: left;
-    height: 40px;
-    content: "";
-    width: 255px;
-    margin-top: -40px;
-    opacity: 0.7;
-}
-.production:hover::after {
-    background: #1abc9c;
-}
+
 .production:nth-child(-n+3) {
     margin-right: 30px;
 }
@@ -168,6 +157,7 @@ h2:hover::after {
     padding-bottom: 11px;
     padding-top: 11px;
 }
+
 span {
     font-size: 18px;
     color: #ffffff;
@@ -277,4 +267,5 @@ button {
     color: #ffffff;
     text-align: center;
     margin-bottom: 77px;
+    cursor: pointer;
 }
