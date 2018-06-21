@@ -100,6 +100,7 @@ main {
     top: 217px;
     left: 396px;
     margin: 0 auto;
+    box-sizing: border-box;
    
 }
 h3 {
@@ -119,38 +120,22 @@ p {
     letter-spacing: -0.48px;
     opacity: 0.5;
 }
-.slider::before,
-.slider::after {
-    content: "";
+
+.al,
+.ar {
     position: absolute;
-    box-sizing: border-box;
-    height: 104px;
-    width: 104px;
     background: #1abc9c;
-    display: inline-block;
-    cursor: pointer;
     opacity: 0.7;
-    
+    cursor: pointer;
 }
-.slider::before {
-    content: "\003C";
-    color: #ffffff;
-    font-size: 100px;
-    text-align: center;
-    vertical-align: middle;
+.al {
     left: -188px;
     top: 13px;
-    
-    
 }
-.slider::after {
-    content: "\003E";
-    color: #ffffff;
-    font-size: 100px;
-    text-align: center;
-    vertical-align: middle;
+.ar {
     right: -188px;
     top: 13px;
+    z-index: 2;
 }
 
 h2 {
@@ -226,6 +211,66 @@ h2::after {
     text-align: center;
     vertical-align: middle;
 }
+.hidden {
+    position: absolute;
+    background: #1c0e0f;
+    height: 260px;
+    width: 233px;
+    top: 11px;
+    left: 11px;
+    opacity: 0.5;
+    display: none;
+}
+.like,
+.shuffle,
+.clock {
+    position: absolute;
+    box-sizing: border-box;
+    height: 50px;
+    width: 50px;
+    border: 1px solid #ffffff; 
+    padding-top: 9px;
+    display: block;
+}
+.like {
+    top: 78px;
+    left: 34px;
+}
+.shuffle {
+    top: 78px;
+    left: 92px;
+}
+.clock {
+    top: 78px;
+    left: 150px;
+}
+.cart {
+    position: absolute;
+    box-sizing: border-box;
+    height: 50px;
+    width: 166px;
+    border: 1px solid #ffffff;
+    left: 34px;
+    top: 135px;
+    padding-top: 9px;
+    padding-left: 9px;
+}
+.cart1 {
+    position: absolute;
+    width:30px;
+}
+.cart2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: -0.28;
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    height: 27px;
+    width: 115px;
+    left: 47px;
+    top: 19px;
+}
 
 .description,
 .price {
@@ -254,4 +299,48 @@ span {
     text-align: center;
     background: darkgray;
     margin-left: 201px;
+}
+.production:hover {
+    cursor: pointer;
+}
+.production:hover .description {
+    background: #1abc9c;
+    opacity: 0.7;
+}
+.production:hover .price {
+    background: #1abc9c;
+    opacity: 0.5;
+}
+.production:hover > .picture > .hidden {
+    display: block;   
+}
+.hidden:hover .shuffle {
+    background: #1abc9c;
+}
+.hidden:hover .cart {
+    background:#323232;
+}
+footer {
+    height: 90px;
+    background: #323232;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.bottom {
+    padding-top: 39px;
+}
+.whitetext,
+.greentext {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    text-transform: none;
+    letter-spacing: -0.32;
+    margin-top: 39px;
+}
+.whitetext {
+    color: #fefefe;      
+}
+.greentext {
+    color: #46bfa9;
 }
