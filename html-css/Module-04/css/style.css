@@ -74,47 +74,25 @@ h2 {
     color: #515151;
     text-transform: uppercase;
     font-family: 'Roboto:300', sans-serif;
-    margin: 0 auto 20px;
+    margin: 0 auto 93px;
     text-align: center;
     letter-spacing: -0.96px;
     position: relative;
-    display: inline-block;
-    box-sizing: border-box;
-    padding-bottom: 8px;
-}
-h2::before {
-    position: absolute;
-    content: "";
     display: block;
-    height: 2px;
-    width: 0;
-    background: #0f0101;
-    left: 50%;
-    bottom: 0;
+    box-sizing: border-box;
+}
+.article2 h2 {
+    margin-bottom: 84px;
 }
 h2::after {
+    content: '';
     position: absolute;
-    content: "";
-    display: block;
-    height: 2px;
-    width: 0;
-    background: #0f0101;
-    left: 50%;
-    bottom: 0;
-}
-h2:hover::before {
-    width: 50%;
-    left: 0;
-}
-h2:hover::after {
-    width: 50%;
-}
-
-.greenline {
-    background: #1abc9c;
     width: 164px;
     height: 7px;
-    margin: 0 auto 84px;
+    background: #1abc9c;
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .products {
     margin-bottom: 103px;
@@ -139,6 +117,14 @@ h2:hover::after {
 .production:nth-child(6),
 .production:nth-child(7) {
     margin-right: 30px;
+}
+.production:hover .description{
+    background-color: #1abc9c;
+    opacity: 0.7;
+}
+.production:hover .price {
+    background-color: #1abc9c;
+    opacity: 0.3;
 }
 .clear {
     clear: left;
@@ -181,12 +167,7 @@ span {
     margin: 0 auto;
     text-align: center;
 }
-.greenline1 {
-    background: #1abc9c;
-    width: 164px;
-    height: 7px;
-    margin: 0 auto 73px;
-}
+
 .news {
     box-sizing: border-box;
     float: left;
