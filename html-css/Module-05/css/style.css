@@ -213,13 +213,13 @@ h2::after {
 }
 .hidden {
     position: absolute;
-    background: #1c0e0f;
+    background: #737373;
     height: 260px;
     width: 233px;
     top: 11px;
     left: 11px;
-    opacity: 0.5;
     display: none;
+    opacity: 0.7;
 }
 .like,
 .shuffle,
@@ -258,6 +258,7 @@ h2::after {
 .cart1 {
     position: absolute;
     width:30px;
+    
 }
 .cart2 {
     font-family: 'Open Sans', sans-serif;
@@ -270,6 +271,7 @@ h2::after {
     width: 115px;
     left: 47px;
     top: 19px;
+    
 }
 
 .description,
@@ -305,7 +307,7 @@ span {
 }
 .production:hover .description {
     background: #1abc9c;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 .production:hover .price {
     background: #1abc9c;
@@ -314,12 +316,15 @@ span {
 .production:hover > .picture > .hidden {
     display: block;   
 }
-.hidden:hover .shuffle {
+.production:hover .shuffle {
     background: #1abc9c;
+    
 }
-.hidden:hover .cart {
-    background:#323232;
+.production:hover .cart {
+    background: #323232;
+    
 }
+
 footer {
     height: 90px;
     background: #323232;
