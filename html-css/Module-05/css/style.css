@@ -20,7 +20,7 @@ header {
     padding-bottom: 12px;
 }
 .mart::first-letter {
-    font-family: 'Roboto:300', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #1abc9c;
     font-weight: bold;   
 }
@@ -78,37 +78,43 @@ main {
     position: absolute;
     height: 600px;
     width: 1600px;
+}
+.girls_bg {    
+    position: relative;
     left: 0;
     background: url(https://image.ibb.co/eBPApd/slide4.jpg) no-repeat;
-    background-size: 1600px 600px;
-}
-.girls::after {
-    content: "";
-    box-sizing: border-box;
-    position: absolute;
     height: 600px;
     width: 1600px;
+    background-size: cover;
+}
+.background {
+    box-sizing: border-box;
+    position: relative;
+    height: 600px;
+    width: 1600px;
+}
+.bg_black {
+    position: relative;
     left: 0;
     background: #000002 no-repeat;
-    background-size: 1600px 600px;
+    height: 600px;
+    width: 1600px;
+    background-size: cover;
     opacity: 0.5;
 }
-
-
 .slider { 
     position: absolute;
     top: 217px;
-    left: 396px;
+    left: 441px;
     margin: 0 auto;
-    box-sizing: border-box;
-   
+    box-sizing: border-box;  
 }
 h3 {
     font-size: 60px;
-    font-family: 'Roboto:300', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
-    font-weight: bold;
     letter-spacing: -1.2px;
     margin-bottom: 35px;
 } 
@@ -120,7 +126,6 @@ p {
     letter-spacing: -0.48px;
     opacity: 0.5;
 }
-
 .al,
 .ar {
     position: absolute;
@@ -137,7 +142,6 @@ p {
     top: 13px;
     z-index: 2;
 }
-
 h2 {
     box-sizing: border-box;
     max-height: 255px;
@@ -146,7 +150,7 @@ h2 {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    font-family: 'Roboto:300', sans-serif;
+    font-family: 'Roboto', sans-serif;
     letter-spacing: -0.96;
 }
 h2::after {
@@ -174,7 +178,6 @@ h2::after {
     margin: 0 auto; 
     left: 245px;  
 }
-
 .production:nth-child(2) {
     position: absolute;
     box-sizing: border-box;
@@ -205,7 +208,6 @@ h2::after {
     margin: 0 auto; 
     right: 245px;
 }
-
 .picture {
     height: 282px;
     text-align: center;
@@ -273,18 +275,16 @@ h2::after {
     top: 19px;
     
 }
-
 .description,
 .price {
     position: absolute;
     max-height: 40px;
-    font-family: 'Roboto:300', sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     padding-bottom: 11px;
     padding-top: 11px;
-    
+    font-weight: bold;
 }
-
 span {
     font-size: 18px;
     color: #ffffff;
@@ -324,7 +324,6 @@ span {
     background: #323232;
     
 }
-
 footer {
     height: 90px;
     background: #323232;
