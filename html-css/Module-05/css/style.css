@@ -3,7 +3,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 div.wrapper {
-    width: 1600px;
     margin: 0 auto;
 }
 
@@ -130,8 +129,8 @@ p {
 .ar {
     position: absolute;
     background: #1abc9c;
-    opacity: 0.7;
     cursor: pointer;
+    opacity: 0.8;
 }
 .al {
     left: -188px;
@@ -140,7 +139,6 @@ p {
 .ar {
     right: -188px;
     top: 13px;
-    z-index: 2;
 }
 h2 {
     box-sizing: border-box;
@@ -160,7 +158,7 @@ h2::after {
     width: 160px;
     background-color:#1abc9c;
     text-align: center;
-    margin: 68px auto 81px;
+    margin: 33px auto 73px;
 }
 .products {
     position: relative;
@@ -223,6 +221,7 @@ h2::after {
     display: none;
     opacity: 0.7;
 }
+
 .like,
 .shuffle,
 .clock {
@@ -302,6 +301,7 @@ span {
     background: darkgray;
     margin-left: 201px;
 }
+
 .production:hover {
     cursor: pointer;
 }
@@ -313,7 +313,7 @@ span {
     background: #1abc9c;
     opacity: 0.5;
 }
-.production:hover > .picture > .hidden {
+.production:hover .picture > .hidden {
     display: block;   
 }
 .production:hover .shuffle {
