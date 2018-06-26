@@ -61,51 +61,48 @@ a:hover {
     clear: both;
 }
 main {
-    width: 1600px; 
     margin: 0 auto;
     background:#e9f0fd; 
+    width: auto;
 }
 .tours {
     height: 600px;
-    width: 1600px;
     position: relative;
     margin-bottom: 98px;
     
 }
 .girls {
     box-sizing: border-box;
-    position: absolute;
+    position: relative;
     height: 600px;
-    width: 1600px;
+    background-size: 100%;
 }
 .girls_bg {    
     position: relative;
     left: 0;
     background: url(https://image.ibb.co/eBPApd/slide4.jpg) no-repeat;
     height: 600px;
-    width: 1600px;
-    background-size: cover;
+    background-size: cover; 
+    background-position: -130px;
 }
 .background {
     box-sizing: border-box;
     position: relative;
     height: 600px;
-    width: 1600px;
+    top: -600px;  
 }
 .bg_black {
     position: relative;
     left: 0;
     background: #000002 no-repeat;
     height: 600px;
-    width: 1600px;
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.5;    
 }
 .slider { 
     position: absolute;
     top: 217px;
-    left: 441px;
-    margin: 0 auto;
+    left: 316px;
     box-sizing: border-box;  
 }
 h3 {
@@ -165,6 +162,8 @@ h2::after {
     background: #e9f0fd;
     height: 322px; 
     padding-bottom: 100px;
+    width: 100%;
+    
 }
 .production:first-child {
     position: absolute;
@@ -174,7 +173,7 @@ h2::after {
     padding: auto;
     background: #ffffff;
     margin: 0 auto; 
-    left: 245px;  
+    left: 120px;
 }
 .production:nth-child(2) {
     position: absolute;
@@ -184,7 +183,7 @@ h2::after {
     padding: auto;
     background: #ffffff;
     margin: 0 auto; 
-    left: 530px;
+    left: 405px;
 }
 .production:nth-child(3) {
     position: absolute;
@@ -194,7 +193,7 @@ h2::after {
     padding: auto;
     background: #ffffff;
     margin: 0 auto; 
-    left: 815px;
+    left: 690px;
 }
 .production:last-child {
     position: absolute;
@@ -204,12 +203,13 @@ h2::after {
     padding: auto;
     background: #ffffff;
     margin: 0 auto; 
-    right: 245px;
+    left: 975px;
 }
 .picture {
     height: 282px;
     text-align: center;
     vertical-align: middle;
+    position: relative;
 }
 .hidden {
     position: absolute;
@@ -220,6 +220,9 @@ h2::after {
     left: 11px;
     display: none;
     opacity: 0.7;
+}
+.icons_wrapper {
+   display: none; 
 }
 
 .like,
@@ -232,18 +235,19 @@ h2::after {
     border: 1px solid #ffffff; 
     padding-top: 9px;
     display: block;
+    text-align: center;
 }
 .like {
-    top: 78px;
-    left: 34px;
+    top: 89px;
+    left: 45px;
 }
 .shuffle {
-    top: 78px;
-    left: 92px;
+    top: 89px;
+    left: 103px;
 }
 .clock {
-    top: 78px;
-    left: 150px;
+    top: 89px;
+    left: 161px;
 }
 .cart {
     position: absolute;
@@ -251,19 +255,20 @@ h2::after {
     height: 50px;
     width: 166px;
     border: 1px solid #ffffff;
-    left: 34px;
-    top: 135px;
-    padding-top: 9px;
+    left: 45px;
+    top: 146px;
+    padding-top: 0px;
     padding-left: 9px;
 }
 .cart1 {
     position: absolute;
     width:30px;
-    
+    margin-top: 9px;
 }
 .cart2 {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
+    font-weight: normal;
     letter-spacing: -0.28;
     position: absolute;
     box-sizing: border-box;
@@ -271,8 +276,8 @@ h2::after {
     height: 27px;
     width: 115px;
     left: 47px;
-    top: 19px;
-    
+    top: 17px;
+    text-align: center;
 }
 .description,
 .price {
@@ -307,17 +312,23 @@ span {
 }
 .production:hover .description {
     background: #1abc9c;
-    opacity: 0.8;
+    opacity: 1;
 }
 .production:hover .price {
     background: #1abc9c;
     opacity: 0.5;
 }
-.production:hover .picture > .hidden {
+
+.production:hover .hidden {
     display: block;   
+}
+.production:hover .icons_wrapper {
+    display: block;
+    opacity: 1;
 }
 .production:hover .shuffle {
     background: #1abc9c;
+    opacity: 1;
     
 }
 .production:hover .cart {
