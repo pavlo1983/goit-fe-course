@@ -6,30 +6,26 @@ div.wrapper {
     margin: 0 auto;
     max-width: 1920px;
 }
-.header {
-    margin: 29px auto 120px;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 29px auto 114px;
+    max-width: 1200px;
+    height: 36px;
 }
 .mogo {
-    box-sizing: content-box;
-    position: relative;
-    left: 358px;
     font-size: 30px;
     font-weight: bold;
     color: #95e1d3;
 }
 .menu {
-    display: inline-block;
-    box-sizing: border-box;
-    position: absolute;
-    top: 40px;
-    left: 1070px;   
+    width: 490px;
+    display: flex;
+    justify-content: space-between; 
 }
-ul {
-    display: inline-flex;
-    justify-content: space-evenly;
-}
-li {
-    
+li:nth-child(2) {
+    align-self: flex-end;
 }
 a {
     list-style: none;
@@ -38,4 +34,9 @@ a {
     text-decoration: none;
     text-transform: uppercase;
 }
+.products {
+    max-width: 1150px;
+    height: 468px;
+    margin-left: 390px;
+} 
 
