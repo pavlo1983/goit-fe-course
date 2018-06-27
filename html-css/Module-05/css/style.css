@@ -80,7 +80,7 @@ main {
 .girls_bg {    
     position: relative;
     left: 0;
-    background: url(https://image.ibb.co/eBPApd/slide4.jpg) no-repeat;
+    background: url(https://image.ibb.co/ddPmUo/bg.jpg) no-repeat;
     height: 600px;
     background-size: cover; 
     background-position: -130px;
@@ -120,7 +120,6 @@ p {
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: -0.48px;
-    opacity: 0.5;
 }
 .al,
 .ar {
@@ -128,6 +127,10 @@ p {
     background: #1abc9c;
     cursor: pointer;
     opacity: 0.8;
+    box-sizing: border-box;
+    padding: 0;
+    margin:0;
+    border: 0;
 }
 .al {
     left: -188px;
@@ -157,62 +160,58 @@ h2::after {
     text-align: center;
     margin: 33px auto 73px;
 }
+.prod_wrap {
+    margin: 0 auto;
+    text-align: center;
+}
 .products {
-    position: relative;
     background: #e9f0fd;
     height: 322px; 
     padding-bottom: 100px;
-    width: 100%;
-    
+    width: 100%; 
+}
+.production {
+    display: inline-block;
+    position: relative;
 }
 .production:first-child {
-    position: absolute;
     box-sizing: border-box;
     width: 255px;
     height: 322px; 
     padding: auto;
     background: #ffffff;
-    margin: 0 auto; 
-    left: 120px;
+    margin-right: 30px; 
+    
 }
 .production:nth-child(2) {
-    position: absolute;
     box-sizing: border-box;
     width: 255px;
     height: 322px; 
-    padding: auto;
     background: #ffffff;
-    margin: 0 auto; 
-    left: 405px;
+    margin-right: 30px; 
+    
 }
 .production:nth-child(3) {
-    position: absolute;
     box-sizing: border-box;
     width: 255px;
     height: 322px; 
-    padding: auto;
     background: #ffffff;
-    margin: 0 auto; 
-    left: 690px;
+    margin-right: 30px; 
+  
 }
 .production:last-child {
-    position: absolute;
     box-sizing: border-box;
     width: 255px;
     height: 322px; 
-    padding: auto;
     background: #ffffff;
-    margin: 0 auto; 
-    left: 975px;
+    
 }
 .picture {
     height: 282px;
     text-align: center;
-    vertical-align: middle;
-    position: relative;
+    vertical-align: middle;  
 }
 .hidden {
-    position: absolute;
     background: #737373;
     height: 260px;
     width: 233px;
@@ -220,6 +219,9 @@ h2::after {
     left: 11px;
     display: none;
     opacity: 0.7;
+    position: absolute;
+    left: 11px;
+    
 }
 .icons_wrapper {
    display: none; 
@@ -233,9 +235,13 @@ h2::after {
     height: 50px;
     width: 50px;
     border: 1px solid #ffffff; 
-    padding-top: 9px;
+    padding-top: 5px;
     display: block;
     text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    background: transparent;
+    cursor: pointer;
 }
 .like {
     top: 89px;
@@ -259,11 +265,16 @@ h2::after {
     top: 146px;
     padding-top: 0px;
     padding-left: 9px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    cursor: pointer;
+    background: transparent;
 }
 .cart1 {
     position: absolute;
     width:30px;
     margin-top: 9px;
+    top: 0px;
 }
 .cart2 {
     font-family: 'Open Sans', sans-serif;
@@ -276,7 +287,7 @@ h2::after {
     height: 27px;
     width: 115px;
     left: 47px;
-    top: 17px;
+    top: 14px;
     text-align: center;
 }
 .description,
@@ -299,6 +310,7 @@ span {
     width: 201px;
     padding-left: 13px;
     background: #323232;
+    text-align: left;
 }
 .price {
     width: 54px;
@@ -326,12 +338,13 @@ span {
     display: block;
     opacity: 1;
 }
-.production:hover .shuffle {
+.shuffle:hover,
+.like:hover,
+.clock:hover {
     background: #1abc9c;
-    opacity: 1;
-    
+    opacity: 1;   
 }
-.production:hover .cart {
+.cart:hover {
     background: #323232;
     
 }
@@ -356,6 +369,14 @@ footer {
 .whitetext {
     color: #fefefe;      
 }
-.greentext {
+
+.greentext a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: normal; 
     color: #46bfa9;
+    list-style: none;
+    text-decoration: none;  
+    text-transform: none; 
+    letter-spacing: -0.32px;
 }
