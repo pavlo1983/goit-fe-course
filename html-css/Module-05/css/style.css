@@ -172,13 +172,12 @@ h2::after {
 }
 .production {
     display: inline-block;
-    position: relative;
+    position: relative; 
 }
 .production:first-child {
     box-sizing: border-box;
     width: 255px;
     height: 322px; 
-    padding: auto;
     background: #ffffff;
     margin-right: 30px; 
     
@@ -208,9 +207,22 @@ h2::after {
 }
 .picture {
     height: 282px;
-    text-align: center;
-    vertical-align: middle;  
+    width: 255px;    
 }
+.picture1 {
+    background: url(https://image.ibb.co/gfVwEo/img1.jpg) no-repeat;  
+}
+.picture2 {
+    background: url(https://image.ibb.co/f1uj0T/img2.jpg) no-repeat;  
+}
+.picture3 {
+    background: url(https://image.ibb.co/m9ooS8/img3.jpg) no-repeat;
+}
+.picture4 {
+    background: url(https://image.ibb.co/cgveZo/img4.jpg) no-repeat;
+}
+
+
 .hidden {
     background: #737373;
     height: 260px;
