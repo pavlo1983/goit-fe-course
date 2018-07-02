@@ -18,6 +18,7 @@ header {
     font-size: 30px;
     font-weight: bold;
     color: #95e1d3;
+    text-transform: none;
 }
 .menu {
     width: 490px;
@@ -34,11 +35,11 @@ a {
     text-decoration: none;
     text-transform: uppercase;
 }
-.products {
+.product_wrap {
+    margin: 0px auto 51px;
     max-width: 1150px;
-    height: 468px;
-    margin: 0px auto 139px;
-} 
+}
+
 h2 {
     text-align: center;
     font-size: 24px;
@@ -46,23 +47,34 @@ h2 {
     color: #333333;
     margin-bottom: 23px;
 }
-h3 {
+.amazing, 
+.meet {
     text-align: center;
     font-size: 30px;
     font-weight: bold;
     color: #333333;
     text-transform: uppercase;
     box-sizing: border-box;
-    
+    position: relative;
 }
-h3::after {
+.amazing {
+    margin-bottom: 112px;
+}
+
+.amazing::after,
+.meet::after {
     text-align: center;
     content: "";
     display: block;
     height: 3px;
     width: 60px;
     background: #f38181;
-    margin: 43px 545px 66px;    
+    position: absolute;
+    left: 50%;
+    margin-left: -30px; 
+}
+.amazing::after {
+    top: 75px;
 }
 .wrap_serv {
     display: inline-flex;
@@ -97,7 +109,22 @@ h3::after {
     color: #999999;
     line-height: 24px;
 }
-.team {
+.team_wrap {
     max-width: 1200px;
-    margin: 35px auto 114px;
+    margin: 0px auto 46px;
+}
+.about_team {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #999999;
+    line-height: 24px;
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+.meet {
+    margin-bottom: 82px;
+}
+.meet::after {
+    top: 63px;
 }
