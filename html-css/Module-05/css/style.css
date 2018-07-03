@@ -12,6 +12,7 @@ header {
     margin: 40px auto 20px;
 }
 .mart {
+    font-family: 'Roboto', sans-serif;
     float: left;
     font-size: 30px;
     text-transform: uppercase;
@@ -131,6 +132,11 @@ p {
     right: -188px;
     top: 13px;
 }
+.new_wrap {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 10px 0;
+}
 h2 {
     box-sizing: border-box;
     max-height: 255px;
@@ -142,7 +148,7 @@ h2 {
     font-family: 'Roboto', sans-serif;
     letter-spacing: -0.96px;
     position: relative;
-    margin-bottom: 105px;
+    margin-bottom: 120px;
 }
 h2::after {
     content: "";
@@ -152,9 +158,9 @@ h2::after {
     background-color:#1abc9c;
     text-align: center;
     position: absolute;
-    top: 81px;
-    left: 595px;
-    bottom: 73px
+    left: 50%;
+    margin-left:-80px;
+    bottom: -31px;
 }
 .prod_wrap {
     margin: 0 auto;
