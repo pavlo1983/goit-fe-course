@@ -134,6 +134,36 @@ h2 {
     display: flex;
     justify-content: space-between;
 }
+.photo {
+    background-color: #95e1d3;
+    width: 380px;
+    height: 470px;
+}
+.gradient {
+    position: relative;
+    width: 380px;
+    height: 470px;
+    background: linear-gradient(#ef8a8a, #f2d887);
+    transition-property: translate;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+}
+.gradient:hover {
+    transform: translate(-10px, -10px);     
+}
+.gradient img:hover {
+    opacity: 0.1;
+}
+.social_wrapper {
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
+    width: 225px;
+    height: 56px;
+    top: 207px;
+    left: 77px;
+    
+}
 .surname {
     text-transform: uppercase;
     font-size: 14px;
@@ -190,4 +220,5 @@ button {
     color: #ffffff;
     font-weight: bold;
     font-size: 14px;
+    cursor: pointer;
 }
