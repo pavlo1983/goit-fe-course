@@ -27,9 +27,7 @@ header {
     justify-content: space-between; 
     height: 28px;
 }
-.menu li:nth-child(2) {
-    align-self: center;
-}
+
 li a {
     list-style: none;
     font-size: 14px;
@@ -42,12 +40,9 @@ li a {
     position: relative;
 }
 li a:hover {
-    color: #fde8a4;
-}
-li a:active {
     color: #f38181;
 }
-li a:active::after {
+li a:hover::after {
     text-align: center;
     content: "";
     display: block;
@@ -67,11 +62,15 @@ h2 {
     text-align: center;
     font-size: 24px;
     font-family: 'Kaushan Script', cursive; 
-    color: #333333;
-    margin-bottom: 23px;
+    color: #333333;    
+    margin-bottom: 112px;
+}
+.team h2 {
+    margin-bottom: 95px;
 }
 .amazing, 
 .meet {
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -79,9 +78,6 @@ h2 {
     text-transform: uppercase;
     box-sizing: border-box;
     position: relative;
-}
-.amazing {
-    margin-bottom: 112px;
 }
 
 .amazing::after,
@@ -97,7 +93,7 @@ h2 {
     margin-left: -30px; 
 }
 .amazing::after {
-    bottom: -40px;
+    bottom: -43px;
 }
 .wrap_serv {
     display: inline-flex;
@@ -161,7 +157,7 @@ h2 {
     width: 380px;
     height: 470px;
 }
-.gradient {
+ .gradient {
     position: relative;
     width: 380px;
     height: 470px;
@@ -170,11 +166,10 @@ h2 {
     transition-duration: 200ms;
     transition-timing-function: linear;
 }
-.gradient:hover {
-    transform: translate(-10px, -10px);  
-         
+.photo:hover .gradient {
+    transform: translate(-10px, -10px);           
 }
-.gradient:hover > img {
+.photo:hover .gradient > img {
     opacity: 0.1;
 } 
 
@@ -188,7 +183,7 @@ h2 {
     display: none;
     justify-content: space-between;
 }
-.gradient:hover .social_wrapper {
+.photo:hover .social_wrapper {
     display: flex;
 }
 
