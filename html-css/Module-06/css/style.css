@@ -187,18 +187,24 @@ h2 {
     display: flex;
 }
 
-.social_wrapper button {
+.social_wrapper div {
     background-color: #fce38a;
     width: 55px;
+    display: inline-flex;
+    justify-content: center;
     transition-property: background-color;
     transition-duration: 200ms;
     transition-timing-function: linear; 
+    cursor: pointer;
+   
 }
 
-.social_wrapper button:hover {
+.social_wrapper div:hover {
     background-color: #95e1d3;
 }
-
+.social_wrapper img {
+    align-self: center;
+}
 .surname {
     text-transform: uppercase;
     font-size: 14px;
