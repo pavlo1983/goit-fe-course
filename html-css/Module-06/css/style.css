@@ -205,6 +205,25 @@ h2 {
 .social_wrapper img {
     align-self: center;
 }
+.social_wrapper a {
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    width: 55px;
+}  
+.facebook a {
+    background: url(https://image.ibb.co/c3a6Mo/facebook.png) no-repeat center;
+}
+.twitter a {
+    background: url(https://image.ibb.co/cOeoZ8/twitter.png) no-repeat center;
+}
+.pinterest a {
+    background: url(https://image.ibb.co/e2B2u8/pinterest.png) no-repeat center;
+}
+.instagram a {
+    background: url(https://image.ibb.co/d7dhu8/instagram.png) no-repeat center;
+}
+
 .surname {
     text-transform: uppercase;
     font-size: 14px;
@@ -234,6 +253,7 @@ h2 {
 .copyright a {
     text-transform: none;
     color: #f38181;
+    text-decoration: none;
 }
 .subscribe {
     padding-top: 11px;
@@ -246,11 +266,11 @@ h2 {
     display: inline-block;
     box-sizing: border-box;
     width: 227px;
-    padding-top: 15px;
+    padding-top: 13px;
     padding-left: 15px;
-    padding-bottom: 14px;
+    padding-bottom: 13px;
 }
-button {
+.button {
     width: 149px;
     display: inline-block;
     text-align: center;
