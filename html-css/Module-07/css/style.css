@@ -1,0 +1,39 @@
+body {
+    font-size: 0;
+}
+div.wrapper {
+    margin: 0 auto;
+    max-width: 1400px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin: 44px auto 119px;
+    max-width: 940px;
+    height: 41px;
+}
+.golden {
+    font-size: 26px;
+    color:#fed136;
+    text-transform: none;
+    text-decoration: none;
+}
+.menu {
+    width: 485px;
+    display: flex;
+    justify-content: space-between; 
+    height: 22px;
+}
+li a {
+    list-style: none;
+    font-size: 14px;
+    color: #313131;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition-property: color;
+    position: relative;
+}
+li a:hover {
+    color: #fedd6c;
+}
