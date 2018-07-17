@@ -109,6 +109,7 @@ input[type="email"] {
     margin-right: 30px;
     box-sizing: border-box;
     margin-bottom: 30px;
+    border: 0px;
 }
 textarea {
     box-sizing: border-box;
@@ -117,6 +118,7 @@ textarea {
     border-radius: 4px;
     text-transform: uppercase;
     float: right;
+    border: 0px;
 }
 input[type="submit"] {
     box-sizing: border-box;
@@ -130,4 +132,13 @@ input[type="submit"] {
     border-radius: 4px;
     margin-left: 350px;
     cursor: pointer;
+    border: 0px;
+}
+.input_valid:valid {
+    outline: 1px solid green;
+    
+}
+.input_valid:invalid {
+    outline: 1px solid red;
+    
 }
