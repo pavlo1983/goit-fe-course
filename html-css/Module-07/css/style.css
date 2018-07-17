@@ -65,8 +65,9 @@ li a:hover {
 .service {
     text-align: center;
 }
-.service img {
+.image {
     margin-bottom: 25px;
+   
 }
 h3 {
     font-size: 18px;
@@ -81,8 +82,6 @@ h3 {
 }
 .background_wrap {
     background: url(https://image.ibb.co/nGVBjJ/Map_Image.png) no-repeat;
-    width: 1400px;
-    height: 676px;
     padding-top: 110px;
     padding-bottom: 115px;
 }
@@ -91,20 +90,21 @@ h3 {
     vertical-align: middle;
     margin: 0 auto;
 }
+.second {
+    margin-bottom: 77px;
+}
 .two {
     color: #ffffff;
 }
 .form_wrap {
     margin: 0 auto;
-}
-.forms {
     display: inline-block;
 }
 input[type="text"],
 input[type="email"] {
     width: 455px;
     height: 50px;
-    border-radius: 4px;
+    border-radius: 3px;
     text-transform: uppercase;
     margin-right: 30px;
     box-sizing: border-box;
@@ -115,7 +115,7 @@ textarea {
     box-sizing: border-box;
     width: 455px;
     height: 210px;
-    border-radius: 4px;
+    border-radius: 3px;
     text-transform: uppercase;
     float: right;
     border: 0px;
@@ -129,16 +129,16 @@ input[type="submit"] {
     text-transform: uppercase;
     vertical-align: middle;
     text-align: center;
-    border-radius: 4px;
+    border-radius: 3px;
     margin-left: 350px;
     cursor: pointer;
     border: 0px;
 }
 .input_valid:valid {
     outline: 1px solid green;
-    
+    -moz-outline-radius: 3px;
 }
 .input_valid:invalid {
     outline: 1px solid red;
-    
+    -moz-outline-radius: 3px;
 }
