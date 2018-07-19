@@ -1,0 +1,32 @@
+:root {
+    font-size: 10px; 
+}
+body {
+    font-size: 0;
+}
+.wrapper {
+    max-width: 32rem;
+    margin: 0 auto;  
+}
+.background_image {
+    background: url(../images/background.png) no-repeat;
+    min-height: 54rem;
+}
+.registr {
+    width: 57.1875%;
+    margin: auto;
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.reg {
+    font-size: 1.4rem;
+    color: #fafaf9;
+    background: transparent;
+    border: 0px;
+}
+.reg:nth-child(2) {
+    border: 0.2rem solid #fafaf9;
+    border-radius: 2rem;
+    padding: 1rem 1.8rem;
+}
