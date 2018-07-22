@@ -109,8 +109,9 @@ li a:hover {
 .service {
     text-align: center;
 }
-.image {
-    margin-bottom: 25px;  
+img {
+    margin-bottom: 25px; 
+    cursor: pointer; 
 }
 .list {
     font-family: "Montserrat", serif;
@@ -133,10 +134,15 @@ li a:hover {
     box-sizing: border-box;
 }
 .background_wrap {
-    background: url(https://image.ibb.co/nGVBjJ/Map_Image.png) no-repeat;
+    background-color: #222222;
+    background-image: url(../img/map.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
     padding-top: 110px;
     padding-bottom: 115px;
+
 }
+
 .bottom_wrap {
     max-width: 940px;
     vertical-align: middle;
