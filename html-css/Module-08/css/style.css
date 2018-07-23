@@ -37,9 +37,12 @@ body {
     margin: 0 auto; 
     text-align: center; 
 }
-.background_image {
+.first_part {
     background: url(../images/background.png) no-repeat;
     min-height: 54rem;
+}
+.container_top {
+    margin: 0 auto;
 }
 .registr {
     max-width: 100%;
