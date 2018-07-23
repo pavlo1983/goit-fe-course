@@ -38,7 +38,7 @@ body {
 }
 div.wrapper {
     margin: 0 auto;
-    max-width: 1400px;
+    width: 100%;
 }
 header {
     display: flex;
@@ -77,10 +77,18 @@ li a {
 li a:hover {
     color: #fedd6c;
 }
-.captions {
+.first_part,
+.second_part {
+    width: 100%;
+}
+.container_top,
+.container_bottom {
     margin: 0 auto;
+    text-align: center;
+}
+.captions {
+    margin: 0 auto 80px;
     max-width: 940px;
-    margin-bottom: 80px;
 }
 .heading {
     text-transform: uppercase;
@@ -132,21 +140,13 @@ img {
     line-height: 1.5;
     box-sizing: border-box;
 }
-.background_wrap {
+.second_part {
     background-color: #222222;
     background-image: url(../img/map.png);
     background-repeat: no-repeat;
     background-position: right bottom;
     padding-top: 110px;
     padding-bottom: 115px;
-}
-container_bottom {
-    margin: 0 auto;
-}
-.bottom_wrap {
-    max-width: 940px;
-    vertical-align: middle;
-    margin: 0 auto;
 }
 .second {
     margin-bottom: 77px;
@@ -157,7 +157,8 @@ container_bottom {
 .form_wrap {
     margin: 0 auto;
     display: inline-block;
-
+    max-width: 940px;
+    text-align: center;
 }
 input[type="text"],
 input[type="email"] {
@@ -201,8 +202,7 @@ input[type="submit"] {
     text-transform: uppercase;
     vertical-align: middle;
     text-align: center;
-    border-radius: 3px;
-    margin-left: 350px;
+    border-radius: 3px;   
     cursor: pointer;
     border: 0px;
     font-family: "Montserrat", serif;
