@@ -37,19 +37,19 @@ body {
     margin: 0 auto; 
     text-align: center; 
 }
-.first_part {
+.background_wrap {
     background: url(../images/background.png) no-repeat;
     min-height: 54rem;
 }
-.container_top {
-    margin: 0 auto;
+.header_wrap {
+    margin: 0 auto 2rem;
 }
 .registr {
     max-width: 100%;
-    margin-left: 21.25%;
-    margin-bottom: 11.6rem;
-    padding-top: 2rem;
-    display: flex;
+    margin-bottom: 12.8rem;
+    padding-top: 3.2rem;
+    display: inline-flex;
+    justify-content: center;
 }
 .reg {
     font-family: "Montserrat", serif;
@@ -59,10 +59,9 @@ body {
     background: transparent;
     border: 0;
     cursor: pointer;
-    padding: 0;
     text-decoration: none;  
     box-sizing: border-box;
-    padding: 1.1rem 1.6rem 0.8rem; 
+    padding: 1.1rem 1.6rem 0.8rem;
     transition-property: box-shadow;
 }
 .reg:hover {
@@ -76,7 +75,16 @@ body {
     text-transform: uppercase;
     color: #ffffff;
     letter-spacing: 0.05rem;
-    margin: 0 auto 3.9rem;
+    margin: 0 auto;
+    text-decoration: none;
+}
+.target,
+.folks {
+    width: 100%;
+}
+.target_wrap,
+.folks_wrap {
+    margin: 0 auto;
 }
 .aim {
     font-family: "Montserrat", serif;
@@ -115,4 +123,41 @@ body {
 .find:hover {
     background :#ff4e50;
     color: #ffffff;
+}
+.folks_wrap {
+    padding-top: 6.9rem;
+    padding-bottom: 5.8rem;
+}
+.holiday {
+    font-size: 2.2rem;
+    font-family: "Montserrat", serif;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #333333;
+}
+.people_wrap {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.people_wrap img {
+    width: 39.0625%;
+    align-self: center;
+    margin-bottom: 2.1rem;
+}
+.name {
+    font-size: 1.4rem;
+    font-family: "Montserrat", serif;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 2rem;
+}
+.interest {
+    font-size: 1.4rem;
+    font-family: "Roboto", serif;
+    font-weight: 300;
+    color: #a3a3a3;
+    width: 71.875%;
+    margin: 0 auto;
 }
