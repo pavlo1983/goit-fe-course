@@ -33,7 +33,6 @@ body {
     font-size: 0;
 }
 .wrapper {
-    min-width: 32rem;
     margin: 0 auto; 
     text-align: center; 
 }
@@ -41,7 +40,7 @@ body {
     width: 100%;
 }
 .background {
-    background: url(../images/background.png) no-repeat;
+    background: url(../images/Background_320.png) no-repeat;
     background-size: cover;
     min-height: 54rem;
 }
@@ -97,6 +96,8 @@ body {
     font-size: 3rem;
     text-transform: uppercase;
     line-height: 4rem;
+    max-width: 86.5625%;
+    margin: 0 auto;
 }
 .aim .aim2 {
     display: inline-block;
@@ -108,6 +109,7 @@ body {
     max-width: 68.75%;
     line-height: 2rem;
     margin-bottom: 2rem;
+    padding-top: 1rem;
 }
 .find {
     display: inline-block;
@@ -130,7 +132,7 @@ body {
 }
 .folks_wrap {
     padding-top: 6.9rem;
-    padding-bottom: 5.8rem;
+    padding-bottom: 5.8rem; 
 }
 .holiday {
     font-size: 2.2rem;
@@ -139,16 +141,19 @@ body {
     margin-bottom: 2rem;
     color: #333333;
 }
+.people {
+    max-width: 100%;
+}
 .people_wrap {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
-    margin-bottom: 3rem;
-    max-width: 71.875%;
+    margin: 0 auto 3rem;
+    max-width: 69.0625%;
+    align-content: center; 
 }
 .people_wrap img {
-    width: 39.0625%;
     align-self: center;
     margin-bottom: 2.1rem;
 }
@@ -165,4 +170,49 @@ body {
     font-weight: 300;
     color: #a3a3a3;
     margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+    .header_wrap {
+        width: 86.979166%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5.1rem;
+        flex-direction: row-reverse; 
+    }
+    .title {
+        margin: 0;  
+    }
+    .registr {
+        padding-top: 0;
+    }
+    .background {
+        background: url(../images/Background_768.png) no-repeat;
+        background-size: cover;
+        min-height: 70rem;
+    }
+    .aim {
+        font-size: 5.2rem;
+        max-width: 69.27083%;
+        line-height: 6rem;
+    }
+    .aim .aim2 {
+        font-family: "Roboto", serif;
+        font-weight: 300;
+        font-size: 2.4rem;
+        max-width: 100%;   
+        margin-bottom: 4rem;
+    }
+    .find {
+        max-width: 29.296875%;
+    }
+    .people {
+        max-width: 64.0625%;
+        justify-content: center;
+    }
+    .people_wrap {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+ 
 }
