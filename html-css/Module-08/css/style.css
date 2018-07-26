@@ -111,11 +111,12 @@ body {
     margin-bottom: 2rem;
     padding-top: 1rem;
 }
-.find {
+.find,
+.find1 {
     display: inline-block;
     cursor: pointer;
     width: 87.5%;
-    border: 0.2rem solid #ff4e50;
+    border: 0.1rem solid #ff4e50;
     background: transparent;
     color: #ff4e50;
     font-size: 1.4rem;  
@@ -126,7 +127,8 @@ body {
     padding-bottom: 1.2rem;
     text-decoration: none;
 }
-.find:hover {
+.find:hover,
+.find1:hover {
     background :#ff4e50;
     color: #ffffff;
 }
@@ -151,7 +153,6 @@ body {
 }
 .people_wrap {
     margin: 0 auto 3rem;
-    max-width: 69.0625%;
     align-content: center; 
 }
 .people_wrap img {
@@ -208,18 +209,27 @@ body {
     .find {
         max-width: 29.296875%;
     }
+    .find1 {
+        max-width: 25%;
+    }
     .holiday {
-        margin-bottom: 3.2rem;
-        
+        margin-bottom: 3.2rem;   
     }
     .people {
-        max-width: 64.0625%;
         flex-wrap: wrap;
         flex-direction: row;
         align-content: space-between;
     }
     .people_wrap {
-        max-width: 23.6rem;       
+        width: 25%;       
+    }
+    .people_wrap:first-child,
+    .people_wrap:nth-child(2) {
+        margin-left: 25%;
+    }
+    .people_wrap:last-child,
+    .people_wrap:nth-child(3) {
+        margin-right: 25%;
     }
     .people_wrap:nth-child(2) {
         order: 2;
@@ -244,8 +254,19 @@ body {
     .find {
         max-width: 15.625%;
     }
+    .find1 {
+        max-width: 13.33333%;
+    }
     .people {
         max-width: 65.27777%;
         flex-wrap: nowrap;
+    }
+    .people_wrap:first-child,
+    .people_wrap:nth-child(2) {
+        margin-left: 0;
+    }
+    .people_wrap:last-child,
+    .people_wrap:nth-child(3) {
+        margin-right: 0;
     }
 }
