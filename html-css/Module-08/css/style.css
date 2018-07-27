@@ -111,6 +111,7 @@ body {
     text-transform: none;
     line-height: 2rem;
     margin-bottom: 2rem;
+    margin-top: 1rem;
 }
 .find,
 .find1 {
@@ -141,8 +142,8 @@ body {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
     box-sizing: border-box;
 }
 .holiday {
@@ -188,7 +189,7 @@ body {
         display: flex;
         justify-content: space-between;
         flex-direction: row-reverse; 
-        margin: 0 6.5104%;
+        padding: 0 5rem;
         margin-bottom: 3rem;
     }
     .title {
@@ -202,7 +203,8 @@ body {
         background-size: cover;
         min-height: 70rem;
     }
-    .container {
+    .container,
+    .container2 {
         padding-left: 11.8rem;
         padding-right: 11.8rem;
     } 
@@ -224,10 +226,6 @@ body {
     .find1 {
         min-width: 19.2rem;
     }
-    .people_container {
-        margin-left: 16.66667%;
-        margin-right: 16.66667%;
-    }
     .holiday {
         margin-bottom: 3.2rem;   
     }
@@ -239,7 +237,6 @@ body {
     .people_wrap {
         width: 50%;       
     }
-   
     .people_wrap:nth-child(2) {
         order: 2;
     }
@@ -249,8 +246,7 @@ body {
 }
 @media (min-width: 1200px) {
     .header_wrap {
-        width: 66.66667%; 
-        margin: 0 16.66667%;
+        padding: 0 25rem;
     }
     .background {
         background: url(../images/Background_1440.png) no-repeat;
@@ -260,6 +256,11 @@ body {
     .aim {
         line-height: 6rem;
     }
+    .container,
+    .container2 {
+        padding-left: 25rem;
+        padding-right: 25rem;
+    } 
     .people {
         flex-wrap: nowrap;
     }
