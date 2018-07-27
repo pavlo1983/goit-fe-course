@@ -40,6 +40,7 @@ body {
     background: url(../images/Background_320.png) no-repeat;
     background-size: cover;
     min-height: 54rem;
+    margin-bottom: 6.9rem;
 }
 .header_wrap {
     margin: 0 auto 2rem;
@@ -93,15 +94,15 @@ body {
     margin: 0 auto;
 }
 .aim .aim2 {
-    display: inline-block;
+    display: block;
     font-family: "Roboto", serif;
     font-weight: 300;
     font-size: 1.8rem;
-    color:#efe2db;
+    color: #fbf7f5;
     text-transform: none;
     line-height: 2rem;
     margin-bottom: 2rem;
-    padding-top: 1rem;
+    margin-top: 1rem;
 }
 .find,
 .find1 {
@@ -110,8 +111,6 @@ body {
     min-width: 28rem;
     box-sizing: border-box;
     border: 0.1rem solid #ff4e50;
-    background: transparent;
-    color: #ff4e50;
     font-size: 1.4rem;  
     font-family: "Montserrat", serif;
     font-weight: 700;
@@ -120,14 +119,18 @@ body {
     padding-bottom: 1.2rem;
     text-decoration: none;
 }
-.find:hover,
-.find1:hover {
-    background :#ff4e50;
+.find {
     color: #ffffff;
+    background: #ff4e50;
+}
+.find1 {
+    color: #ff4e50;
 }
 .folks_wrap {
-    padding-top: 6.9rem;
-    padding-bottom: 5.8rem; 
+    margin-bottom: 5.8rem; 
+}
+.people_container {
+    margin: 0 6.875%;
 }
 .holiday {
     font-size: 2.2rem;
@@ -175,10 +178,10 @@ body {
         margin: 0 6.5104%;
     }
     .title {
-        margin: 5.1rem 0 0;  
+        margin: 4.7rem 0 0;  
     }
     .registr {
-        margin-top: 5.1rem;
+        margin-top: 4.7rem;
     }
     .background {
         background: url(../images/Background_768.png) no-repeat;
@@ -201,6 +204,10 @@ body {
     .find1 {
         min-width: 19.2rem;
     }
+    .people_container {
+        margin-left: 16.66667%;
+        margin-right: 16.66667%;
+    }
     .holiday {
         margin-bottom: 3.2rem;   
     }
@@ -210,16 +217,9 @@ body {
         align-content: space-between;
     }
     .people_wrap {
-        width: 25%;       
+        width: 50%;       
     }
-    .people_wrap:first-child,
-    .people_wrap:nth-child(2) {
-        margin-left: 25%;
-    }
-    .people_wrap:last-child,
-    .people_wrap:nth-child(3) {
-        margin-right: 25%;
-    }
+   
     .people_wrap:nth-child(2) {
         order: 2;
     }
@@ -244,20 +244,6 @@ body {
         flex-wrap: nowrap;
     }
     .people_wrap {
-        width: 16.66667%;       
-    }
-    .people_wrap:first-child,
-    .people_wrap:nth-child(2) {
-        margin-left: 0;
-    }
-    .people_wrap:last-child,
-    .people_wrap:nth-child(3) {
-        margin-right: 0;
-    }
-    .people_wrap:first-child {
-        margin-left: 16.66667%;
-    }
-    .people_wrap:last-child {
-        margin-right: 16.66667%;
-    }
+        width: 25%;       
+    } 
 }
