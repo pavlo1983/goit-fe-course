@@ -80,8 +80,17 @@ body {
 }
 .target_wrap,
 .folks_wrap {
+    width: 100%;
     margin: 0 auto;
     text-align: center;
+}
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
 }
 
 .aim {
@@ -91,7 +100,7 @@ body {
     font-size: 3rem;
     text-transform: uppercase;
     line-height: 4rem;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
 }
 .aim .aim2 {
     display: block;
@@ -102,7 +111,6 @@ body {
     text-transform: none;
     line-height: 2rem;
     margin-bottom: 2rem;
-    margin-top: 1rem;
 }
 .find,
 .find1 {
@@ -129,8 +137,13 @@ body {
 .folks_wrap {
     margin-bottom: 5.8rem; 
 }
-.people_container {
-    margin: 0 6.875%;
+.container2 {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
 }
 .holiday {
     font-size: 2.2rem;
@@ -176,6 +189,7 @@ body {
         justify-content: space-between;
         flex-direction: row-reverse; 
         margin: 0 6.5104%;
+        margin-bottom: 3rem;
     }
     .title {
         margin: 4.7rem 0 0;  
@@ -188,14 +202,20 @@ body {
         background-size: cover;
         min-height: 70rem;
     }
+    .container {
+        padding-left: 11.8rem;
+        padding-right: 11.8rem;
+    } 
     .aim {
         font-size: 5.2rem;
         line-height: 6rem;
+        
     }
     .aim .aim2 {
         font-family: "Roboto", serif;
         font-weight: 300;
         font-size: 2.4rem;   
+        margin-top: 3rem;
         margin-bottom: 4rem;
     }
     .find {
