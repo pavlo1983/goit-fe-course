@@ -36,9 +36,6 @@ body {
     margin: 0 auto; 
     text-align: center; 
 }
-.background_wrap {
-    width: 100%;
-}
 .background {
     background: url(../images/Background_320.png) no-repeat;
     background-size: cover;
@@ -48,11 +45,10 @@ body {
     margin: 0 auto 2rem;
 }
 .registr {
-    max-width: 100%;
     margin-bottom: 12.8rem;
-    padding-top: 3.2rem;
     display: inline-flex;
     justify-content: center;
+    margin-top: 3.2rem;
 }
 .reg {
     font-family: "Montserrat", serif;
@@ -81,14 +77,12 @@ body {
     margin: 0 auto;
     text-decoration: none;
 }
-.target,
-.folks {
-    width: 100%;
-}
 .target_wrap,
 .folks_wrap {
     margin: 0 auto;
+    text-align: center;
 }
+
 .aim {
     font-family: "Montserrat", serif;
     font-weight: 700;
@@ -96,7 +90,6 @@ body {
     font-size: 3rem;
     text-transform: uppercase;
     line-height: 4rem;
-    max-width: 86.5625%;
     margin: 0 auto;
 }
 .aim .aim2 {
@@ -106,7 +99,6 @@ body {
     font-size: 1.8rem;
     color:#efe2db;
     text-transform: none;
-    max-width: 68.75%;
     line-height: 2rem;
     margin-bottom: 2rem;
     padding-top: 1rem;
@@ -115,7 +107,8 @@ body {
 .find1 {
     display: inline-block;
     cursor: pointer;
-    width: 87.5%;
+    min-width: 28rem;
+    box-sizing: border-box;
     border: 0.1rem solid #ff4e50;
     background: transparent;
     color: #ff4e50;
@@ -144,7 +137,6 @@ body {
     color: #333333;
 }
 .people {
-    max-width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -177,17 +169,16 @@ body {
 }
 @media (min-width: 768px) {
     .header_wrap {
-        width: 86.979166%;
         display: flex;
         justify-content: space-between;
-        padding-top: 5.1rem;
         flex-direction: row-reverse; 
+        margin: 0 6.5104%;
     }
     .title {
-        margin: 0;  
+        margin: 5.1rem 0 0;  
     }
     .registr {
-        padding-top: 0;
+        margin-top: 5.1rem;
     }
     .background {
         background: url(../images/Background_768.png) no-repeat;
@@ -196,21 +187,19 @@ body {
     }
     .aim {
         font-size: 5.2rem;
-        max-width: 69.27083%;
         line-height: 6rem;
     }
     .aim .aim2 {
         font-family: "Roboto", serif;
         font-weight: 300;
-        font-size: 2.4rem;
-        max-width: 100%;   
+        font-size: 2.4rem;   
         margin-bottom: 4rem;
     }
     .find {
-        max-width: 29.296875%;
+        min-width: 22.5rem;
     }
     .find1 {
-        max-width: 25%;
+        min-width: 19.2rem;
     }
     .holiday {
         margin-bottom: 3.2rem;   
@@ -238,9 +227,10 @@ body {
         order: 3;
     }    
 }
-@media (min-width: 1440px) {
+@media (min-width: 1200px) {
     .header_wrap {
-        width: 65.41666%; 
+        width: 66.66667%; 
+        margin: 0 16.66667%;
     }
     .background {
         background: url(../images/Background_1440.png) no-repeat;
@@ -248,18 +238,13 @@ body {
         min-height: 70rem;
     }
     .aim {
-        max-width: 34.93%;
         line-height: 6rem;
     }
-    .find {
-        max-width: 15.625%;
-    }
-    .find1 {
-        max-width: 13.33333%;
-    }
     .people {
-        max-width: 65.27777%;
         flex-wrap: nowrap;
+    }
+    .people_wrap {
+        width: 16.66667%;       
     }
     .people_wrap:first-child,
     .people_wrap:nth-child(2) {
@@ -268,5 +253,11 @@ body {
     .people_wrap:last-child,
     .people_wrap:nth-child(3) {
         margin-right: 0;
+    }
+    .people_wrap:first-child {
+        margin-left: 16.66667%;
+    }
+    .people_wrap:last-child {
+        margin-right: 16.66667%;
     }
 }
