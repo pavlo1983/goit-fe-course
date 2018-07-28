@@ -91,6 +91,7 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .aim {
@@ -142,9 +143,10 @@ body {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     box-sizing: border-box;
+    text-align: center;
 }
 .holiday {
     font-size: 2.2rem;
@@ -176,13 +178,14 @@ body {
     margin-bottom: 2rem;
 }
 .interest {
-    padding: 0 0.8rem 0;
     font-size: 1.4rem;
     font-family: "Roboto", serif;
     font-weight: 300;
     color: #a3a3a3;
     line-height: 1.7rem;
     text-align: center;
+    max-width: 22.1rem;
+    margin: 0 auto;
 }
 @media (min-width: 768px) {
     .header_wrap {
@@ -203,15 +206,12 @@ body {
         background-size: cover;
         min-height: 70rem;
     }
-    .container,
-    .container2 {
-        padding-left: 11.8rem;
-        padding-right: 11.8rem;
-    } 
+   .container2 {
+       max-width: 66.67%;
+   }
     .aim {
         font-size: 5.2rem;
-        line-height: 6rem;
-        
+        line-height: 6rem;    
     }
     .aim .aim2 {
         font-family: "Roboto", serif;
@@ -256,11 +256,6 @@ body {
     .aim {
         line-height: 6rem;
     }
-    .container,
-    .container2 {
-        padding-left: 25rem;
-        padding-right: 25rem;
-    } 
     .people {
         flex-wrap: nowrap;
     }
