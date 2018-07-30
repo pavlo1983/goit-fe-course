@@ -44,7 +44,7 @@ body {
 }
 .header_wrap {
     margin: auto 2.5rem 2rem;
-    padding-top: 3.2rem;
+    padding-top: 32px;
     text-align: center;
 }
 .container {
@@ -73,7 +73,7 @@ body {
     cursor: pointer;
     text-decoration: none;  
     box-sizing: border-box;
-    padding: 1.1rem 1.6rem 0.8rem;
+    padding: 11px 16px 8px;
     transition-property: box-shadow;
 }
 .reg:hover {
@@ -122,7 +122,7 @@ body {
     font-size: 18px;
     color: #fbf7f5;
     text-transform: none;
-    line-height: 1.1;
+    line-height: 1.25;
     max-width: 216px;
     margin: 1rem auto 1.5rem;
 }
@@ -137,8 +137,8 @@ body {
     font-family: "Montserrat", serif;
     font-weight: 700;
     border-radius: 5rem;
-    padding-top: 1.3rem;
-    padding-bottom: 1.2rem;
+    padding-top: 13px;
+    padding-bottom: 12px;
     text-decoration: none;
 }
 .find {
@@ -201,7 +201,7 @@ body {
 }
 @media (min-width: 768px) {
     .header_wrap {
-        padding-top: 4.8rem;
+        padding-top: 48px;
         margin-bottom: 15rem;
     }
     .container {
