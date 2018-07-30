@@ -40,10 +40,12 @@ body {
     background: url(../images/Background_320.png) no-repeat;
     background-size: cover;
     min-height: 54rem;
-    margin-bottom: 6.9rem;
+    margin-bottom: 6.9rem;  
 }
 .header_wrap {
-    margin: 0 auto 2.5rem;
+    margin: auto 2.5rem 2rem;
+    padding-top: 3.2rem;
+    text-align: center;
 }
 .container {
     width: 100%;
@@ -51,19 +53,20 @@ body {
     margin-right: auto;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 3.2rem;
     text-align: center;
     box-sizing: border-box;   
+}
+.menu {
+    margin-bottom: 12.8rem;
 }
 .registr {
     display: inline-flex;
     justify-content: center;
-    margin-bottom: 12.8rem;
 }
 .reg {
     font-family: "Montserrat", serif;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 14px;
     color: #fafaf9;
     background: transparent;
     border: 0;
@@ -80,10 +83,10 @@ body {
 .title {
     font-family: "Montserrat", serif;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 20px;
     text-transform: uppercase;
     color: #ffffff;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.5px;
     margin: 0 auto;
     text-decoration: none;
 }
@@ -107,30 +110,30 @@ body {
     font-family: "Montserrat", serif;
     font-weight: 700;
     color: #ffffff;
-    font-size: 3rem;
+    font-size: 30px;
     text-transform: uppercase;
-    line-height: 4rem;
+    line-height: 1.3;
     margin: 0 auto 1rem;
 }
 .aim .aim2 {
     display: block;
     font-family: "Roboto", serif;
     font-weight: 300;
-    font-size: 1.8rem;
+    font-size: 18px;
     color: #fbf7f5;
     text-transform: none;
-    line-height: 2rem;
-    max-width: 21.6rem;
+    line-height: 1.1;
+    max-width: 216px;
     margin: 1rem auto 1.5rem;
 }
 .find,
 .find1 {
     display: inline-block;
     cursor: pointer;
-    min-width: 28rem;
+    min-width: 280px;
     box-sizing: border-box;
     border: 0.1rem solid #ff4e50;
-    font-size: 1.4rem;  
+    font-size: 14px;  
     font-family: "Montserrat", serif;
     font-weight: 700;
     border-radius: 5rem;
@@ -158,7 +161,7 @@ body {
     box-sizing: border-box;
 }
 .holiday {
-    font-size: 2.2rem;
+    font-size: 22px;
     font-family: "Montserrat", serif;
     font-weight: 700;
     margin-bottom: 2rem;
@@ -180,35 +183,37 @@ body {
     margin-bottom: 2.1rem;
 }
 .name {
-    font-size: 1.4rem;
+    font-size: 14px;
     font-family: "Montserrat", serif;
     font-weight: 700;
     color: #333333;
     margin-bottom: 2rem;
 }
 .interest {
-    font-size: 1.4rem;
+    font-size: 14px;
     font-family: "Roboto", serif;
     font-weight: 300;
     color: #a3a3a3;
-    line-height: 1.7rem;
+    line-height: 1.2;
     text-align: center;
-    max-width: 22.1rem;
+    max-width: 221px;
     margin: 0 auto;
 }
 @media (min-width: 768px) {
+    .header_wrap {
+        padding-top: 4.8rem;
+        margin-bottom: 15rem;
+    }
     .container {
         display: flex;
         justify-content: space-between;
         flex-direction: row-reverse; 
-        margin-bottom: 15rem;
-        max-width: 688px;
-        padding-top: 4.8rem;
+        max-width: 688px;   
     }
     .title {
         margin: 0;
     }
-    .registr {
+    .menu {
         margin-bottom: 0;
     }
     .background {
@@ -220,22 +225,22 @@ body {
         max-width: 492px;
    }
     .aim {
-        font-size: 5.2rem;
-        line-height: 6rem;    
+        font-size: 52px;
+        line-height: 1.15;    
     }
     .aim .aim2 {
         font-family: "Roboto", serif;
         font-weight: 300;
-        font-size: 2.4rem;   
+        font-size: 24px;   
         margin-top: 3rem;
         margin-bottom: 4rem;
         max-width: 100%;
     }
     .find {
-        min-width: 22.5rem;
+        min-width: 225px;
     }
     .find1 {
-        min-width: 19.2rem;
+        min-width: 192px;
     }
     .holiday {
         margin-bottom: 3.2rem;   
@@ -256,22 +261,14 @@ body {
     }    
 }
 @media (min-width: 1200px) {
-    .header_wrap {
-        padding: 0 25rem;
-    }
     .background {
         background: url(../images/Background_1440.png) no-repeat;
         background-size: cover;
         min-height: 70rem;
     }
-    .container {
-        max-width: 960px;
-    }
-    .aim {
-        line-height: 6rem;
-    }
+    .container,
     .container2 {
-        max-width: 940px;
+        max-width: 960px;
     }
     .people {
         flex-wrap: nowrap;
