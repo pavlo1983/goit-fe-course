@@ -186,6 +186,9 @@ body {
     margin: 0 auto;
 }
 @media (min-width: 768px) {
+    [class*="col-"] { 
+        padding: 0 20px; 
+    }
     .header_wrap {
         padding-top: 48px;
         margin-bottom: 15rem;
