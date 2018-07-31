@@ -267,6 +267,7 @@ body {
         min-height: 70rem;
     }
     .container,
+    .container1,
     .container2 {
         max-width: 960px;
     }
