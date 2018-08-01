@@ -49,6 +49,7 @@ body {
     text-align: center;
     box-sizing: border-box;   
 }
+
 .menu {
     margin-bottom: 12.8rem;
 }
@@ -124,8 +125,7 @@ body {
     padding-bottom: 12px;
     text-decoration: none;
     margin: 0 auto;
-    margin-left: -15px;
-    margin-right: -15px;
+    
 }
 .find {
     color: #ffffff;
@@ -177,15 +177,9 @@ body {
     margin: 0 auto;
 }
 @media (min-width: 768px) {
-    [class*="col-"] { 
-        padding: 0 10px; 
-    } 
     .header_wrap {
         padding-top: 48px;
         margin-bottom: 15rem;
-    }
-    .title {
-        
     }
     .menu {
         margin-bottom: 0;
