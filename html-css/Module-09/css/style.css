@@ -51,7 +51,10 @@ body {
 [class*="col-"] { 
     padding: 0 10px; 
 }
-
+.registr {
+    display: inline-flex;
+    justify-content: center;
+}
 .reg {
     font-family: "Montserrat", serif;
     font-weight: 700;
@@ -158,9 +161,7 @@ body {
 @media (max-width: 767px) {
     .menu {
         margin-bottom: 12.8rem;
-    }
-    .registr {
-        margin-right: 0.8rem;
+        padding-right: 2.5rem;
     }
     .background {
         margin-bottom: 6.9rem; 
@@ -232,10 +233,18 @@ body {
         min-height: 70rem;
         margin-bottom: 7.1rem; 
     }
-    .folks_wrap {
-        margin-bottom: 7.3rem; 
+    .menu {
+        margin-right: -2.9rem;
     }
     .menu1 {
         margin-left: -2.8rem;
+    }
+    .folks_wrap {
+        margin-bottom: 7.3rem; 
+    }
+   
+    .people:first-child,
+    .people:nth-child(3) {
+        margin-bottom: 4rem;
     }
 }
