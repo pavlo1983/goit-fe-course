@@ -39,26 +39,19 @@ body {
 .background {
     background: url(../images/Background_320.png) no-repeat;
     background-size: cover;
-    margin-bottom: 6.9rem; 
     min-height: 54rem;
     width: 100%;
 }
 .header_wrap {
-    margin: 0 auto 2rem;
-    padding-top: 32px;
+    margin: 0 auto 3rem;
+    padding-top: 30px;
     text-align: center;
     box-sizing: border-box;   
 }
 [class*="col-"] { 
     padding: 0 10px; 
 }
-.menu {
-    margin-bottom: 12.8rem;
-}
-.registr {
-    display: inline-flex;
-    justify-content: center;
-}
+
 .reg {
     font-family: "Montserrat", serif;
     font-weight: 700;
@@ -69,7 +62,7 @@ body {
     cursor: pointer;
     text-decoration: none;  
     box-sizing: border-box;
-    padding: 11px 16px 8px;
+    padding: 13px 19px 10px;
     transition-property: box-shadow;
 }
 .reg:hover {
@@ -98,8 +91,7 @@ body {
     color: #ffffff;
     font-size: 30px;
     text-transform: uppercase;
-    line-height: 1.3;
-    margin: 0 auto 1rem;
+    line-height: 1.2;
 }
 .aim .aim2 {
     display: block;
@@ -108,22 +100,22 @@ body {
     font-size: 18px;
     color: #fbf7f5;
     text-transform: none;
-    line-height: 1.25;
+    line-height: 1.2;
     max-width: 216px;
-    margin: 1rem auto 1.5rem;
+    margin: 1rem auto 0;
 }
 .find,
 .find1 {
     display: inline-block;
     cursor: pointer;
-    min-width: 280px;
+    min-width: 278px;
     box-sizing: border-box;
     border: 0.1rem solid #ff4e50;
     font-size: 14px;  
     font-family: "Montserrat", serif;
     font-weight: 700;
     border-radius: 5rem;
-    padding-top: 13px;
+    padding-top: 12px;
     padding-bottom: 12px;
     text-decoration: none;
     margin: 0 auto;   
@@ -135,29 +127,23 @@ body {
 .find1 {
     color: #ff4e50;
 }
-.folks_wrap {
-    margin-bottom: 5.8rem; 
-}
 .holiday {
     font-size: 22px;
     font-family: "Montserrat", serif;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #333333;
-}
-.people {
-    margin: 0 auto 3rem;
+    color: #333333;   
 }
 .people img {
     align-self: center;
-    margin-bottom: 2.1rem;
+    margin-bottom: 1.5rem;
 }
 .name {
     font-size: 14px;
     font-family: "Montserrat", serif;
     font-weight: 700;
     color: #333333;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 .interest {
     font-size: 14px;
@@ -168,6 +154,26 @@ body {
     text-align: center;
     max-width: 221px;
     margin: 0 auto;
+}
+@media (max-width: 767px) {
+    .menu {
+        margin-bottom: 12.8rem;
+    }
+    .registr {
+        margin-right: 0.8rem;
+    }
+    .background {
+        margin-bottom: 6.9rem; 
+    }
+    .folks_wrap {
+        margin-bottom: 5.8rem; 
+    }
+    .aim {
+        margin: 0 auto 1.5rem;
+    }
+    .people {
+        margin: 0 auto 2.7rem;
+    }
 }
 @media (min-width: 768px) {
     .header_wrap {
@@ -181,17 +187,18 @@ body {
         background: url(../images/Background_768.png) no-repeat;
         background-size: cover;
         min-height: 70rem;
+        margin-bottom: 7.2rem; 
     }
     .aim {
         font-size: 52px;
-        line-height: 1.15;    
+        line-height: 1.15; 
     }
     .aim .aim2 {
         font-family: "Roboto", serif;
         font-weight: 300;
         font-size: 24px;   
         margin-top: 3rem;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
         max-width: 100%;
     }
     .find {
@@ -200,8 +207,22 @@ body {
     .find1 {
         min-width: 192px;
     }
+    .people {
+        margin: 0 auto;
+    }
+    .people:first-child,
+    .people:nth-child(3) {
+        margin-bottom: 5.7rem;
+    }
+    .people:last-child,
+    .people:nth-child(2) {
+        margin-bottom: 4rem;
+    }
     .holiday {
         margin-bottom: 3.2rem;   
+    }
+    .folks_wrap {
+        margin-bottom: 4rem; 
     }
 }
 @media (min-width: 992px) {
@@ -209,5 +230,12 @@ body {
         background: url(../images/Background_1440.png) no-repeat;
         background-size: cover;
         min-height: 70rem;
+        margin-bottom: 7.1rem; 
+    }
+    .folks_wrap {
+        margin-bottom: 7.3rem; 
+    }
+    .menu1 {
+        margin-left: -2.8rem;
     }
 }
