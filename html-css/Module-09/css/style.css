@@ -38,8 +38,7 @@ body {
 }
 .background {
     background: url(../images/Background_320.png) no-repeat;
-    background-size: contain;
-    background-position: center;
+    background-size: cover;
     min-height: 54rem;
     width: 100%;
 }
