@@ -290,7 +290,7 @@ h3 {
 .photo:hover .gradient {
     transform: translate(-10px, -10px);           
 }
-.photo:hover .gradient > img {
+.photo:hover .gradient > .picture {
     opacity: 0.1;
 } 
 .social_wrapper {
