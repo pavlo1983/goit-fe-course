@@ -1,0 +1,17 @@
+.icon-nav {
+    fill: #fff;
+    cursor: pointer;
+}
+.icon-nav:hover {
+    fill:#fce38a;    
+}
+.icon-cart,
+.icon-search {
+    width: 18px;
+}
+.icon-cart {
+    height: 14px;
+}
+.icon-search {
+    height: 18px;
+} 

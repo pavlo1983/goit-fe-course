@@ -1,0 +1,17 @@
+.more {
+    border: 2px solid #ffffff;
+    max-width: 16rem;
+    max-height: 4rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: auto; 
+}
+.more__link {
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 1rem auto;
+}

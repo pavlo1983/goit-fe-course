@@ -1,0 +1,10 @@
+.copyright {
+    padding: 20px 0 12px;
+    font-size: 14px;
+    color: #333333;
+}
+.copyright__link {
+    text-transform: none;
+    color: #f38181;
+    text-decoration: none;
+}
