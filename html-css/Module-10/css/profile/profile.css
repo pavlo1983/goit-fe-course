@@ -21,7 +21,8 @@
     text-transform: uppercase;
     font-size: 14px;
     color: #333333;
-    margin: 0 auto 1rem;  
+    margin: 0 auto 1rem; 
+    text-align: center;
 }
 .profile__position {
     font-size: 15px;
@@ -32,4 +33,5 @@
     font-style: italic;
     text-align: center;
     margin: 0 auto;
+    
 }

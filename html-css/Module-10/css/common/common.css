@@ -2,43 +2,43 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/montserrat-v12-latin-regular.woff2') format('woff2'), 
-         url('../fonts/montserrat-v12-latin-regular.woff') format('woff');        
+    src: url('../../fonts/montserrat-v12-latin-regular.woff2') format('woff2'), 
+         url('../../fonts/montserrat-v12-latin-regular.woff') format('woff');        
   }
 @font-face {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    src: url('../fonts/montserrat-v12-latin-700.woff2') format('woff2'), 
-         url('../fonts/montserrat-v12-latin-700.woff') format('woff');      
+    src: url('../../fonts/montserrat-v12-latin-700.woff2') format('woff2'), 
+         url('../../fonts/montserrat-v12-latin-700.woff') format('woff');      
   }
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 300;
-    src: url('../fonts/roboto-v18-latin-300.woff2') format('woff2'), 
-         url('../fonts/roboto-v18-latin-300.woff') format('woff'); 
+    src: url('../../fonts/roboto-v18-latin-300.woff2') format('woff2'), 
+         url('../../fonts/roboto-v18-latin-300.woff') format('woff'); 
     }
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/roboto-v18-latin-regular.woff2') format('woff2'), 
-         url('../fonts/roboto-v18-latin-regular.woff') format('woff');       
+    src: url('../../fonts/roboto-v18-latin-regular.woff2') format('woff2'), 
+         url('../../fonts/roboto-v18-latin-regular.woff') format('woff');       
   }
 @font-face {
     font-family: 'Kaushan Script';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/kaushan-script-v6-latin-regular.woff2') format('woff2'), 
-         url('../fonts/kaushan-script-v6-latin-regular.woff') format('woff');        
+    src: url('../../fonts/kaushan-script-v6-latin-regular.woff2') format('woff2'), 
+         url('../../fonts/kaushan-script-v6-latin-regular.woff') format('woff');        
   }
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
     font-weight: 100;
-    src: url('../fonts/roboto-v18-latin-100italic.woff2') format('woff2'), 
-         url('../fonts/roboto-v18-latin-100italic.woff') format('woff');        
+    src: url('../../fonts/roboto-v18-latin-100italic.woff2') format('woff2'), 
+         url('../../fonts/roboto-v18-latin-100italic.woff') format('woff');        
   }
 :root {
     font-size: 10px; 
@@ -51,16 +51,13 @@ body {
 .wrapper {
     margin: 0 auto;
     text-align: center;
-}
-.background {
     background: url(../../img/background-min.png) no-repeat;
-    background-size: cover;
-    min-height: 100rem;
-    width: 100%;
-    margin-bottom: 4.8rem;
+    background-size: auto;
+    margin-bottom: 0 auto;
+    text-align: center;
 }
 @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 192dpi) {
-    .background {
+    .wrapper {
       background: url(../../img/background@2x-min.png) no-repeat;
     }
 }
@@ -88,6 +85,9 @@ header {
     margin: 0 auto;
     margin-bottom: 15.5rem;
 }
+.intro {
+    margin-bottom: 28rem;
+}
 .products-wrap {
     margin-bottom: 5.1rem;
 }
@@ -111,7 +111,7 @@ header {
     color: #999999;
     line-height: 1.6;
     max-width: 96rem;
-    margin: 0 auto 7.7rem;
+    margin: 0 auto 8.7rem;
     text-align: center;
 }
 .structure-wrap {
