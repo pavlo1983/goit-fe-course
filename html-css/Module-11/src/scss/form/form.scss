@@ -1,0 +1,28 @@
+.form__email {
+    border: 1px solid #cccccc;
+    font-size: 15px;
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+    font-weight: 100;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 227px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.form__subscribe {
+    width: 149px;
+    display: inline-block;
+    text-align: center;
+    padding-top: 11px;
+    padding-bottom: 12px;
+    text-transform: uppercase;
+    border: 0px;
+    background-color: #95e1d3;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+}

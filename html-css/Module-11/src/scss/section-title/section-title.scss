@@ -1,0 +1,46 @@
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    font-family: "Kaushan Script", sans-serif; 
+    color: #333333;    
+    line-height: 0.95;
+}
+.slogan {
+    margin-bottom: 10.5rem;
+}
+.slogan__type, 
+.team__structure {
+    text-align: center;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: #333333;
+    text-transform: uppercase;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    position: relative;
+}
+.slogan__type::after,
+.team__structure::after {
+    text-align: center;
+    content: "";
+    display: block;
+    height: 0.3rem;
+    width: 60px;
+    background: #f38181;
+    position: absolute;
+    left: 50%;
+    margin-left: -3rem;
+}
+.slogan__type::after {
+    bottom: -3.5rem;
+}
+.team {
+    margin-bottom: 8.5rem;
+}
+.team__structure {
+    margin-bottom: 9rem;
+}
+.team__structure::after {
+    bottom: -4rem;
+}
