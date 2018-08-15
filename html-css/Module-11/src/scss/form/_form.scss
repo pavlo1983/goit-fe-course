@@ -1,12 +1,11 @@
 .form__email {
-    border: 1px solid #cccccc;
+    border: 1px solid $grey-light;
     font-size: 15px;
-    font-family: "Roboto", sans-serif;
+    font-family: $font-family-r;
     font-style: italic;
-    font-weight: 100;
+    font-weight: $font-thin;
     display: inline-block;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     width: 227px;
     padding-top: 10px;
     padding-left: 10px;
@@ -20,9 +19,9 @@
     padding-bottom: 12px;
     text-transform: uppercase;
     border: 0px;
-    background-color: #95e1d3;
-    color: #ffffff;
-    font-weight: 700;
+    background-color: $green-light;
+    color: $white;
+    font-weight: $font-bold;
     font-size: 14px;
     cursor: pointer;
 }

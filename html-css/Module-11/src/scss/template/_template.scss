@@ -2,15 +2,15 @@
     max-width: 98rem;
 }
 .template__header {
-    font-family: "Kaushan Script", sans-serif;
-    font-weight: 400;
+    font-family: $font-family-k;
+    font-weight: $font-normal;
     font-size: 72px;
-    color: #ffffff;
+    color: $white;
     margin: 0 auto 3rem;
 }
 .template__greeting {
-    font-weight: 700;
-    color: #ffffff;
+    font-weight: $font-bold;
+    color: $white;
     font-size: 150px;
     line-height: 0.95;
     text-transform: uppercase;

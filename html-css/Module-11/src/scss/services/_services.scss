@@ -15,7 +15,7 @@
 .services__name {
     font-size: 14px;
     text-transform: uppercase;
-    color: #333333;
+    color: $grey-dark;
     display: inline-block;
     vertical-align: top;
     margin: 0;
@@ -24,7 +24,7 @@
     display: inline-block;
     margin: 0 0 0 9.2rem;
     font-size: 15px;
-    font-family: "Roboto", sans-serif;
-    color: #999999;
+    font-family: $font-family-r;
+    color: $grey-middle;
     line-height: 1.6;
 }

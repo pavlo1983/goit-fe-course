@@ -1,36 +1,31 @@
 .profile__photo {
-    background-color: #95e1d3;
+    background-color: $green-light;
     width: 380px;
     height: 470px;
     margin-bottom: 2.7rem;
 }
-.profile__photo--hover:hover .person-image {
-    -webkit-transform: translate(-10px, -10px);
-        -ms-transform: translate(-10px, -10px);
-            transform: translate(-10px, -10px);           
+.profile__photo--hover:hover .person-image {    
+    transform: translate(-10px, -10px);           
 }
 .profile__photo--hover:hover .person-image > .person-image__picture {
     opacity: 0.1;
 } 
 .profile__photo--hover:hover .social-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
 }
 .profile__surname {
     text-transform: uppercase;
     font-size: 14px;
-    color: #333333;
+    color: $grey-dark;
     margin: 0 auto 1rem; 
     text-align: center;
 }
 .profile__position {
     font-size: 15px;
-    font-family: "Roboto", sans-serif;
+    font-family: $font-family-r;
     font-style: italic;
-    font-weight: 100;
-    color: #999999;
-    font-style: italic;
+    font-weight: $font-thin;
+    color: $grey-middle;
     text-align: center;
     margin: 0 auto;
     

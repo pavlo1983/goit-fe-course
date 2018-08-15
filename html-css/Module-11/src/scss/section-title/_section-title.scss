@@ -1,8 +1,8 @@
 .section-title {
     text-align: center;
     font-size: 24px;
-    font-family: "Kaushan Script", sans-serif; 
-    color: #333333;    
+    font-family: $font-family-k; 
+    color: $grey-dark;    
     line-height: 0.95;
 }
 .slogan {
@@ -12,12 +12,10 @@
 .team__structure {
     text-align: center;
     font-size: 30px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    color: #333333;
+    font-weight: $font-bold;
+    color: $grey-dark;
     text-transform: uppercase;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     position: relative;
 }
 .slogan__type::after,
@@ -27,7 +25,7 @@
     display: block;
     height: 0.3rem;
     width: 60px;
-    background: #f38181;
+    background: $red-dark;
     position: absolute;
     left: 50%;
     margin-left: -3rem;

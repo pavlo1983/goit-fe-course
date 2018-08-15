@@ -674,7 +674,6 @@ header {
 .team__structure {
   text-align: center;
   font-size: 30px;
-  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: #333333;
   text-transform: uppercase;
@@ -780,7 +779,6 @@ header {
   font-style: italic;
   font-weight: 100;
   color: #999999;
-  font-style: italic;
   text-align: center;
   margin: 0 auto;
 }
@@ -788,7 +786,6 @@ header {
 .network-icon {
   height: 26px;
   fill: #f38181;
-  -ms-grid-row-align: center;
   align-self: center;
 }
 

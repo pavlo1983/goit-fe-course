@@ -2,7 +2,13 @@
    Import partials below
 */
 @import 'normalize';
+
+@import './fonts/fonts';
+@import './variables/variables';
 @import './common/common';
+@import './header/header';
+@import './main/main';
+@import './footer/footer';
 @import './logo/logo';
 @import './navigation/navigation';
 @import './nav-icons/nav-icons';
@@ -14,3 +20,4 @@
 @import './network-icon/network-icon';
 @import './copyright/copyright';
 @import './form/form';
+

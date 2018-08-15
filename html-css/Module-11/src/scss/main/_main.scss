@@ -1,0 +1,75 @@
+.intro {
+    margin-bottom: 28rem;
+}
+.products-wrap {
+    margin-bottom: 5.1rem;
+}
+.services-wrap {
+    max-width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.team-wrap {
+    margin-bottom: 8.5rem;
+}
+.about-team {
+    font-size: 15px;
+    font-family: $font-family-r;
+    color: $grey-middle;
+    line-height: 1.6;
+    max-width: 96rem;
+    margin: 0 auto 8.7rem;
+    text-align: center;
+}
+.structure-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+.person-image {
+    position: relative;
+    width: 380px;
+    height: 470px;
+    background: linear-gradient($red-light, $yellow-dark);
+    transition-property: translate;
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+}
+.social-wrap {
+    position: absolute;
+    box-sizing: border-box;
+    width: 224px;
+    height: 56px;
+    top: 207px;
+    left: 78px;  
+    display: none;
+    justify-content: space-between;
+}
+.social-wrap .network {
+    background-color: $yellow-light;
+    width: 55px;
+    height: 55px;
+    display: inline-flex;
+    justify-content: center;
+    transition-property: background-color;
+    transition-duration: 200ms;
+    transition-timing-function: linear; 
+    cursor: pointer;  
+}
+.social-wrap .network:hover {
+    background-color: $red-dark;
+}
+.network {
+    position: relative;
+}
+.network .social-link {
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    width: 55px;
+    height: 55px;
+    position: absolute;
+}  
+.network:hover .network-icon {
+    fill: $white;
+}
