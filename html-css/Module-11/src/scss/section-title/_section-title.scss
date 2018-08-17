@@ -1,45 +1,25 @@
 .section-title {
     text-align: center;
-    font-size: 24px;
     font-family: $font-family-k; 
     color: $grey-dark;    
-    line-height: 0.95;
+    position: relative;
+    @include font-settings(24px, 0.95)
+}
+.section-title::after {
+    @extend %title-after;
 }
 .slogan {
     margin-bottom: 10.5rem;
+    &__type {
+    @extend %title-structure;
+    }
 }
-.slogan__type, 
-.team__structure {
-    text-align: center;
-    font-size: 30px;
-    font-family: $font-family-m;
-    font-weight: $font-bold;
-    color: $grey-dark;
-    text-transform: uppercase;
-    box-sizing: border-box;
-    position: relative;
-}
-.slogan__type::after,
-.team__structure::after {
-    text-align: center;
-    content: "";
-    display: block;
-    height: 0.3rem;
-    width: 60px;
-    background: $red-dark;
-    position: absolute;
-    left: 50%;
-    margin-left: -3rem;
-}
-.slogan__type::after {
-    bottom: -3.5rem;
-}
+
 .team {
     margin-bottom: 8.5rem;
-}
-.team__structure {
+    &__structure {
+    @extend %title-structure;
     margin-bottom: 9rem;
-}
-.team__structure::after {
-    bottom: -4rem;
+    }
+      
 }

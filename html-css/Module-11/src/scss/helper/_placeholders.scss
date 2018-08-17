@@ -1,0 +1,38 @@
+%main-transform {
+    text-transform: none;
+    text-decoration: none;
+}
+%main-transition {
+    transition-duration: 200ms;
+    transition-timing-function: linear;
+}
+%main-flex {
+    display: flex;
+    justify-content: space-between;
+}
+%network-size {
+    width: 55px;
+    height: 55px;  
+}
+%title-structure {
+    text-align: center;
+    font-size: 30px;
+    font-family: $font-family-m;
+    font-weight: $font-bold;
+    color: $grey-dark;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    position: relative;
+}
+%title-after {
+    position: absolute;
+    text-align: center;
+    content: "";
+    display: block;
+    height: 0.3rem;
+    width: 60px;
+    background: $red-dark;
+    left: 50%;
+    margin-left: -3rem;
+    bottom: -4rem;
+}

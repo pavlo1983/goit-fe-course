@@ -1,26 +1,27 @@
-.profile__photo {
+.profile {
+    &__photo {
     background-color: $green-light;
     width: 380px;
     height: 470px;
     margin-bottom: 2.7rem;
 }
-.profile__photo--hover:hover .person-image {    
+    &__photo--hover:hover .person-image {    
     transform: translate(-10px, -10px);           
 }
-.profile__photo--hover:hover .person-image > .person-image__picture {
+    &__photo--hover:hover .person-image > .person-image__picture {
     opacity: 0.1;
 } 
-.profile__photo--hover:hover .social-wrap {
+    &__photo--hover:hover .social-wrap {
     display: flex;
 }
-.profile__surname {
+    &__surname {
     text-transform: uppercase;
     font-size: 14px;
     color: $grey-dark;
     margin: 0 auto 1rem; 
     text-align: center;
 }
-.profile__position {
+    &__position {
     font-size: 15px;
     font-family: $font-family-r;
     font-style: italic;
@@ -28,5 +29,5 @@
     color: $grey-middle;
     text-align: center;
     margin: 0 auto;
-    
+}   
 }

@@ -2,9 +2,9 @@
     padding: 20px 0 12px;
     font-size: 14px;
     color: $grey-dark;
+
+    &__link {
+    @extend %main-transform;    
+    color: $red-dark;    
 }
-.copyright__link {
-    text-transform: none;
-    color: $red-dark;
-    text-decoration: none;
 }

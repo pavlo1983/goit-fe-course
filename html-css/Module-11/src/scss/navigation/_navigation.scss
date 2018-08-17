@@ -1,24 +1,21 @@
 .nav {
     width: 61.5rem;
-    display: flex;
-    justify-content: space-between; 
+    @extend %main-flex;
     height: 28px;
-}
-.nav__link {
+    &__link {
     list-style: none;
     font-size: 14px;
     color: $white;
     text-decoration: none;
     text-transform: uppercase;
     transition-property: color;
-    transition-duration: 200ms;
-    transition-timing-function: linear;
+    @extend %main-transition;
     position: relative;
-}
-.nav__link--hover:hover {
+    }
+    &__link--hover:hover {
     color: $yellow-light;
-}
-.nav__link--hover:hover::after {
+    }
+    &__link--hover:hover::after {
     text-align: center;
     content: "";
     display: block;
@@ -27,4 +24,5 @@
     background: $yellow-light;
     position: absolute;
     top: 27px;
+    }
 }

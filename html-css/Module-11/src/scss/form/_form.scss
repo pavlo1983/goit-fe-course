@@ -1,4 +1,5 @@
-.form__email {
+.form {
+    &__email {
     border: 1px solid $grey-light;
     font-size: 15px;
     font-family: $font-family-r;
@@ -10,8 +11,8 @@
     padding-top: 10px;
     padding-left: 10px;
     padding-bottom: 10px;
-}
-.form__subscribe {
+    }
+    &__subscribe {
     width: 149px;
     display: inline-block;
     text-align: center;
@@ -24,4 +25,5 @@
     font-weight: $font-bold;
     font-size: 14px;
     cursor: pointer;
+    }
 }

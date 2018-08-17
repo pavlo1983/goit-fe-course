@@ -1,18 +1,18 @@
 .template {
     max-width: 98rem;
-}
-.template__header {
+
+&__header {
     font-family: $font-family-k;
     font-weight: $font-normal;
     font-size: 72px;
     color: $white;
     margin: 0 auto 3rem;
 }
-.template__greeting {
+&__greeting {
     font-weight: $font-bold;
     color: $white;
-    font-size: 150px;
-    line-height: 0.95;
+    @include font-settings(150px, 0.95);
     text-transform: uppercase;
     margin: 0 auto 11rem;
+}
 }

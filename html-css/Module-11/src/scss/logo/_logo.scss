@@ -2,6 +2,5 @@
     font-weight: $font-bold;
     font-size: 30px;
     color: $white;
-    text-transform: none;
-    text-decoration: none;
+    @extend %main-transform;
 }

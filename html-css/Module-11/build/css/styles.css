@@ -375,6 +375,59 @@ template {
   display: none;
 }
 
+.logo,
+.copyright__link {
+  text-transform: none;
+  text-decoration: none;
+}
+
+.person-image,
+.social-wrap .network,
+.nav__link {
+  transition-duration: 200ms;
+  transition-timing-function: linear;
+}
+
+header,
+.services-wrap,
+.structure-wrap,
+.footer-wrap,
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social-wrap .network,
+.network .social-link {
+  width: 55px;
+  height: 55px;
+}
+
+.slogan__type,
+.team__structure {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #333333;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.section-title::after {
+  position: absolute;
+  text-align: center;
+  content: "";
+  display: block;
+  height: 0.3rem;
+  width: 60px;
+  background: #f38181;
+  left: 50%;
+  margin-left: -3rem;
+  bottom: -4rem;
+}
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -432,7 +485,6 @@ body {
   text-align: center;
   background: url(../img/background-min.png) no-repeat;
   background-size: 100% 1000px;
-  text-align: center;
 }
 
 .container,
@@ -449,8 +501,6 @@ body {
 
 header {
   padding-top: 25px;
-  display: flex;
-  justify-content: space-between;
   align-items: baseline;
   margin: 0 auto;
   margin-bottom: 15.5rem;
@@ -466,9 +516,7 @@ header {
 
 .services-wrap {
   max-width: 100%;
-  display: inline-flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .team-wrap {
@@ -477,17 +525,12 @@ header {
 
 .about-team {
   font-size: 15px;
+  line-height: 1.6;
   font-family: "Roboto", sans-serif;
   color: #999999;
-  line-height: 1.6;
   max-width: 96rem;
   margin: 0 auto 8.7rem;
   text-align: center;
-}
-
-.structure-wrap {
-  display: flex;
-  justify-content: space-between;
 }
 
 .person-image {
@@ -496,8 +539,6 @@ header {
   height: 470px;
   background: linear-gradient(#ef8a8a, #f2d887);
   transition-property: translate;
-  transition-duration: 200ms;
-  transition-timing-function: linear;
 }
 
 .social-wrap {
@@ -513,13 +554,9 @@ header {
 
 .social-wrap .network {
   background-color: #fce38a;
-  width: 55px;
-  height: 55px;
   display: inline-flex;
   justify-content: center;
   transition-property: background-color;
-  transition-duration: 200ms;
-  transition-timing-function: linear;
   cursor: pointer;
 }
 
@@ -535,8 +572,6 @@ header {
   text-decoration: none;
   font-size: 16px;
   display: block;
-  width: 55px;
-  height: 55px;
   position: absolute;
 }
 
@@ -545,8 +580,6 @@ header {
 }
 
 .footer-wrap {
-  display: flex;
-  justify-content: space-between;
   border-top: 1px solid #cccccc;
   margin: 0 auto 1.2rem;
 }
@@ -559,14 +592,10 @@ header {
   font-weight: 700;
   font-size: 30px;
   color: #ffffff;
-  text-transform: none;
-  text-decoration: none;
 }
 
 .nav {
   width: 61.5rem;
-  display: flex;
-  justify-content: space-between;
   height: 28px;
 }
 
@@ -577,8 +606,6 @@ header {
   text-decoration: none;
   text-transform: uppercase;
   transition-property: color;
-  transition-duration: 200ms;
-  transition-timing-function: linear;
   position: relative;
 }
 
@@ -660,43 +687,15 @@ header {
 
 .section-title {
   text-align: center;
-  font-size: 24px;
   font-family: "Kaushan Script", sans-serif;
   color: #333333;
+  position: relative;
+  font-size: 24px;
   line-height: 0.95;
 }
 
 .slogan {
   margin-bottom: 10.5rem;
-}
-
-.slogan__type,
-.team__structure {
-  text-align: center;
-  font-size: 30px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  color: #333333;
-  text-transform: uppercase;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.slogan__type::after,
-.team__structure::after {
-  text-align: center;
-  content: "";
-  display: block;
-  height: 0.3rem;
-  width: 60px;
-  background: #f38181;
-  position: absolute;
-  left: 50%;
-  margin-left: -3rem;
-}
-
-.slogan__type::after {
-  bottom: -3.5rem;
 }
 
 .team {
@@ -707,18 +706,10 @@ header {
   margin-bottom: 9rem;
 }
 
-.team__structure::after {
-  bottom: -4rem;
-}
-
 .services {
   max-width: 40rem;
   height: 11.1rem;
   text-align: start;
-}
-
-.services:nth-child(-n+3) {
-  margin-bottom: 5.8rem;
 }
 
 .services__icon {
@@ -741,9 +732,13 @@ header {
   display: inline-block;
   margin: 0 0 0 9.2rem;
   font-size: 15px;
+  line-height: 1.6;
   font-family: "Roboto", sans-serif;
   color: #999999;
-  line-height: 1.6;
+}
+
+.services:nth-child(-n+3) {
+  margin-bottom: 5.8rem;
 }
 
 .profile__photo {
@@ -801,9 +796,7 @@ header {
 }
 
 .copyright__link {
-  text-transform: none;
   color: #f38181;
-  text-decoration: none;
 }
 
 .form__email {

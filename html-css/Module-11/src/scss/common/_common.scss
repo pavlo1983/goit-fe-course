@@ -7,19 +7,19 @@ body {
     font-family: $font-family-m;
     font-weight: $font-normal;
 }
+
 .wrapper {
     margin: 0 auto;
     text-align: center;
     background: url(../img/background-min.png) no-repeat;
     background-size: 100% 1000px;
-    text-align: center;
-}
-@media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 192dpi) {
-    .wrapper {
+
+    @media (min-resolution: 192dpi) {
       background: url(../img/background@2x-min.png) no-repeat;
-      background-size: 100% 1000px;
+      background-size: 100% 1000px;  
     }
 }
+
 .container,
 .template {
     padding-right: 15px;

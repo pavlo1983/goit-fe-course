@@ -6,25 +6,22 @@
 }
 .services-wrap {
     max-width: 100%;
-    display: inline-flex;
+    @extend %main-flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 .team-wrap {
     margin-bottom: 8.5rem;
 }
 .about-team {
-    font-size: 15px;
+    @include font-settings(15px, 1.6);
     font-family: $font-family-r;
     color: $grey-middle;
-    line-height: 1.6;
     max-width: 96rem;
     margin: 0 auto 8.7rem;
     text-align: center;
 }
 .structure-wrap {
-    display: flex;
-    justify-content: space-between;
+    @extend %main-flex;
 }
 .person-image {
     position: relative;
@@ -32,8 +29,7 @@
     height: 470px;
     background: linear-gradient($red-light, $yellow-dark);
     transition-property: translate;
-    transition-duration: 200ms;
-    transition-timing-function: linear;
+    @extend %main-transition;
 }
 .social-wrap {
     position: absolute;
@@ -47,13 +43,11 @@
 }
 .social-wrap .network {
     background-color: $yellow-light;
-    width: 55px;
-    height: 55px;
+    @extend %network-size;
     display: inline-flex;
     justify-content: center;
     transition-property: background-color;
-    transition-duration: 200ms;
-    transition-timing-function: linear; 
+    @extend %main-transition; 
     cursor: pointer;  
 }
 .social-wrap .network:hover {
@@ -66,8 +60,7 @@
     text-decoration: none;
     font-size: 16px;
     display: block;
-    width: 55px;
-    height: 55px;
+    @extend %network-size;
     position: absolute;
 }  
 .network:hover .network-icon {
