@@ -28,7 +28,7 @@ let sum = 0;
 
 do {
   userInput = prompt('Введите число');
-  numbers.push(+userInput);
+  numbers.push(Number(userInput));
 } while (userInput !== null);
 
 for (const total of numbers) {

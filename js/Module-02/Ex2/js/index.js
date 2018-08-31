@@ -22,53 +22,32 @@
   Если пользователь нажмет Cancel, прекратить выполнение цикла.
 */
 
-
-
 'use strict';
 
 const passwords = ['qwerty', '111qwe', '123123', 'r4nd0mp4zzw0rd'];
 let attempts = 3;
 let input = 0;
-let i = 0;
-let nextPass = 0;
-j
+let hasPassword; 
 
 do {
     input = prompt('Введите пароль'),
-    attempts -= 1,
+    attempts -=1,
     console.log(attempts);
-        for (let i in passwords) { 
-            if (passwords[i]===input) {
+            if (passwords.includes(input)) {
+                hasPassword === true;
                 alert('Добро пожаловать!');
-                break;   
+                break; 
             }
             else if (attempts === 0) {
                 alert ('У вас закончились попытки, аккаунт заблокирован!');
                 break;
             }
             else if (input!==null){
-                alert(`Неверный пароль, у вас осталось ${attempts} попыток`);
-                break; 
-            }
-        }            
-        
+                alert(`Неверный пароль, у вас осталось ${attempts} попыток`);  
+            }           
+} while(input!==null && attempts!==0);
 
-} while(input!==null && attempts!==0 && passwords[i]!==input);
 
-/*'use strict';
-
-const passwords = ['qwerty', '111qwe', '123123', 'r4nd0mp4zzw0rd'];
-let attempts = 3;
-let input = 0; 
-do {input = prompt('Введите пароль');
-    for (let i in passwords) {
-        if (passwords[i]===input) {
-            alert('Добро пожаловать!'); 
-        }
-      
-    }
-} while (input !== null) ;
-*/
 
 
 
