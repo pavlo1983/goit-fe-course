@@ -1,42 +1,76 @@
+/*Напишите скрипт авторизации пользователя.
+  
+  Есть массив паролей зарегистрированных пользователей passwords. 
+  
+  При посещении страницы, необходимо попросить пользователя ввести свой пароль,
+  после чего проверить содержит ли массив passwords пароль введенный пользователем.
+  
+  Пароль можно ввести не верно всего n раз, кол-во хранится в переменной attempts.
+  Подсказка: используйте цикл do...while.
+  Если был введен пароль который есть в массиве passwords, вывести alert 
+  с текстом 'Добро пожаловать!' и прекратить спрашивать пароль в цикле.
+  Если был введен не существующий пароль, отнять от лимита попыток единицу, 
+  вывести alert с текстом "Неверный пароль, у вас осталось n попыток", 
+  где n это остаток попыток.
+  
+  После того как пользователь закрыл alert, запросить пароль снова. 
+  Продолжать запрашивать пароль до тех пор, пока пользователь не введет 
+  существующий пароль, не кончатся попытки или пока пользователь 
+  не нажмет Cancel в prompt.
+  Если закончились попытки, вывести alert с текстом "У вас закончились попытки, аккаунт заблокирован!"
+  
+  Если пользователь нажмет Cancel, прекратить выполнение цикла.
+*/
+
+
+
 'use strict';
 
-const taba = 6;
-const sharm = 15;
-const hurgada = 25;
+const passwords = ['qwerty', '111qwe', '123123', 'r4nd0mp4zzw0rd'];
+let attempts = 3;
+let input = 0;
+let i = 0;
+let nextPass = 0;
+j
 
-const pity = ('Нам очень жаль, приходите еще!');
+do {
+    input = prompt('Введите пароль'),
+    attempts -= 1,
+    console.log(attempts);
+        for (let i in passwords) { 
+            if (passwords[i]===input) {
+                alert('Добро пожаловать!');
+                break;   
+            }
+            else if (attempts === 0) {
+                alert ('У вас закончились попытки, аккаунт заблокирован!');
+                break;
+            }
+            else if (input!==null){
+                alert(`Неверный пароль, у вас осталось ${attempts} попыток`);
+                break; 
+            }
+        }            
+        
 
-const quantity = prompt('Введите количество мест');
+} while(input!==null && attempts!==0 && passwords[i]!==input);
 
-const inputQuantity = Number(quantity);
+/*'use strict';
 
-if (quantity !== null && quantity >=1 && !Number.isNaN(inputQuantity) && Number.isInteger(inputQuantity)) 
-{let compare;
-    if (quantity <= taba) {
-        const compare = confirm('Есть места в группе Таба, согласны ли Вы быть в этой группе?');{
-            if (compare === true) {alert('Приятного путешествия в группе Таба');}
-            else if (compare === false) {alert(pity);}                                                                                                                                                                                                                    
-    
+const passwords = ['qwerty', '111qwe', '123123', 'r4nd0mp4zzw0rd'];
+let attempts = 3;
+let input = 0; 
+do {input = prompt('Введите пароль');
+    for (let i in passwords) {
+        if (passwords[i]===input) {
+            alert('Добро пожаловать!'); 
         }
-} 
-    else if (quantity > taba && quantity <= sharm ) {
-        const compare = confirm('Есть места в группе Шарм, согласны ли Вы быть в этой группе?');{
-            if (compare === true) {alert('Приятного путешествия в группе Шарм');}
-            else if (compare === false) {alert(pity);}                                                                                                                                                                                                                    
-
+      
     }
-}
-    else if (quantity > sharm && quantity <= hurgada ) {
-        const compare = confirm('Есть места в группе Хургада, согласны ли Вы быть в этой группе?');{
-            if (compare === true) {alert('Приятного путешествия в группе Хургада');}
-            else if (compare === false) {alert(pity);}                                                                                                                                                                                                                    
-}
-}
-    else {
-        const compare = alert('Извините, столько мест нет ни в одной группе!');                                                                                                                                                                                                                            
-}
-} 
-else {
-    alert ('Ошибка ввода')}
+} while (input !== null) ;
+*/
+
+
+
 
 

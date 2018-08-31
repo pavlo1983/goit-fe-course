@@ -23,21 +23,19 @@
 
 let userInput;
 const numbers = [];
-let total = 0;
-let asTotal = Number(total);
-let asUserInput = Number(userInput);
+let total;
 let sum = 0;
 
 do {
-  numbers.push(userInput = prompt('Введите число'));
-} while(userInput !== null) numbers.pop();
-
-console.log(numbers);
+  userInput = prompt('Введите число');
+  numbers.push(+userInput);
+} while (userInput !== null);
 
 for (const total of numbers) {
-  sum += numbers[total];
+  sum += total;
 }
 
 alert(`Общая сумма чисел равна ${sum}`);
+
 
 
