@@ -39,52 +39,47 @@
 
 const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 
-
 const login = prompt('Введите логин от 4 до 16 символов');
 
 
- const isLoginValid = function(login) {
-  
-  let result;
-
-  if (login.length >= 4 && login.length <= 16) {
-    result = true;
+const isLoginValid = function(login) {
+  if (login !== null && login.length >= 4 && login.length <= 16) {
+    return true;
   } 
-  else {
-    result = false;
-    }
-    return result;
+    else {
+    return false;
+    } 
 };
-
-console.log(isLoginValid(login));
-
+ 
 const isLoginUnique = function(logins, login) {
-    let result;
-    for (const value of logins) {
-      
-      if (value !== logins.includes(login)) {
-      result = true;
-      
-    } else {
-      result = false;
+  if (logins.includes(login)) {
+    return false;
+  } 
+    else { 
+    return true;
+    } 
+};
+
+const addLogin = function(login) {  
+  do {
+    if (!isLoginValid(login)) {
+      return console.log('Ошибка! Логин должен быть от 4 до 16 символов');
     }
-  }
-    return result;
+    else if (!isLoginUnique(logins, login)) {
+      return console.log('Такой логин уже используется!');
+    }
+    else if  (logins.push(login)) {
+      return console.log('Логин успешно добавлен!'); 
+    }
+  } while (login!==null);      
 };
-console.log(isLoginUnique(login));
+  
+console.log(addLogin(login));
 
 
-  const addLogin = function(login) {
+console.log('Обновленная база логинов ', logins);
 
-    if (login !== null && isLoginUnique === true && isLoginValid === true) {
-      logins.push(), alert('Логин успешно добавлен!');
-    } else {}
-    return logins.push(login);
-
-};
-console.log(addLogin);
 /*
-// Вызовы функции для проверки
 addLogin('Ajax'); // 'Логин успешно добавлен!'
 addLogin('robotGoogles'); // 'Такой логин уже используется!'
 addLogin('Zod'); // 'Ошибка! Логин должен быть от 4 до 16 символов'
