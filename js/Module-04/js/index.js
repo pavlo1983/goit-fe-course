@@ -20,7 +20,7 @@
     
     - getCustomerMoney(value) - метод, получает число, деньги покупателя, и записывает его в поле customerMoney.
     
-    - countTotalPrice(order) - метод, получает объект списока покупок, считает общую стоимость покупок.
+    - сountTotalPrice(order) - метод, получает объект списока покупок, считает общую стоимость покупок.
       🔔 Ключи объекта order есть в объекте productDatabase. Из order берем количество единиц продукта,
          а из productDatbase цену за одну штуку и умножаем, так получаем цену одного типа продукта в заказе.
          Чтобы посчитать цену для всех продуктов заказа используйте цикл, перебрав все ключи order.
@@ -73,54 +73,45 @@ function Cashier(name, productDatabase) {
     this.customerMoney = trueCash; 
   },
   
-  this.countTotalPrice = function countTotalPrice(order) {;
-      
-    /* const keys = Object.keys(order); 
-      for (const key of keys) {
-      if (this.productDatabase.includes(key)) {
-        return 
-      }
-    } */
-    const keys1 = Object.keys(this.productDatabase);
-      console.log(keys1);
-   
-    const keys2 = Object.keys(order);
-      console.log(keys2);
+  this.countTotalPrice = function countTotalPrice(order) {
 
-    const values1 = Object.values(this.productDatabase);
-      console.log(values1);
-
-    const values2 = Object.values(order);
-      console.log(values2);
+    const keys = Object.keys(order);
+      console.log(keys);
     
-    let sum;
-    let newArr = []
-    for (const key of keys2) {
-      for (let i = 0; i < keys2.length; i+=1) {
-        for (let j = 0; j < keys1.length; j+=1) {
-          while (keys1[j].includes(keys2[i]))  {
-            newArr.push(values1[j]*values2[i]);
-            console.log(newArr);
-      };
-      
-    };
-  };
-};
- 
-};
-  /* this.countChange(totalPrice) = countChange(totalPrice),
-  this.onSuccess(change) = onSuccess(change),
-  this.onError() = onError(),
-  this.reset() = reset() */ 
-};
+    let sum = 0;
+    for (const key of keys) {
+      sum += products[key] * order[key];
+    }
+   return sum;    
+}
+  
+  this.countChange = function countChange(totalPrice) {
+    let change = 0;
+    if(change !== null) {
+      return this.onSuccess;
+    }
+    else { 
+      return this.onError  
+  }
+}; 
+  this.onSuccess = function onSuccess(change) {
+    console.log(`Спасибо за покупку, ваша сдача ${change}!`)
+  }
 
+  this.onError = function onError() {
+    console.log('Очень жаль, вам не хватает денег на покупки')
+  }
+
+  this.reset = function reset() {
+  };  
+
+}
 
 // 🔔 не забывайте о this при обращении к свойствам и методам будущего объекта
 
 /* Пример использования */
 const mango = new Cashier('Mango', products);
 
-console.log(mango.getCustomerMoney(value));
 // Проверяем исходные значения полей
 
 console.log(mango.name); // Mango
@@ -129,34 +120,34 @@ console.log(mango.customerMoney); //0
 
 // Вызываем метод countTotalPrice для подсчета общей суммы
 // передавая order - список покупок пользователя
- const totalPrice = mango.countTotalPrice(order);
+const totalPrice = mango.countTotalPrice(order);
 
 // Проверям что посчитали
- console.log(totalPrice); // 110
+console.log(totalPrice); // 110
 
 // Вызываем getCustomerMoney для запроса денег покупателя
-//mango.getCustomerMoney(300);
+mango.getCustomerMoney(300);
 
 // Проверяем что в поле с деньгами пользователя
-//console.log(mango.customerMoney); // 300
+console.log(mango.customerMoney); // 300
 
 // Вызываем countChange для подсчета сдачи
-//const change = mango.countChange();
+const change = mango.countChange();
 
 // Проверяем что нам вернул countChange
-//console.log(change); // 190
+console.log(change); // 190
 
 // Проверяем результат подсчета денег
 //if(change !== null) {
-   // При успешном обслуживании вызываем метод onSuccess
-//  mango.onSuccess(change); // Спасибо за покупку, ваша сдача 190
+                          // При успешном обслуживании вызываем метод onSuccess
+//mango.onSuccess(change);  // Спасибо за покупку, ваша сдача 190
 //} else { 
-  // При неудачном обслуживании вызываем метод onError   
-  //mango.onError(); // Очень жаль, вам не хватает денег на покупки
-//}
+                          // При неудачном обслуживании вызываем метод onError   
+//mango.onError(); // Очень жаль, вам не хватает денег на покупки
+ // }
 
 // Вызываем reset при любом исходе обслуживания
-// mango.reset();
+mango.reset();
 
 // Проверяем значения после reset
-//console.log(mango.customerMoney); //0
+console.log(mango.customerMoney); //0
