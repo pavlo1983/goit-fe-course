@@ -46,6 +46,7 @@ const products = {
   cheese: 40,
 };
 
+
 /* Заказ пользователя хранится в виде объекта следующего формата. "имя-продукта":"количество-единиц" */
 const order = {
   bread: 2,
@@ -55,29 +56,64 @@ const order = {
 };
 
 let value;
-let cash = (prompt(value));
+let cash = prompt(value);
 
 
 function Cashier(name, productDatabase) {
   this.name = name,
   this.productDatabase = products,
-  this.customerMoney = value,
-  this.getCustomerMoney = function(value) {
-    const getCash = Number(cash);
-    if (getCash !== null && getCash >=0 && !Number.isNaN(getCash) && Number.isInteger(getCash)) {
-      return cash;
-    } 
-  }
+  this.customerMoney = cash,
  
+  this.getCustomerMoney = function getCustomerMoney(value) {
+    let getCash = Number(cash);
+    let trueCash;
+    if (getCash !== null && getCash >=0 && !Number.isNaN(getCash) && Number.isInteger(getCash)) {
+      return getCash;
+    } 
+    this.customerMoney = trueCash; 
+  },
   
-  
-  
-  /* this.countTotalPrice(order) = countTotalPrice(order),
-  this.countChange(totalPrice) = countChange(totalPrice),
+  this.countTotalPrice = function countTotalPrice(order) {;
+      
+    /* const keys = Object.keys(order); 
+      for (const key of keys) {
+      if (this.productDatabase.includes(key)) {
+        return 
+      }
+    } */
+    const keys1 = Object.keys(this.productDatabase);
+      console.log(keys1);
+   
+    const keys2 = Object.keys(order);
+      console.log(keys2);
+
+    const values1 = Object.values(this.productDatabase);
+      console.log(values1);
+
+    const values2 = Object.values(order);
+      console.log(values2);
+    
+    let sum;
+    let newArr = []
+    for (const key of keys2) {
+      for (let i = 0; i < keys2.length; i+=1) {
+        for (let j = 0; j < keys1.length; j+=1) {
+          while (keys1[j].includes(keys2[i]))  {
+            newArr.push(values1[j]*values2[i]);
+            console.log(newArr);
+      };
+      
+    };
+  };
+};
+ 
+};
+  /* this.countChange(totalPrice) = countChange(totalPrice),
   this.onSuccess(change) = onSuccess(change),
   this.onError() = onError(),
   this.reset() = reset() */ 
 };
+
 
 // 🔔 не забывайте о this при обращении к свойствам и методам будущего объекта
 
@@ -89,41 +125,38 @@ console.log(mango.getCustomerMoney(value));
 
 console.log(mango.name); // Mango
 console.log(mango.productDatabase); // ссылка на базу данных продуктов (объект products)
-console.log(mango.customerMoney); // 0
+console.log(mango.customerMoney); //0 
 
 // Вызываем метод countTotalPrice для подсчета общей суммы
 // передавая order - список покупок пользователя
-const totalPrice = mango.countTotalPrice(order);
+ const totalPrice = mango.countTotalPrice(order);
 
 // Проверям что посчитали
-console.log(totalPrice); // 110
+ console.log(totalPrice); // 110
 
 // Вызываем getCustomerMoney для запроса денег покупателя
-mango.getCustomerMoney(300);
+//mango.getCustomerMoney(300);
 
 // Проверяем что в поле с деньгами пользователя
-console.log(mango.customerMoney); // 300
+//console.log(mango.customerMoney); // 300
 
 // Вызываем countChange для подсчета сдачи
-const change = mango.countChange();
+//const change = mango.countChange();
 
 // Проверяем что нам вернул countChange
-console.log(change); // 190
+//console.log(change); // 190
 
 // Проверяем результат подсчета денег
-if(change !== null) {
+//if(change !== null) {
    // При успешном обслуживании вызываем метод onSuccess
-  mango.onSuccess(change); // Спасибо за покупку, ваша сдача 190
-} else {
+//  mango.onSuccess(change); // Спасибо за покупку, ваша сдача 190
+//} else { 
   // При неудачном обслуживании вызываем метод onError   
-  mango.onError(); // Очень жаль, вам не хватает денег на покупки
-}
+  //mango.onError(); // Очень жаль, вам не хватает денег на покупки
+//}
 
 // Вызываем reset при любом исходе обслуживания
-mango.reset();
+// mango.reset();
 
 // Проверяем значения после reset
-console.log(mango.customerMoney); // 0
-
-
-
+//console.log(mango.customerMoney); //0
