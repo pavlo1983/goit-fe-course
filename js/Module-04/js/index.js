@@ -36,6 +36,7 @@
     
     - reset() - метод, сбрасывает поле customerMoney 0.
 */
+
 'use strict';
 
 const products = {
@@ -48,6 +49,7 @@ const products = {
 
 
 /* Заказ пользователя хранится в виде объекта следующего формата. "имя-продукта":"количество-единиц" */
+
 const order = {
   bread: 2,
   milk: 2,
@@ -57,59 +59,60 @@ const order = {
 
 let value;
 let cash = prompt(value);
-
+let sum = 0;
 
 function Cashier(name, productDatabase) {
+  
   this.name = name,
+  
   this.productDatabase = products,
+  
   this.customerMoney = cash,
  
   this.getCustomerMoney = function getCustomerMoney(value) {
     let getCash = Number(cash);
     let trueCash;
-    if (getCash !== null && getCash >=0 && !Number.isNaN(getCash) && Number.isInteger(getCash)) {
+    if (getCash !== null && getCash >=0 && !Number.isNaN(getCash)){ 
       return getCash;
-    } 
-    this.customerMoney = trueCash; 
-  },
+    }
+    this.customerMoney = Number(trueCash); 
+},
   
   this.countTotalPrice = function countTotalPrice(order) {
-
     const keys = Object.keys(order);
-      console.log(keys);
-    
-    let sum = 0;
     for (const key of keys) {
-      sum += products[key] * order[key];
+      sum += this.productDatabase[key] * order[key];
     }
-   return sum;    
-}
-  
+      return sum;    
+},
+
   this.countChange = function countChange(totalPrice) {
-    let change = 0;
-    if(change !== null) {
-      return this.onSuccess;
-    }
-    else { 
-      return this.onError  
+    if (this.customerMoney >= sum) {
+      return this.customerMoney - sum;
+  } 
+    else {
+      return null 
   }
-}; 
+}, 
+
   this.onSuccess = function onSuccess(change) {
     console.log(`Спасибо за покупку, ваша сдача ${change}!`)
-  }
+},
 
   this.onError = function onError() {
     console.log('Очень жаль, вам не хватает денег на покупки')
-  }
+},
 
   this.reset = function reset() {
-  };  
+    return this.customerMoney = 0;   
+} 
 
-}
+};
 
 // 🔔 не забывайте о this при обращении к свойствам и методам будущего объекта
 
 /* Пример использования */
+
 const mango = new Cashier('Mango', products);
 
 // Проверяем исходные значения полей
@@ -120,34 +123,43 @@ console.log(mango.customerMoney); //0
 
 // Вызываем метод countTotalPrice для подсчета общей суммы
 // передавая order - список покупок пользователя
+
 const totalPrice = mango.countTotalPrice(order);
 
 // Проверям что посчитали
+
 console.log(totalPrice); // 110
 
 // Вызываем getCustomerMoney для запроса денег покупателя
+
 mango.getCustomerMoney(300);
 
 // Проверяем что в поле с деньгами пользователя
+
 console.log(mango.customerMoney); // 300
 
 // Вызываем countChange для подсчета сдачи
+
 const change = mango.countChange();
 
 // Проверяем что нам вернул countChange
+
 console.log(change); // 190
 
 // Проверяем результат подсчета денег
-//if(change !== null) {
-                          // При успешном обслуживании вызываем метод onSuccess
-//mango.onSuccess(change);  // Спасибо за покупку, ваша сдача 190
-//} else { 
-                          // При неудачном обслуживании вызываем метод onError   
-//mango.onError(); // Очень жаль, вам не хватает денег на покупки
- // }
+
+if (change !== null) { // При успешном обслуживании вызываем метод onSuccess                        
+  mango.onSuccess(change);  // Спасибо за покупку, ваша сдача 190
+} else {                  // При неудачном обслуживании вызываем метод onError                         
+  mango.onError();          // Очень жаль, вам не хватает денег на покупки
+}
 
 // Вызываем reset при любом исходе обслуживания
+
 mango.reset();
 
 // Проверяем значения после reset
+
 console.log(mango.customerMoney); //0
+
+
