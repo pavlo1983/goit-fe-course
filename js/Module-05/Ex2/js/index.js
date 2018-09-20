@@ -103,20 +103,24 @@ const users = [
 * повторяющихся скиллов и они должны быть отсортированы в алфавитном порядке
 */
 
-const getAllSkills = arr => {
-                    const getSkills =  arr.reduce((acc, x) => x.skills ? acc.concat(x.skills) : acc,[])
-                    console.log(getSkills);
-
-                    const getUniqueSkills = (prop, getSkills) => {
-                        if(!prop.hasOwnProperty(getSkills)) {
-                          prop[getSkills] = 0;
+ const getAllSkills = arr => {
+                    const uniqueSkills = [];
+                    
+                    const getSkills =  arr.reduce((acc, x) => x.skills ? acc.concat(x.skills) : acc,[]);
+                    
+                    const sortSkills = getSkills.sort();
+                    
+                    let i=0;
+                    const skill = sortSkills[i];
+                    
+                      sortSkills.forEach(function(skill) {
+                        if (uniqueSkills.includes(skill) === false) {
+                          uniqueSkills.push(skill);
                         }
-                    
-                        prop[getSkills] += 1;
-                    
-                        return acc;
-                      };   
-                      console.log(getUniqueSkills);
+                      });
+                     
+                     
+                      return uniqueSkills;
                     }
                     
 
@@ -127,9 +131,24 @@ console.log(getAllSkills(users));
 /**
 * Массив имен (поле name) людей, отсортированных в зависимости от количества их друзей (поле friends)
 */
-/*const getUserNamesSortedByFriendsCount = arr => {...};
+const getUserNamesSortedByFriendsCount = arr => { 
+console.log(users[0].friends.length);
+const us = arr.map(arr => arr.friends);
 
-console.log(getUserNamesSortedByFriendsCount(users)); */
+console.log(us);
+console.log(us[2].length);
+
+
+users.sort(function (a, b) {
+  users.forEach(function(i) {
+    
+  a.users[i].friends.length - b.users[i].friends.length
+});
+  return users
+})
+}
+console.log(users);
+console.log(getUserNamesSortedByFriendsCount(users));
 
 
 
