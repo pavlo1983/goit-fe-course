@@ -15,40 +15,85 @@
     <p class="post__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus
       voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi
       nesciunt veritatis distinctio rem!</p>
-
     <a class="button" href="#">Read more</a>
   </div> */
-  
 
+/*
+  1. Модифицируйте готовую функцию createPostCard() из задания 
+    номер 6 (https://codepen.io/goit-fe-adv/pen/MVPaeZ) так, 
+    чтобы она принимала объект post с данными для заполнения полей 
+    в карточке.
+      
+  2. Создайте функцию createCards(posts), которая принимает массив
+    объектов-карточек, вызывает функцию createPostCard(post) столько
+    раз, сколько объектов в массиве, сохраняя общий результат и возвращает 
+    массив DOM-элементов всех постов.
+    
+  3. Повесьте все посты в какой-то уже существующий DOM-узел.
+*/
 
-'use strict';
+"use strict";
 
-const createPost = function () {
+const posts = [
+  {
+    img: "https://placeimg.com/400/150/arch",
+    title: "Post title 1",
+    text:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!",
+    link: "link-1.com"
+  },
+  {
+    img: "https://placeimg.com/400/150/nature",
+    title: "Post title 2",
+    text:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!",
+    link: "link-2.com"
+  },
+  {
+    img: "https://placeimg.com/400/150/arch",
+    title: "Post title 3",
+    text:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus voluptatem maiores maxime consequatur impedit nobis sunt similique voluptas accusamus consequuntur, qui modi nesciunt veritatis distinctio rem!",
+    link: "link-3.com"
+  }
+];
 
-const post = document.createElement('div');
-post.classList.add('post');
+function createPostCard({ img, title, text, link }) {
+  const postDiv = document.createElement("div");
+  postDiv.classList.add("post");
 
-const image = document.createElement('img');
-image.classList.add('post__image');
-image.setAttribute('src', 'http://via.placeholder.com/400x150');
-image.setAttribute('alt', 'post image');
+  const postImage = document.createElement("img");
+  postImage.classList.add("post__image");
+  postImage.setAttribute("src", img);
+  postImage.setAttribute("alt", "post image");
 
-const title = document.createElement('h2');
-title.classList.add('post__title');
-title.textContent('Lorem ipsum dolor');
+  const postTitle = document.createElement("h2");
+  postTitle.classList.add("post__title");
+  postTitle.textContent = title;
 
-const text = document.createElement('p');
-text.classList.add('post__text');
-text.textContent('Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, nemo dignissimos ea temporibus');
+  const postText = document.createElement("p");
+  postText.classList.add("post__text");
+  postText.textContent = text;
 
-const button = document.createElement('a');
-button.classList.add('button');
-button.setAttribute('href', '#');
-button.textContent('Read more');
+  const postButton = document.createElement("a");
+  postButton.classList.add("button");
+  postButton.setAttribute("href", link);
+  postButton.textContent = "Read more";
 
-post.append(image, title, text, button);
+  postDiv.append(postImage, postTitle, postText, postButton);
 
-return post;
+  return postDiv;
 }
 
-console.log(createPost);
+function createCards(posts) {
+  const elements = [];
+  posts.forEach(posts => {
+    const el = createPostCard(posts);
+    elements.push(el);
+  });
+  return elements;
+}
+
+const finalPosts = createCards(posts);
+
+document.body.prepend(...finalPosts);
