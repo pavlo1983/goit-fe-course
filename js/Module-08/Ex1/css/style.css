@@ -1,0 +1,23 @@
+.fullview {
+    text-align: center;
+    background-color: teal;
+    margin: 0px;
+    padding: 0px;
+}
+.preview {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px;
+    margin: 0 auto;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.animals {
+    list-style: none;
+    padding: 3px;
+    border: 1px solid gainsboro;
+}
+.isActive {
+    border: 5px solid teal;
+}
+  
