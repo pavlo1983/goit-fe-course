@@ -64,9 +64,8 @@ let isActive;
 if (!isActive) {
   resetBtn.hidden = true;
 }
-startBtn.addEventListener("click", handleStart);
+startBtn.addEventListener("click", btnOnClick);
 resetBtn.addEventListener("click", handleReset);
-//startBtn.addEventListener("click", handlePause);
 
 function handleStart() {
   if (!timerId) {
@@ -87,18 +86,23 @@ function handleStart() {
   }
 }
 
-/*function handlePause () {
- if (!isActive) {
-    clearInterval(timerId);
+function btnOnClick() {
+  handleStart();
+  if (startBtn.textContent === "Start") {
     startBtn.textContent = "Pause";
     resetBtn.hidden = false;
-  } 
-}*/
+  } else if (startBtn.textContent === "Pause") {
+    startBtn.textContent = "Continue";
+  } else if (startBtn.textContent === "Continue") {
+    startBtn.textContent = "Pause";
+  }
+}
 
 function handleReset() {
-  clearInterval(timerId);
-  initTime.textContent = "00:00.0";
-  startBtn.textContent = "Start";
-  resetBtn.hidden = true;
-  return handleStart;
+  if (!isActive) {
+    clearInterval(timerId);
+    initTime.textContent = '00:00.0';
+    startBtn.textContent = "Start";
+    resetBtn.hidden = true;
+  }
 }
