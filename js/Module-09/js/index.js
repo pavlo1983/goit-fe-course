@@ -47,6 +47,99 @@
 
 "use strict";
 
+const clockface = document.querySelector(".js-time");
+const startBtn = document.querySelector(".js-start");
+const lapBtn = document.querySelector(".js-take-lap");
+const resetBtn = document.querySelector(".js-reset");
+
+let isActive;
+
+if (!isActive) {
+  resetBtn.hidden = true;
+}
+
+class Stopwatch {
+  constructor({ onTick }) {
+    this.isActive = false;
+    this.startTime = null;
+    this.deltaTime = null;
+    this.timerId = null;
+    this.onTick = onTick;
+    this.to = null;
+    this.from = null;
+  }
+  start() {
+    if (!this.isActive) {
+      this.isActive = true;
+      this.startTime = Date.now();
+
+      this.timerId = setInterval(() => {
+        const currentTime = Date.now();
+        this.deltaTime = currentTime - this.startTime;
+        const time = new Date(this.deltaTime);
+
+        let minutes = time.getMinutes();
+        let seconds = time.getSeconds();
+
+        const min = minutes >= 10 ? minutes : "0" + minutes;
+        const sec = seconds >= 10 ? seconds : "0" + seconds;
+        const msec = Number.parseInt(time.getMilliseconds() / 100);
+
+        this.onTick({ min, sec, msec });
+      }, 100);
+      resetBtn.hidden = false;
+    }
+  }
+
+  pause() {
+    this.to = Date.now();
+    clearInterval(this.timerId);
+    clockface.textContent = this.to - this.from;
+  }
+
+  continue() {
+    this.timerId = setInterval(() => {
+      clockface.textContent = Date.now() - this.from; 
+    })
+  }
+
+  startButtonOnClick() {
+    if (startBtn.textContent === "Start") {
+      this.start();
+      startBtn.textContent = "Pause";
+      resetBtn.hidden = false;
+    } else if (startBtn.textContent === "Pause") {
+      this.pause();
+      startBtn.textContent = "Continue";
+    } else if (startBtn.textContent === "Continue") {
+      startBtn.textContent = "Pause";
+    }
+  }
+
+  stop() {
+    this.isActive = false;
+    clearInterval(this.timerId);
+    this.timerId = null;
+    this.startTime = null;
+    this.deltaTime = 0;
+    this.onTick({ min: "00", sec: "00", msec: "0" });
+    resetBtn.hidden = true;
+    startBtn.textContent = "Start";
+  }
+}
+
+const stopwatch = new Stopwatch({
+  onTick: updateClockface
+});
+
+startBtn.addEventListener("click",stopwatch.startButtonOnClick.bind(stopwatch));
+resetBtn.addEventListener("click", stopwatch.stop.bind(stopwatch));
+
+function updateClockface({ min, sec, msec }) {
+  clockface.textContent = `${min}:${sec}.${msec}`;
+}
+
+/*
 const stopwatch = document.querySelector(".stopwatch");
 const initTime = stopwatch.querySelector(".js-time");
 const btn = stopwatch.querySelectorAll(".btn");
@@ -106,3 +199,4 @@ function handleReset() {
     resetBtn.hidden = true;
   }
 }
+*/
