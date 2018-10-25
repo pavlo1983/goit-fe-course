@@ -51,6 +51,7 @@ const clockface = document.querySelector(".js-time");
 const startBtn = document.querySelector(".js-start");
 const lapBtn = document.querySelector(".js-take-lap");
 const resetBtn = document.querySelector(".js-reset");
+const list = document.querySelector(".js-laps");
 
 let isActive;
 
@@ -65,8 +66,7 @@ class Stopwatch {
     this.deltaTime = null;
     this.timerId = null;
     this.onTick = onTick;
-    this.to = null;
-    this.from = null;
+    this.onPause = 0;
   }
   start() {
     if (!this.isActive) {
@@ -92,15 +92,12 @@ class Stopwatch {
   }
 
   pause() {
-    this.to = Date.now();
     clearInterval(this.timerId);
-    clockface.textContent = this.to - this.from;
+    
   }
 
   continue() {
-    this.timerId = setInterval(() => {
-      clockface.textContent = Date.now() - this.from; 
-    })
+    this.timerId = setInterval(() => {}, 100)
   }
 
   startButtonOnClick() {
@@ -113,8 +110,22 @@ class Stopwatch {
       startBtn.textContent = "Continue";
     } else if (startBtn.textContent === "Continue") {
       startBtn.textContent = "Pause";
+      this.continue();
     }
   }
+
+  lapButtonOnClick() {
+    if (startBtn.textContent === "Start") {
+     return;
+    } else if (startBtn.textContent === "Pause") {
+      const timeLap = Date.now() - this.startTime;
+      list.insertAdjacentHTML("afterbegin", "<li> ${timeLap} </li>");
+    } else if (startBtn.textContent === "Continue") {
+      const timeLap = this.onPause - this.startTime;
+      list.insertAdjacentHTML("afterbegin", "<li> ${timeLap} </li>");
+    }
+  }
+
 
   stop() {
     this.isActive = false;
@@ -125,6 +136,7 @@ class Stopwatch {
     this.onTick({ min: "00", sec: "00", msec: "0" });
     resetBtn.hidden = true;
     startBtn.textContent = "Start";
+    list.innerHTML = "";
   }
 }
 
@@ -132,71 +144,13 @@ const stopwatch = new Stopwatch({
   onTick: updateClockface
 });
 
+
 startBtn.addEventListener("click",stopwatch.startButtonOnClick.bind(stopwatch));
+lapBtn.addEventListener("click",stopwatch.lapButtonOnClick.bind(stopwatch));
 resetBtn.addEventListener("click", stopwatch.stop.bind(stopwatch));
 
 function updateClockface({ min, sec, msec }) {
   clockface.textContent = `${min}:${sec}.${msec}`;
 }
 
-/*
-const stopwatch = document.querySelector(".stopwatch");
-const initTime = stopwatch.querySelector(".js-time");
-const btn = stopwatch.querySelectorAll(".btn");
-const startBtn = stopwatch.querySelector(".js-start");
-const lapBtn = stopwatch.querySelector(".js-take-lap");
-const resetBtn = stopwatch.querySelector(".js-reset");
-const laps = document.querySelector(".js-laps");
 
-let timerId = null;
-
-let startTime = Date.now();
-let deltaTime = 0;
-let isActive;
-
-if (!isActive) {
-  resetBtn.hidden = true;
-}
-startBtn.addEventListener("click", btnOnClick);
-resetBtn.addEventListener("click", handleReset);
-
-function handleStart() {
-  if (!timerId) {
-    timerId = setInterval(() => {
-      const currentTime = Date.now();
-      deltaTime = currentTime - startTime;
-      const time = new Date(deltaTime);
-
-      let minutes = time.getMinutes();
-      let seconds = time.getSeconds();
-
-      const min = minutes > 10 ? minutes : "0" + minutes;
-      const sec = seconds > 10 ? seconds : "0" + seconds;
-      const msec = Number.parseInt(time.getMilliseconds() / 100);
-
-      initTime.textContent = `${min}:${sec}.${msec}`;
-    }, 100);
-  }
-}
-
-function btnOnClick() {
-  handleStart();
-  if (startBtn.textContent === "Start") {
-    startBtn.textContent = "Pause";
-    resetBtn.hidden = false;
-  } else if (startBtn.textContent === "Pause") {
-    startBtn.textContent = "Continue";
-  } else if (startBtn.textContent === "Continue") {
-    startBtn.textContent = "Pause";
-  }
-}
-
-function handleReset() {
-  if (!isActive) {
-    clearInterval(timerId);
-    initTime.textContent = '00:00.0';
-    startBtn.textContent = "Start";
-    resetBtn.hidden = true;
-  }
-}
-*/
