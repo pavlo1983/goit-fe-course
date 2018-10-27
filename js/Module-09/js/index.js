@@ -44,129 +44,69 @@
   - Функционал кнопки button.js-take-lap при клике - сохранение текущего времени секундомера 
     в массив и добавление в ul.js-laps нового li с сохраненным временем в формате xx:xx.x
 */
-
-
-
 /*
-const clockface = document.querySelector(".js-time");
-const startBtn = document.querySelector(".js-start");
-const lapBtn = document.querySelector(".js-take-lap");
-const resetBtn = document.querySelector(".js-reset");
-const list = document.querySelector(".js-laps");
-
-let isActive;
-
-if (!isActive) {
-  resetBtn.hidden = true;
-}
-
-class Stopwatch {
-  constructor({ onTick }) {
-    this.isActive = false;
-    this.startTime = null;
-    this.deltaTime = null;
-    this.timerId = null;
-    this.onTick = onTick;
-    this.onPause = 0;
-  }
-  start() {
-    if (!this.isActive) {
-      this.isActive = true;
-      this.startTime = Date.now();
-
-      this.timerId = setInterval(() => {
-        const currentTime = Date.now();
-        this.deltaTime = currentTime - this.startTime;
-        const time = new Date(this.deltaTime);
-
-        let minutes = time.getMinutes();
-        let seconds = time.getSeconds();
-
-        const min = minutes >= 10 ? minutes : "0" + minutes;
-        const sec = seconds >= 10 ? seconds : "0" + seconds;
-        const msec = Number.parseInt(time.getMilliseconds() / 100);
-
-        this.onTick({ min, sec, msec });
-      }, 100);
-      resetBtn.hidden = false;
-    }
-  }
-
-  pause() {
-    clearInterval(this.timerId);
-    
-  }
-
-  continue() {
-    this.timerId = setInterval(() => {}, 100);
-  }
-
-  startButtonOnClick() {
-    if (startBtn.textContent === "Start") {
-      this.start();
-      startBtn.textContent = "Pause";
-      resetBtn.hidden = false;
-    } else if (startBtn.textContent === "Pause") {
-      this.pause();
-      startBtn.textContent = "Continue";
-    } else if (startBtn.textContent === "Continue") {
-      startBtn.textContent = "Pause";
-      this.continue();
-    }
-  }
-
-  lapButtonOnClick() {
-    if (startBtn.textContent === "Start") {
-      return;
-    } else if (startBtn.textContent === "Pause") {
-      const timeLap = Date.now() - this.startTime;
-      list.insertAdjacentHTML("afterbegin", `<li> ${timeLap} </li>`);
-    } else if (startBtn.textContent === "Continue") {
-      const timeLap = this.onPause - this.startTime;
-      list.insertAdjacentHTML("afterbegin", `<li> ${timeLap} </li>`);
-    }
-  }
-
-  stopButtonOnClick() {
-    this.isActive = false;
-    clearInterval(this.timerId);
-    this.timerId = null;
-    this.startTime = null;
-    this.deltaTime = 0;
-    this.onTick({ min: "00", sec: "00", msec: "0" });
-    resetBtn.hidden = true;
-    startBtn.textContent = "Start";
-    list.innerHTML = "";
-  }
-}
-
-const stopwatch = new Stopwatch({
-  onTick: updateClockface
-});
-
-startBtn.addEventListener(
-  "click",
-  stopwatch.startButtonOnClick.bind(stopwatch)
-);
-lapBtn.addEventListener("click", stopwatch.lapButtonOnClick.bind(stopwatch));
-resetBtn.addEventListener("click", stopwatch.stopButtonOnClick.bind(stopwatch));
-
-function updateClockface({ min, sec, msec }) {
-  clockface.textContent = `${min}:${sec}.${msec}`;
-}
+  ⚠️ ЗАДАНИЕ ПОВЫШЕННОЙ СЛОЖНОСТИ - ВЫПОЛНЯТЬ ПО ЖЕЛАНИЮ
+  
+  Выполните домашнее задание используя класс с полями и методами.
+  
+  На вход класс Stopwatch принимает только ссылку на DOM-узел в котором будет 
+  динамически создана вся разметка для секундомера.
+  
+  Должна быть возможность создать сколько угодно экземпляров секундоментов 
+  на странице и все они будут работать независимо.
+  
+  К примеру:
+  
+  new Stopwatch(parentA);
+  new Stopwatch(parentB);
+  new Stopwatch(parentC);
+  
+  Где parent* это существующий DOM-узел. 
 */
+
 "use strict";
 
+function createDiv() {
+  const div = document.createElement("div");
+  div.classList.add("stopwatch");
 
+  const p = document.createElement("p");
+  p.classList.add("time");
+  p.classList.add("js-time");
+  p.textContent = "00:00.0";
+
+  const startBtn = document.createElement("button");
+  startBtn.classList.add("btn");
+  startBtn.classList.add("js-start");
+  startBtn.textContent = "Start";
+
+  const lapBtn = document.createElement("button");
+  lapBtn.classList.add("btn");
+  lapBtn.classList.add("js-take-lap");
+  lapBtn.textContent = "Lap";
+
+  const resetBtn = document.createElement("button");
+  resetBtn.classList.add("btn");
+  resetBtn.classList.add("js-reset");
+  resetBtn.textContent = "Reset";
+
+  div.append(p, startBtn, lapBtn, resetBtn);
+  document.body.prepend(div);
+
+  const list = document.createElement("ul");
+  list.classList.add("laps");
+  list.classList.add("js-laps");
+  div.insertAdjacentElement("afterend", list);
+}
 
 class StopWatch {
   constructor(parent = document) {
     this.parent = parent;
-    this.startBtn = document.querySelector(".js-start");
-    this.lapBtn = document.querySelector(".js-take-lap");
-    this.resetBtn = document.querySelector(".js-reset");
+    this.startBtn = parent.querySelector(".js-start");
+    this.lapBtn = parent.querySelector(".js-take-lap");
+    this.resetBtn = parent.querySelector(".js-reset");
     this.list = document.querySelector(".js-laps");
-    this.clockface = document.querySelector(".js-time");
+    this.clockface = parent.querySelector(".js-time");
     this.setIntervalId = null;
     this.from = null;
     this.to = null;
@@ -184,6 +124,7 @@ class StopWatch {
       this.continue();
     }
   }
+  
   pause() {
     this.to = Date.now();
     clearInterval(this.setIntervalId);
@@ -198,6 +139,7 @@ class StopWatch {
   start() {
     this.from = new Date();
     this.step();
+    this.resetBtn.hidden = false;
   }
 
   step() {
@@ -209,13 +151,17 @@ class StopWatch {
 
   lapBtnOnCLick() {
     if (this.startBtn.textContent.toLowerCase() === "start") {
-     return;
+      return;
     } else if (this.startBtn.textContent.toLowerCase() === "pause") {
       const time = this.toTimeString(Date.now() - this.from);
-      this.list.insertAdjacentHTML("afterbegin", `<li> ${time} </li>`)
+      this.list.insertAdjacentHTML(
+        "afterbegin",
+        `<li>
+      ${time}</li>`
+      );
     } else if (this.startBtn.textContent.toLowerCase() === "continue") {
       const time = this.toTimeString(this.to - this.from);
-      this.list.insertAdjacentHTML("afterbegin", `<li> ${time} </li>`)
+      this.list.insertAdjacentHTML("afterbegin", `<li> ${time} </li>`);
     }
   }
 
@@ -223,7 +169,8 @@ class StopWatch {
     clearInterval(this.setIntervalId);
     this.clockface.textContent = this.toTimeString(0);
     this.startBtn.textContent = "Start";
-    this.list.innerHTML = '';
+    this.list.innerHTML = ``;
+    this.resetBtn.hidden = true;
   }
 
   toTimeString(timeStamp) {
@@ -240,13 +187,26 @@ class StopWatch {
 
   run() {
     this.startBtn.addEventListener("click", this.startBtnOnCLick.bind(this));
-    this.lapBtn.addEventListener('click', this.lapBtnOnCLick.bind(this));
+    this.lapBtn.addEventListener("click", this.lapBtnOnCLick.bind(this));
     this.resetBtn.addEventListener("click", this.resetBtnOnCLick.bind(this));
   }
 }
 
-const stopWatch = new StopWatch(document.querySelector(".stopwatch"));
-stopWatch.run();
+function createNeWatch() {
+  createDiv();
+  let isActive;
+  const resetBtn = document.querySelector(".js-reset");
+  if (!isActive) {
+    resetBtn.hidden = true;
+  }
+  const stopWatch = new StopWatch(document.querySelector(".stopwatch"));
+  stopWatch.run();
+}
 
+createNeWatch();
 
+createNeWatch();
 
+createNeWatch();
+
+createNeWatch();
