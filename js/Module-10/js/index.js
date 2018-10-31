@@ -33,44 +33,48 @@ function getAllUsers() {
 
 const allUsers = document.querySelectorAll(".js-allUsers");
 const allUsersBtn = document.querySelector(".js-getUsers");
-/*const ul = document.createElement("ul");
-const li = document.createElement("li");
-//allUsers.append(ul);
-ul.append(li);
+const usersList = document.querySelector(".js-usersList");
+const idInput = document.querySelector(".js-idInput");
+const idSubmit = document.querySelector(".js-idSubmit");
 
-function createList() {
-  getAllUsers();
-}
-
-allUsersBtn.addEventListener("click", getAllUsers);*/
 const createUserEl = users => {
   console.log(users);
-
   const el = users.reduce(
-    (el, user) => el + `<li>${user.id}, ${user.name}, ${user.age}</li>`,
+    (el, user) =>
+      el + `<li> id: ${user.id}, name: ${user.name}, age: ${user.age}</li>`,
     ""
   );
-  console.log(el);
+  return el;
 };
 
 const updateUsers = users => {
-  const markup = createUserEl(users);
-  allUsers.innerHTML = markup;
+  usersList.innerHTML = createUserEl(users);
 };
 
-getAllUsers().then(updateUsers)
+function finalUsers() {
+  getAllUsers().then(updateUsers);
+}
+allUsersBtn.addEventListener("click", finalUsers);
 
-/*
+
 function getUserById(id) {
-  fetch(`https://test-users-api.herokuapp.com/users/${id}`)
+  return fetch(`https://test-users-api.herokuapp.com/users/${id}`)
     .then(response => {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
-    .then(data => console.log(data))
+    .then(el => el.data)
     .catch(error => console.log(error));
 }
+getUserById("5bd979000de5640014e2ed24").then(data => console.log(data))
 
+function inputID(id) {
+  if (idInput.textContent !== id) {
+    alert("unrecognized ID");
+  } else {`<p> id: ${user.id}, name: ${user.name}, age: ${user.age}</p>`
+  }
+}
+/*
 function addUser(name, age) {
   fetch("https://test-users-api.herokuapp.com/users", {
     method: "POST",
