@@ -175,7 +175,6 @@ class StopWatch {
 
   toTimeString(timeStamp) {
     const date = new Date(timeStamp);
-    const time = date.toUTCString().slice(17, -4);
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
     const min = minutes >= 10 ? minutes : "0" + minutes;
