@@ -23,11 +23,8 @@
 const allUsers = document.querySelectorAll(".js-allUsers");
 const allUsersBtn = document.querySelector(".js-getUsers");
 const usersList = document.querySelector(".js-usersList");
-const id = document.querySelector("#searchId").value;
+const elemId = document.querySelector("#searchId");
 const idSubmit = document.querySelector(".js-idSubmit");
-
-
-
 
 function getAllUsers() {
   return fetch("https://test-users-api.herokuapp.com/users/")
@@ -58,39 +55,35 @@ function finalUsers() {
 }
 allUsersBtn.addEventListener("click", finalUsers);
 
-function getUserById(id) {
-  return fetch(`https://test-users-api.herokuapp.com/users/${id}`)
+function getUserById() {
+  return fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
     .then(response => {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
-    .then(users => users.data)
+    .then(users => {
+      if (users.data.id === elemId.value) {
+        return users.data;
+      }
+      alert("В базе данных нет такого id " + elemId.value);
+    })
+    .then(
+      data =>
+        (usersList.innerHTML = `<li> id: ${data.id}, name: ${
+          data.name
+        }, age: ${data.age}</li>`)
+    )
     .catch(error => console.log(error));
 }
-
-//getUserById(id).then(data => console.log(data))
-
-const createUserById = () => {
-  if (getUserById(id) !== false) {
-    alert("unrecognized ID");
-  } else {
-    getUserById(id).then(data => console.log(data));
-  }
-};
-
-const updateUserById = id => {
+idSubmit.addEventListener("click", getUserById);
+/*const updateUserById = id => {
   allUsers.innerHTML = createUserById(id);
 };
 
 function finalUserId() {
-  getUserById(id).then(updateUserById());
+  getUserById().then(updateUserById());
 }
-
-idSubmit.addEventListener("click", finalUserId);
-
-//console.log(idInput.value);
-
-//console.log(id);
+*/
 
 /*
 function addUser(name, age) {
@@ -103,7 +96,6 @@ function addUser(name, age) {
     }
   });
 }
-
 function removeUser(id) {
   fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
     method: "DELETE"
@@ -111,7 +103,6 @@ function removeUser(id) {
     .then(() => console.log("success"))
     .catch(error => console.log("ERROR" + error));
 }
-
 function updateUser(id, name, age) {
   fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
     method: "PUT",
@@ -127,7 +118,4 @@ function updateUser(id, name, age) {
     .then(data => console.log(data))
     .catch(error => console.log("ERROR" + error));
 }
-
-
-
 //updateUser("5bd97fc20de5640014e2ed26", "John", "23");*/
