@@ -55,7 +55,8 @@ function finalUsers() {
 }
 allUsersBtn.addEventListener("click", finalUsers);
 
-function getUserById() {
+function getUserById(e) {
+  e.preventDefault();
   return fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
     .then(response => {
       if (response.ok) return response.json();
@@ -69,53 +70,10 @@ function getUserById() {
     })
     .then(
       data =>
-        (usersList.innerHTML = `<li> id: ${data.id}, name: ${
-          data.name
-        }, age: ${data.age}</li>`)
+        (usersList.innerHTML = `<li> id: ${data.id}, name: ${data.name}, age: ${
+          data.age
+        }</li>`)
     )
     .catch(error => console.log(error));
 }
 idSubmit.addEventListener("click", getUserById);
-/*const updateUserById = id => {
-  allUsers.innerHTML = createUserById(id);
-};
-
-function finalUserId() {
-  getUserById().then(updateUserById());
-}
-*/
-
-/*
-function addUser(name, age) {
-  fetch("https://test-users-api.herokuapp.com/users", {
-    method: "POST",
-    body: JSON.stringify({ name: `${name}`, age: `${age}` }),
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    }
-  });
-}
-function removeUser(id) {
-  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
-    method: "DELETE"
-  })
-    .then(() => console.log("success"))
-    .catch(error => console.log("ERROR" + error));
-}
-function updateUser(id, name, age) {
-  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
-    method: "PUT",
-    body: JSON.stringify({ name: `${name}`, age: `${age}` }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  })
-    .then(response => {
-      if (response.ok) return response.json();
-      throw new Error("Error fetching data");
-    })
-    .then(data => console.log(data))
-    .catch(error => console.log("ERROR" + error));
-}
-//updateUser("5bd97fc20de5640014e2ed26", "John", "23");*/
