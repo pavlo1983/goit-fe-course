@@ -77,3 +77,42 @@ function getUserById(e) {
     .catch(error => console.log(error));
 }
 idSubmit.addEventListener("click", getUserById);
+
+function addUser(name, age) {
+  fetch("https://test-users-api.herokuapp.com/users", {
+    method: "POST",
+    body: JSON.stringify({ name: `${name}`, age: `${age}` }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log("ERROR" + error));
+}
+
+function removeUser(id) {
+  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
+    method: "DELETE"
+  })
+    .then(() => console.log("success"))
+    .catch(error => console.log("ERROR" + error));
+}
+
+/*
+function updateUser(id, name, age) {
+  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
+    method: "PUT",
+    body: JSON.stringify({ name: `${name}`, age: `${age}` }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error("Error fetching data");
+    })
+    .then(data => console.log(data))
+    .catch(error => console.log("ERROR" + error));
+}*/
