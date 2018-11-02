@@ -23,8 +23,18 @@
 const allUsers = document.querySelectorAll(".js-allUsers");
 const allUsersBtn = document.querySelector(".js-getUsers");
 const usersList = document.querySelector(".js-usersList");
-const elemId = document.querySelector("#searchId");
 const idSubmit = document.querySelector(".js-idSubmit");
+const listById = document.querySelector(".js-listById");
+const userCreate = document.querySelector(".js-userCreate");
+const userDelete = document.querySelector(".js-userDelete");
+const userUpdate = document.querySelector(".js-userUpdate");
+const elemId = document.querySelector("#searchId");
+const elemName = document.querySelector("#searchName");
+const elemAge = document.querySelector("#searchAge");
+const elemDel = document.querySelector("#delId");
+const updateId = document.querySelector("#updateById");
+const updateName = document.querySelector("#updateName");
+const updateAge = document.querySelector("#updateAge");
 
 function getAllUsers() {
   return fetch("https://test-users-api.herokuapp.com/users/")
@@ -56,55 +66,76 @@ function finalUsers() {
 allUsersBtn.addEventListener("click", finalUsers);
 
 function getUserById(e) {
+  console.log(elemId.value);
+
   e.preventDefault();
-  return fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
-    .then(response => {
-      if (response.ok) return response.json();
-      throw new Error("Error fetching data");
-    })
-    .then(users => {
-      if (users.data.id === elemId.value) {
-        return users.data;
-      }
-      alert("В базе данных нет такого id " + elemId.value);
-    })
-    .then(
+  return (
+    fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
+      .then(response => {
+        if (response.ok) {
+          console.log(response.status);
+          return response.json();
+        }
+        throw new Error("Error fetching data");
+      })
+
+      .then(users => users.data)
+      /*.then(response => {
+        if (response.ok) return response.json();
+        alert("В базе данных нет такого id " + elemId.value);
+      })*/
+
+      .then(
       data =>
-        (usersList.innerHTML = `<li> id: ${data.id}, name: ${data.name}, age: ${
-          data.age
-        }</li>`)
+        (listById.innerHTML = `<li> id: ${data.id}, name: ${
+          data.name
+        }, age: ${data.age}</li>`)
     )
-    .catch(error => console.log(error));
+      .catch(error => console.log(error))
+  );
 }
+
 idSubmit.addEventListener("click", getUserById);
 
-function addUser(name, age) {
+function addUser(e) {
+  e.preventDefault();
   fetch("https://test-users-api.herokuapp.com/users", {
     method: "POST",
-    body: JSON.stringify({ name: `${name}`, age: `${age}` }),
+    body: JSON.stringify({
+      name: `${elemName.value}`,
+      age: `${elemAge.value}`
+    }),
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json"
     }
   })
-    .then(response => response.json())
-    .then(data => console.log(data))
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error("Error fetching data");
+    })
     .catch(error => console.log("ERROR" + error));
 }
+console.log(userCreate);
+userCreate.addEventListener("click", addUser);
 
-function removeUser(id) {
-  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
+function removeUser(e) {
+  e.preventDefault();
+  fetch(`https://test-users-api.herokuapp.com/users/${elemDel.value}`, {
     method: "DELETE"
   })
     .then(() => console.log("success"))
     .catch(error => console.log("ERROR" + error));
 }
+userDelete.addEventListener("click", removeUser);
 
-/*
-function updateUser(id, name, age) {
-  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
+function updateUser() {
+  fetch(`https://test-users-api.herokuapp.com/users/${updateId.value}`, {
     method: "PUT",
-    body: JSON.stringify({ name: `${name}`, age: `${age}` }),
+    body: JSON.stringify({
+      name: `${updateName.value}`,
+      age: `${updateAge.value}`
+    }),
     headers: {
       "Content-type": "application/json; charset=UTF-8"
     }
@@ -115,4 +146,6 @@ function updateUser(id, name, age) {
     })
     .then(data => console.log(data))
     .catch(error => console.log("ERROR" + error));
-}*/
+}
+
+userUpdate.addEventListener("click", updateUser);
