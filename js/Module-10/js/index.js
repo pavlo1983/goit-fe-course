@@ -42,7 +42,7 @@ function getAllUsers() {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
-    .then(el => el.data)
+    .then(users => users.data)
     .catch(error => console.log(error));
 }
 
@@ -67,7 +67,6 @@ allUsersBtn.addEventListener("click", finalUsers);
 
 function getUserById(e) {
   console.log(elemId.value);
-
   e.preventDefault();
   return (
     fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
@@ -79,18 +78,22 @@ function getUserById(e) {
         throw new Error("Error fetching data");
       })
 
-      .then(users => users.data)
+      .then(users => {
+        users.data
+        console.log( users.data);})
+      
+      
       /*.then(response => {
         if (response.ok) return response.json();
         alert("В базе данных нет такого id " + elemId.value);
       })*/
 
       .then(
-      data =>
-        (listById.innerHTML = `<li> id: ${data.id}, name: ${
-          data.name
-        }, age: ${data.age}</li>`)
-    )
+        data =>
+          (listById.innerHTML = `<li> id: ${data.id}, name: ${
+            data.name
+          }, age: ${data.age}</li>`)
+      )
       .catch(error => console.log(error))
   );
 }
@@ -114,9 +117,10 @@ function addUser(e) {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
+    .then(users => users.data)
     .catch(error => console.log("ERROR" + error));
 }
-console.log(userCreate);
+
 userCreate.addEventListener("click", addUser);
 
 function removeUser(e) {
@@ -129,7 +133,8 @@ function removeUser(e) {
 }
 userDelete.addEventListener("click", removeUser);
 
-function updateUser() {
+function updateUser(e) {
+  e.preventDefault();
   fetch(`https://test-users-api.herokuapp.com/users/${updateId.value}`, {
     method: "PUT",
     body: JSON.stringify({
