@@ -10,62 +10,69 @@
 </head>
 
 <body>
-  <div class="js-allUsers">
-    <button class="js-getUsers">Get all users</button>
+  <div class="wrapper">
 
-    <ul class="js-usersList"></ul>
+    <div class="container">
+      <button class="js-getUsers">Get all users</button>
+      <ul class="js-usersList"></ul>
+    </div>
 
-    <form action="javascript:void(0)" method="get">
-      <label>
-        <input class="js-idInput" id="searchId" type="text" name="id" placeholder="Id *" required>
-      </label>
-      <label>
-        <input class="js-idSubmit" type="submit" value="get User by Id">
-      </label>
-    </form>
+    <div class="container">
+      <form action="javascript:void(0)" method="get">
+        <label>
+          <input class="js-idInput" id="searchId" type="text" name="id" placeholder="Id *" required>
+        </label>
+        <label>
+          <input class="js-idSubmit" type="submit" value="get User by Id">
+        </label>
+      </form>
 
-    <ul class="js-listById"></ul>
+      <ul class="js-listById"></ul>
+    </div>
 
-    <form action="javascript:void(0)" method="post">
-      <label>
-        <input class="js-idInput" id="searchName" type="text" name="name" placeholder="Name *" required>
-      </label>
-      <label>
-        <input class="js-idInput" id="searchAge" type="text" name="name" placeholder="Age *" required>
-      </label>
-      <label>
-        <input class="js-userCreate" type="submit" value="Create User">
-      </label>
-    </form>
+    <div class="container">
+      <form action="javascript:void(0)" method="post">
+        <label>
+          <input class="js-idInput" id="searchName" type="text" name="name" placeholder="Name *" required>
+        </label>
+        <label>
+          <input class="js-idInput" id="searchAge" type="text" name="name" placeholder="Age *" required>
+        </label>
+        <label>
+          <input class="js-userCreate" type="submit" value="Create User">
+        </label>
+      </form>
+    </div>
 
-    <form action="javascript:void(0)" method="post">
-      <label>
-        <input class="js-idInput" id="delId" type="text" name="name" placeholder="Id *" required>
-      </label>
-      <label>
-        <input class="js-userDelete" type="submit" value="Delete User">
-      </label>
-    </form>
+    <div class="container">
+      <form action="javascript:void(0)" method="post">
+        <label>
+          <input class="js-idInput" id="delId" type="text" name="name" placeholder="Id *" required>
+        </label>
+        <label>
+          <input class="js-userDelete" type="submit" value="Delete User">
+        </label>
+      </form>
+    </div>
 
-    <form action="javascript:void(0)" method="post">
-      <label>
-        <input class="js-idInput" id="updateById" type="text" name="name" placeholder="Id *" required>
-      </label>
-      <label>
-        <input class="js-idInput" id="updateName" type="text" name="name" placeholder="Name *" required>
-      </label>
-      <label>
-        <input class="js-idInput" id="updateAge" type="text" name="name" placeholder="Age *" required>
-      </label>
-      <label>
-        <input class="js-userUpdate" type="submit" value="Update User">
-      </label>
-    </form>
-
-
-
+    <div class="container">
+      <form action="javascript:void(0)" method="post">
+        <label>
+          <input class="js-idInput" id="updateById" type="text" name="name" placeholder="Id *" required>
+        </label>
+        <label>
+          <input class="js-idInput" id="updateName" type="text" name="name" placeholder="Name *" required>
+        </label>
+        <label>
+          <input class="js-idInput" id="updateAge" type="text" name="name" placeholder="Age *" required>
+        </label>
+        <label>
+          <input class="js-userUpdate" type="submit" value="Update User">
+        </label>
+      </form>
+    </div>
+    
   </div>
-
   <script src="./js/index.js"></script>
 </body>
 

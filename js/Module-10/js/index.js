@@ -20,7 +20,7 @@
   А так же панелью для вывода результатов операций с бэкендом.
 */
 "use strict";
-const allUsers = document.querySelectorAll(".js-allUsers");
+
 const allUsersBtn = document.querySelector(".js-getUsers");
 const usersList = document.querySelector(".js-usersList");
 const idSubmit = document.querySelector(".js-idSubmit");
@@ -28,6 +28,7 @@ const listById = document.querySelector(".js-listById");
 const userCreate = document.querySelector(".js-userCreate");
 const userDelete = document.querySelector(".js-userDelete");
 const userUpdate = document.querySelector(".js-userUpdate");
+
 const elemId = document.querySelector("#searchId");
 const elemName = document.querySelector("#searchName");
 const elemAge = document.querySelector("#searchAge");
@@ -35,6 +36,8 @@ const elemDel = document.querySelector("#delId");
 const updateId = document.querySelector("#updateById");
 const updateName = document.querySelector("#updateName");
 const updateAge = document.querySelector("#updateAge");
+
+/*=======================================get all users ====================================================*/
 
 function getAllUsers() {
   return fetch("https://test-users-api.herokuapp.com/users/")
@@ -65,40 +68,31 @@ function finalUsers() {
 }
 allUsersBtn.addEventListener("click", finalUsers);
 
+/* =================================================== get user by Id ==============================================*/
+
 function getUserById(e) {
-  console.log(elemId.value);
   e.preventDefault();
-  return (
-    fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
-      .then(response => {
-        if (response.ok) {
-          console.log(response.status);
-          return response.json();
-        }
-        throw new Error("Error fetching data");
-      })
-
-      .then(users => {
-        users.data
-        console.log( users.data);})
-      
-      
-      /*.then(response => {
-        if (response.ok) return response.json();
-        alert("В базе данных нет такого id " + elemId.value);
-      })*/
-
-      .then(
-        data =>
-          (listById.innerHTML = `<li> id: ${data.id}, name: ${
-            data.name
-          }, age: ${data.age}</li>`)
-      )
-      .catch(error => console.log(error))
-  );
+  return fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
+    .then(response => {
+      if (response.ok) {
+        console.log(response.status);
+        return response.json();
+      }
+      throw new Error("Error fetching data");
+    })
+    .then(users => users.data)
+    .then(
+      data =>
+        (listById.innerHTML = `<li> id: ${data.id}, name: ${data.name}, age: ${
+          data.age
+        }</li>`)
+    )
+    .catch(error => console.log(error)); 
 }
 
 idSubmit.addEventListener("click", getUserById);
+
+/* =================================================== add User ====================================================*/
 
 function addUser(e) {
   e.preventDefault();
@@ -117,21 +111,25 @@ function addUser(e) {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
-    .then(users => users.data)
+    .then(() => alert('User added'))
     .catch(error => console.log("ERROR" + error));
 }
 
 userCreate.addEventListener("click", addUser);
+
+/* =================================================== remove User ============================================== */
 
 function removeUser(e) {
   e.preventDefault();
   fetch(`https://test-users-api.herokuapp.com/users/${elemDel.value}`, {
     method: "DELETE"
   })
-    .then(() => console.log("success"))
+    .then(() => alert('User deleted'))
     .catch(error => console.log("ERROR" + error));
 }
 userDelete.addEventListener("click", removeUser);
+
+/* ==================================================== update User ================================================= */
 
 function updateUser(e) {
   e.preventDefault();
@@ -149,7 +147,7 @@ function updateUser(e) {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
-    .then(data => console.log(data))
+    .then(() => alert('User modified'))
     .catch(error => console.log("ERROR" + error));
 }
 
