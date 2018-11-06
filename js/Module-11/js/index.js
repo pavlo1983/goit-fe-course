@@ -117,3 +117,15 @@ const laptops = [
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
   },
 ];
+
+const source = document.querySelector('#notebook-card').innerHTML.trim();
+
+const template = Handlebars.compile(source);
+
+const markup = template(laptops);
+
+console.log(markup);
+
+document.body.insertAdjacentHTML("afterend", markup);
+
+const filter = { size: [], color: [], release_date: [] }

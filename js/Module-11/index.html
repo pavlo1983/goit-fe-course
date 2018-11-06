@@ -38,8 +38,25 @@
     <button type="submit">Filter</button>
     <button type="reset">Clear</button>
   </form>
-  
+
+
+  <template id="notebook-card">
+    {{#each this}}
+    <ul>
+      <li>name: {{name}}
+      </li>
+      <li>img: <img src="{{img}}" alt=""></li>
+      <li>descr: {{descr}}</li>
+      <li>color: {{color}}</li>
+      <li>price: {{price}}</li>
+      <li>release_date: {{release_date}}</li>
+    </ul>
+    {{/each}}
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="./js/index.js"></script>
+ 
 </body>
 
 </html>
