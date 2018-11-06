@@ -72,8 +72,12 @@ allUsersBtn.addEventListener("click", finalUsers);
 
 function getUserById(e) {
   e.preventDefault();
- 
-  return fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
+
+  if (elemId.value === "") {
+    alert("Empty");
+    return;
+  }
+  fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
     .then(response => {
       if (response.ok) {
         console.log(response.status);
@@ -88,16 +92,22 @@ function getUserById(e) {
           data.age
         }</li>`)
     )
-    .catch(error => console.log(error));
+    .catch(error => {
+      alert("Incorrect Id");
+      console.log(error);
+    });
 }
-
 idSubmit.addEventListener("click", getUserById);
 
 /* =================================================== add User ====================================================*/
 
 function addUser(e) {
   e.preventDefault();
-  if (elemAge.value === '' || isNaN(elemAge.value) || elemName.value === ''
+  if (
+    elemAge.value === "" ||
+    isNaN(elemAge.value) ||
+    elemName.value === "" ||
+    !isNaN(elemName.value)
   ) {
     alert("Incorrect input");
     return;
@@ -127,11 +137,26 @@ userCreate.addEventListener("click", addUser);
 
 function removeUser(e) {
   e.preventDefault();
+  if (elemDel.value === "") {
+    alert("Empty");
+    return;
+  }
   fetch(`https://test-users-api.herokuapp.com/users/${elemDel.value}`, {
     method: "DELETE"
   })
+    .then(response => {
+      if (response.ok) {
+        console.log(response.status);
+        return response.json();
+      }
+      throw new Error("Error fetching data");
+    })
+    .then(users => users.data.id)
     .then(() => alert("User deleted"))
-    .catch(error => console.log("ERROR" + error));
+    .catch(error => {
+      console.log("ERROR" + error);
+      alert("Incorrect Id");
+    });
 }
 userDelete.addEventListener("click", removeUser);
 
@@ -139,6 +164,15 @@ userDelete.addEventListener("click", removeUser);
 
 function updateUser(e) {
   e.preventDefault();
+  if (
+    updateAge.value === "" ||
+    isNaN(updateAge.value) ||
+    updateName.value === "" ||
+    !isNaN(updateName.value)
+  ) {
+    alert("Incorrect input");
+    return;
+  }
   fetch(`https://test-users-api.herokuapp.com/users/${updateId.value}`, {
     method: "PUT",
     body: JSON.stringify({
@@ -153,8 +187,12 @@ function updateUser(e) {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
+    .then(users => users.data.id)
     .then(() => alert("User modified"))
-    .catch(error => console.log("ERROR" + error));
+    .catch(error => {
+      console.log("ERROR" + error);
+      alert("Incorrect Id");
+    });
 }
 
 userUpdate.addEventListener("click", updateUser);
