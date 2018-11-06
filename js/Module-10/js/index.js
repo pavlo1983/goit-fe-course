@@ -72,6 +72,7 @@ allUsersBtn.addEventListener("click", finalUsers);
 
 function getUserById(e) {
   e.preventDefault();
+ 
   return fetch(`https://test-users-api.herokuapp.com/users/${elemId.value}`)
     .then(response => {
       if (response.ok) {
@@ -87,7 +88,7 @@ function getUserById(e) {
           data.age
         }</li>`)
     )
-    .catch(error => console.log(error)); 
+    .catch(error => console.log(error));
 }
 
 idSubmit.addEventListener("click", getUserById);
@@ -96,25 +97,30 @@ idSubmit.addEventListener("click", getUserById);
 
 function addUser(e) {
   e.preventDefault();
-  fetch("https://test-users-api.herokuapp.com/users", {
-    method: "POST",
-    body: JSON.stringify({
-      name: `${elemName.value}`,
-      age: `${elemAge.value}`
-    }),
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json"
-    }
-  })
-    .then(response => {
-      if (response.ok) return response.json();
-      throw new Error("Error fetching data");
+  if (elemAge.value === '' || isNaN(elemAge.value) || elemName.value === ''
+  ) {
+    alert("Incorrect input");
+    return;
+  } else {
+    fetch("https://test-users-api.herokuapp.com/users", {
+      method: "POST",
+      body: JSON.stringify({
+        name: `${elemName.value}`,
+        age: `${elemAge.value}`
+      }),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
     })
-    .then(() => alert('User added'))
-    .catch(error => console.log("ERROR" + error));
+      .then(response => {
+        if (response.ok) return response.json();
+        throw new Error("Error fetching data");
+      })
+      .then(() => alert("User added"))
+      .catch(error => console.log("ERROR" + error));
+  }
 }
-
 userCreate.addEventListener("click", addUser);
 
 /* =================================================== remove User ============================================== */
@@ -124,7 +130,7 @@ function removeUser(e) {
   fetch(`https://test-users-api.herokuapp.com/users/${elemDel.value}`, {
     method: "DELETE"
   })
-    .then(() => alert('User deleted'))
+    .then(() => alert("User deleted"))
     .catch(error => console.log("ERROR" + error));
 }
 userDelete.addEventListener("click", removeUser);
@@ -147,7 +153,7 @@ function updateUser(e) {
       if (response.ok) return response.json();
       throw new Error("Error fetching data");
     })
-    .then(() => alert('User modified'))
+    .then(() => alert("User modified"))
     .catch(error => console.log("ERROR" + error));
 }
 
