@@ -119,11 +119,11 @@ const laptops = [
 ];
 
 const source = document.querySelector('#notebook-card').innerHTML.trim();
-
+ 
+console.log(source);
 const template = Handlebars.compile(source);
 
-const markup = template(laptops);
-
+const markup = laptops.reduce((acc, laptop) => acc + template(laptop), '');
 console.log(markup);
 
 document.body.insertAdjacentHTML("afterend", markup);
