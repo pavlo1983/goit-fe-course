@@ -1,4 +1,3 @@
-
 /*
   Реализуйте форму фильтра товаров в каталоге и список отфильтрованных товаров.
   Используйте шаблонизацию для создания карточек товаров.
@@ -23,109 +22,164 @@
       после чего в нем рендерятся новые карточки товаров, соответствующих текущим критериям фильтра.
 */
 
-'use strict';
+"use strict";
 
 const laptops = [
   {
     size: 13,
-    color: 'white',
+    color: "white",
     price: 28000,
     release_date: 2015,
     name: 'Macbook Air White 13"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 13,
-    color: 'gray',
+    color: "gray",
     price: 32000,
     release_date: 2016,
     name: 'Macbook Air Gray 13"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 13,
-    color: 'black',
+    color: "black",
     price: 35000,
     release_date: 2017,
     name: 'Macbook Air Black 13"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 15,
-    color: 'white',
+    color: "white",
     price: 45000,
     release_date: 2015,
     name: 'Macbook Air White 15"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 15,
-    color: 'gray',
+    color: "gray",
     price: 55000,
     release_date: 2016,
     name: 'Macbook Pro Gray 15"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 15,
-    color: 'black',
+    color: "black",
     price: 45000,
     release_date: 2017,
     name: 'Macbook Pro Black 15"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 17,
-    color: 'white',
+    color: "white",
     price: 65000,
     release_date: 2015,
     name: 'Macbook Air White 17"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 17,
-    color: 'gray',
+    color: "gray",
     price: 75000,
     release_date: 2016,
     name: 'Macbook Pro Gray 17"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   },
   {
     size: 17,
-    color: 'black',
+    color: "black",
     price: 80000,
     release_date: 2017,
     name: 'Macbook Pro Black 17"',
-    img: 'http://demo.posthemes.com/pos_zadademo/images/placeholder.png',
+    img: "http://demo.posthemes.com/pos_zadademo/images/placeholder.png",
     descr:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae.',
-  },
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
+  }
 ];
 
-const source = document.querySelector('#notebook-card').innerHTML.trim();
- 
+const source = document.querySelector("#notebook-card").innerHTML.trim();
+
 console.log(source);
 const template = Handlebars.compile(source);
 
-const markup = laptops.reduce((acc, laptop) => acc + template(laptop), '');
-console.log(markup);
+const markup = laptops.reduce((acc, laptop) => acc + template(laptop), "");
+//console.log(markup);
 
-document.body.insertAdjacentHTML("afterend", markup);
+//document.body.insertAdjacentHTML("afterend", markup);
 
-const filter = { size: [], color: [], release_date: [] }
+const filter = { size: [], color: [], release_date: []};
+
+const submit = document.querySelector('button[type="submit"]');
+const reset = document.querySelector('button[type="reset"]');
+
+const getSize = Array.from(document.querySelectorAll('input[name="size"]'));
+const getColor = Array.from(document.querySelectorAll('input[name="color"]'));
+const getDate = Array.from(document.querySelectorAll('input[name="release_date"]'));
+
+console.log(getSize[0].value)
+
+function sizeValues () {
+  let arr =[] ;
+  for (let i=0; i <= getSize.length; i++) {
+    arr.push([getSize[i].value]);
+    return arr
+  }
+}
+
+console.log(sizeValues());
+
+
+const num = Number(getSize);
+const color = getColor[0].value;
+const date = Number(getDate[0].value);
+
+function getBySize(num) {
+  return laptops.filter(laptop => laptop.size === num);
+}
+
+function getByColor(color) {
+  return laptops.filter(laptop => laptop.color === color);
+}
+
+
+function getByDate(date) {
+  return laptops.filter(laptop => laptop.release_date === date);
+}
+
+function onCheck(e) {
+  e.preventDefault();
+  filter.size.push(getBySize(num));  
+  filter.color.push(getByColor(color));
+  filter.release_date.push(getByDate(date));
+  console.log(filter);
+  console.log(getSize);
+  const getAllSizes = getSize.filter(getSize => getSize.checked);
+  console.log(getAllSizes)
+  /*if (getSize.checked) {
+    alert ('ok')
+  }
+else {alert('false')}*/
+}
+
+submit.addEventListener('click', onCheck)
+
