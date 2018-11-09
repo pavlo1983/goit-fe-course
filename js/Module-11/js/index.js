@@ -117,7 +117,7 @@ const laptops = [
   }
 ];
 
-const source = document.querySelector("#notebook-card").innerHTML.trim();
+/*const source = document.querySelector("#notebook-card").innerHTML.trim();
 
 console.log(source);
 const template = Handlebars.compile(source);
@@ -125,28 +125,60 @@ const template = Handlebars.compile(source);
 const markup = laptops.reduce((acc, laptop) => acc + template(laptop), "");
 //console.log(markup);
 
-//document.body.insertAdjacentHTML("afterend", markup);
+//document.body.insertAdjacentHTML("afterend", markup);*/
 
 const filter = { size: [], color: [], release_date: [] };
 
 const submit = document.querySelector('button[type="submit"]');
 const reset = document.querySelector('button[type="reset"]');
 
-const getSize = Array.from(document.querySelectorAll('input[name="size"]'));
-const getColor = Array.from(document.querySelectorAll('input[name="color"]'));
-const getDate = Array.from(
+const form = document.querySelector("js-form");
+const inputs = document.querySelectorAll("input");
+const container = document.querySelector(".container");
+
+submit.addEventListener("click", onCheck);
+reset.addEventListener("click", onReset);
+
+//const getSize = Array.from(document.querySelectorAll('input[name="size"]'));
+//const getColor = Array.from(document.querySelectorAll('input[name="color"]'));
+/*const getDate = Array.from(
   document.querySelectorAll('input[name="release_date"]')
-);
+);*/
 
 function onCheck(e) {
   e.preventDefault();
   if (!this.isActive) {
     this.isActive = true;
 
+    const allInputs = [...inputs]
+      .filter(e => e.checked)
+      .map(e => (e.name === "color" ? e.value : +e.value));
+
+    const checked = laptops
+      .filter(e => allInputs.includes(e.size))
+      .filter(e => allInputs.includes(e.color))
+      .filter(e => allInputs.includes(e.release_date));
+
+    if (checked.length === 0) {
+      toDisplay(laptops);
+      return;
+    }
+    toDisplay(checked);
+
+    /*this.isActive = true;
+
     const getAllSizes = getSize.filter(getSize => getSize.checked);
     console.log(getAllSizes);
 
-    function sizeValues() {
+    /* const sizes = getAllSizes.map(el => {
+      const arr = [];
+      
+        arr.push(Number(el.value));
+        console.log(arr);
+      
+      return arr;
+    });*/
+    /*function sizeValues() {
       const arr = [];
       for (let i = 0; i < getAllSizes.length; i += 1) {
         arr.push(Number(getAllSizes[i].value));
@@ -157,10 +189,16 @@ function onCheck(e) {
     const sizes = sizeValues();
     console.log(sizes);
 
-    const num = sizes.forEach(el => {
-      const a = console.log(el);
-      return a;
-    });
+ 
+   
+
+    const num = sizes.reduce((acc, val) => {
+      if (sizes.length > 0) {
+        return acc + 1
+      }
+    }
+    
+    );
 
     console.log(num);
     const color = getColor[0].value;
@@ -183,7 +221,21 @@ function onCheck(e) {
     filter.release_date.push(getByDate(date));
 
     console.log(filter);
-    document.body.insertAdjacentHTML("afterend", markup);
+    //document.body.insertAdjacentHTML("afterend", markup);*/
   }
 }
-submit.addEventListener("click", onCheck);
+
+function toDisplay(arr) {
+  const source = document.querySelector("#laptop-card").innerHTML.trim();
+  const template = Handlebars.compile(source);
+  const markup = arr.reduce((acc, laptop) => acc + template(laptop), "");
+  container.innerHTML = markup;
+}
+
+toDisplay(laptops);
+
+
+function onReset(e) {
+  e.preventDefault();
+  toDisplay(laptops);
+}
