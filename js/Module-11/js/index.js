@@ -116,7 +116,7 @@ const laptops = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   }
 ];
-
+const filter = { size: [], color: [], release_date: [] };
 const submit = document.querySelector('button[type="submit"]');
 const reset = document.querySelector('button[type="reset"]');
 
@@ -140,11 +140,83 @@ function onCheck(e) {
     .filter(el => el.checked)
     .map(el => (el.name === "color" ? el.value : +el.value));
 
-  const checked = laptops
+  const selected = function() {
+    filter.size.push(laptops.filter(el => allInputs.includes(el.size)));
+    filter.color.push(laptops.filter(el => allInputs.includes(el.color)));
+    filter.release_date.push(
+      laptops.filter(el => allInputs.includes(el.release_date))
+    );
+    return filter;
+  };
+  selected();
+  console.log(filter);
+
+  
+  const checked = laptops.filter(
+    laptop => {
+      const matchedSize = filter.size.length !== 0 ?
+        filter.size.includes(String(laptop.size)) :
+        true;
+      const matchedColor = filter.color.length !== 0 ?
+        filter.color.includes(laptop.color) :
+        true;
+      const matchedReleaseDate = filter.release_date.length !== 0 ?
+        filter.release_date.includes(String(laptop.releaseDate)) :
+        true;
+      return matchedSize && matchedColor && matchedReleaseDate;
+    });
+
+
+
+  
+  /*const checked = laptops
+    .filter(el => laptops.includes(filter.size))
+    .filter(el => laptops.includes(filter.color))
+    .filter(el => laptops.includes(filter.release_date));
+
+  //const checked = filter.size.
+  //console.log(checked)
+  /*const checked = laptops
+    .filter(el => filter.includes(el.size))
+    .filter(el => filter.includes(el.color))
+    .filter(el => filter.includes(el.release_date));*/
+
+  /*const checkedBySize = laptops.filter(el => allInputs.includes(el.size));
+  const checkedByColor = laptops.filter(el => allInputs.includes(el.color));
+  const checkedByDate = laptops.filter(el =>
+    allInputs.includes(el.release_date)
+  );
+
+  console.log(checkedBySize);
+
+  const checked = function() {
+    return checkedBySize;
+  };*/
+
+  /*const checkedBySize = laptops
+  .filter(el => allInputs.includes(el.size))
+  const checkedByColor = laptops
+  .filter(el => allInputs.includes(el.color))
+  const checkedByDate = laptops
+  .filter(el => allInputs.includes(el.release_date));
+
+  console.log(checkedBySize.size)
+  console.log(checkedByColor)
+  console.log(checkedByDate)*/
+
+  /*const checked = laptops
     .filter(el => allInputs.includes(el.size))
     .filter(el => allInputs.includes(el.color))
-    .filter(el => allInputs.includes(el.release_date));
+    .filter(el => allInputs.includes(el.release_date))
+  
 
+
+  /*const checked = laptops
+    .filter(el => allInputs.includes(el.size))
+    .filter(el => allInputs.includes(el.color))
+    .filter(el => allInputs.includes(el.release_date));*/
+
+  console.log(checked);
   if (checked.length === 0) {
     toDisplay(laptops);
     return;
