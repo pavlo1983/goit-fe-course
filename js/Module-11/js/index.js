@@ -116,6 +116,7 @@ const laptops = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, beatae."
   }
 ];
+
 const filter = { size: [], color: [], release_date: [] };
 const form = document.querySelector(".js-form");
 const submit = document.querySelector('button[type="submit"]');
@@ -137,6 +138,10 @@ function toDisplay(arr) {
 function onCheck(e) {
   e.preventDefault();
 
+  filter.size = [];
+  filter.color = [];
+  filter.release_date = [];
+
   const selected = Array.from(
     form.querySelectorAll('input[type="checkbox"]:checked')
   );
@@ -157,29 +162,18 @@ function onCheck(e) {
     return checkedSize && checkedColor && checkedDate;
   });
 
-  /* function clearArray(checked) {
-    while (checked.length) {
-      checked.pop();
-    }
-  }
-
-  clearArray(checked)*/
-
-  console.log(checked);
-
   if (checked.length === 0) {
     toDisplay(laptops);
     return;
   } else {
     toDisplay(checked);
-    checked.length = 0;
   }
 }
 
 function onReset(e) {
   e.preventDefault();
   toDisplay(laptops);
-
   inputs.forEach(el => (el.checked = false));
 }
+
 toDisplay(laptops);
