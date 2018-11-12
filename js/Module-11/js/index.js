@@ -117,6 +117,7 @@ const laptops = [
   }
 ];
 const filter = { size: [], color: [], release_date: [] };
+const form = document.querySelector(".js-form");
 const submit = document.querySelector('button[type="submit"]');
 const reset = document.querySelector('button[type="reset"]');
 
@@ -136,98 +137,49 @@ function toDisplay(arr) {
 function onCheck(e) {
   e.preventDefault();
 
-  const allInputs = [...inputs]
-    .filter(el => el.checked)
-    .map(el => (el.name === "color" ? el.value : +el.value));
-
-  const selected = function() {
-    filter.size.push(laptops.filter(el => allInputs.includes(el.size)));
-    filter.color.push(laptops.filter(el => allInputs.includes(el.color)));
-    filter.release_date.push(
-      laptops.filter(el => allInputs.includes(el.release_date))
-    );
-    return filter;
-  };
-  selected();
-  console.log(filter);
-
-  
-  const checked = laptops.filter(
-    laptop => {
-      const matchedSize = filter.size.length !== 0 ?
-        filter.size.includes(String(laptop.size)) :
-        true;
-      const matchedColor = filter.color.length !== 0 ?
-        filter.color.includes(laptop.color) :
-        true;
-      const matchedReleaseDate = filter.release_date.length !== 0 ?
-        filter.release_date.includes(String(laptop.releaseDate)) :
-        true;
-      return matchedSize && matchedColor && matchedReleaseDate;
-    });
-
-
-
-  
-  /*const checked = laptops
-    .filter(el => laptops.includes(filter.size))
-    .filter(el => laptops.includes(filter.color))
-    .filter(el => laptops.includes(filter.release_date));
-
-  //const checked = filter.size.
-  //console.log(checked)
-  /*const checked = laptops
-    .filter(el => filter.includes(el.size))
-    .filter(el => filter.includes(el.color))
-    .filter(el => filter.includes(el.release_date));*/
-
-  /*const checkedBySize = laptops.filter(el => allInputs.includes(el.size));
-  const checkedByColor = laptops.filter(el => allInputs.includes(el.color));
-  const checkedByDate = laptops.filter(el =>
-    allInputs.includes(el.release_date)
+  const selected = Array.from(
+    form.querySelectorAll('input[type="checkbox"]:checked')
   );
 
-  console.log(checkedBySize);
+  selected.forEach(el => {
+    filter[el.name].push(el.value);
+  });
 
-  const checked = function() {
-    return checkedBySize;
-  };*/
+  const checked = laptops.filter(el => {
+    const checkedSize =
+      filter.size.length !== 0 ? filter.size.includes(String(el.size)) : true;
+    const checkedColor =
+      filter.color.length !== 0 ? filter.color.includes(el.color) : true;
+    const checkedDate =
+      filter.release_date.length !== 0
+        ? filter.release_date.includes(String(el.release_date))
+        : true;
+    return checkedSize && checkedColor && checkedDate;
+  });
 
-  /*const checkedBySize = laptops
-  .filter(el => allInputs.includes(el.size))
-  const checkedByColor = laptops
-  .filter(el => allInputs.includes(el.color))
-  const checkedByDate = laptops
-  .filter(el => allInputs.includes(el.release_date));
+  /* function clearArray(checked) {
+    while (checked.length) {
+      checked.pop();
+    }
+  }
 
-  console.log(checkedBySize.size)
-  console.log(checkedByColor)
-  console.log(checkedByDate)*/
-
-  /*const checked = laptops
-    .filter(el => allInputs.includes(el.size))
-    .filter(el => allInputs.includes(el.color))
-    .filter(el => allInputs.includes(el.release_date))
-  
-
-
-  /*const checked = laptops
-    .filter(el => allInputs.includes(el.size))
-    .filter(el => allInputs.includes(el.color))
-    .filter(el => allInputs.includes(el.release_date));*/
+  clearArray(checked)*/
 
   console.log(checked);
+
   if (checked.length === 0) {
     toDisplay(laptops);
     return;
+  } else {
+    toDisplay(checked);
+    checked.length = 0;
   }
-  toDisplay(checked);
 }
 
 function onReset(e) {
   e.preventDefault();
   toDisplay(laptops);
+
   inputs.forEach(el => (el.checked = false));
 }
-
 toDisplay(laptops);
