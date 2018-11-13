@@ -1,0 +1,149 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+'use strict';
+import './styles.css';
+import * as db from './services/database';
+import ViewUpdate from './module/update-view';
+import LinkView from './api/linkview';
+
+const listUrl = document.querySelector('.js-url-list');
+const form = document.querySelector('.js-form');
+
+const urls = {
+  bookmarks: []
+};
+
+const setLocalStorage = () => {
+  localStorage.setItem('urls', JSON.stringify(urls.bookmarks))
+};
+
+db.get({
+  urls,
+  ViewUpdate,
+  listUrl,
+  setLocalStorage
+});
+
+form.addEventListener('submit', handlerSubmit);
+listUrl.addEventListener('click', handleDeleteItem);
+
+function handlerSubmit(evt) {
+  evt.preventDefault();
+  const userUrl = String(evt.target[0].value);
+  LinkView({
+    userUrl,
+    listUrl,
+    urls,
+    ViewUpdate,
+    setLocalStorage
+  });
+
+  setTimeout(() => {
+    evt.target[0].value = '';
+  }, 1000);
+};
+
+function handleDeleteItem(evt) {
+  evt.preventDefault();
+
+  const getIdItem = evt.path[2].value;
+  db.del({
+    getIdItem,
+    urls,
+    ViewUpdate,
+    listUrl,
+    setLocalStorage
+  });
+};
+
+module.exports
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+<li key="{{_id}}" class="bookmarks__item grid">
+  <a href="{{url}}" class="bookmarks__link">
+    <h3 class="bookmarks__title">{{title}}</h3>
+  </a>
+  <p class="bookmarks__descr">{{description}}</p>
+  <div class="bookmarks__image">
+    <img src="{{image}}" alt="{{title}}">
+  </div>
+  <button type="submit"
+          class="bookmarks__button"
+          value="{{id}}"
+          >
+    <svg viewBox="-8 -8 50 50">
+      <path  d="M6 32h20l2-22h-24zM20 4v-4h-8v4h-10v6l2-2h24l2 2v-6h-10zM18 4h-4v-2h4v2z"></path>
+    </svg>
+  </button>
+</li>
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import listUrlItemTpl from '../template/list-url-item.hbs';
+
+const ViewUpdate = (bookmarks, listUrl) => {
+
+  function compareDate (a, b) {
+    return b.createDate - a.createDate;
+  };
+
+  bookmarks.sort(compareDate);
+
+  const markup = String(bookmarks.reduce((markup, bookmark) =>
+    markup + listUrlItemTpl(bookmark), ''));
+
+  listUrl.innerHTML = markup;
+};
+
+export default ViewUpdate;
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import axios from 'axios';
+import { set } from '../services/database';
+const API_KEY = '5b50c178979045e4507c81f1110cd99f1dc04cae81ff5';
+
+const LinkView = ({userUrl, listUrl, urls, ViewUpdate, setLocalStorage}) => {
+
+  axios.get(`https://api.linkpreview.net/?key=${API_KEY}&q=${userUrl}`)
+    .then(response => {
+      const data = {
+        title: response.data.title,
+        image: response.data.image,
+        url: response.data.url,
+        description: response.data.description,
+        createDate: Date.now()
+      };
+      set({data, listUrl, urls, ViewUpdate, setLocalStorage});
+    })
+    .catch(err => console.log(err));
+};
+
+export default LinkView;
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BookMarks</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+<link href="styles.css?c52d3ede4049dc4302f1" rel="stylesheet"></head>
+
+<body>
+  <form class="form js-form">
+    <label class="form__label">
+      <input type="text" name="url" class="form__input" placeholder="enter your url, star write http:// (https://)*">
+    </label>
+    <button class="form__button">< add url /></add></button>
+  </form>
+
+  <main class="main">
+    <ul class="flex list js-url-list bookmarks">
+    </ul>
+  </main>
+<script type="text/javascript" src="bundle.js?c52d3ede4049dc4302f1"></script></body>
+
+</html>
