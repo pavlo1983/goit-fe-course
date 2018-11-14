@@ -44,5 +44,12 @@
     "gulp-uglify": "^3.0.1",
     "run-sequence": "^2.2.1",
     "stylelint": "^9.6.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "axios": "^0.18.0",
+    "handlebars": "^4.0.12",
+    "handlebars-loader": "^1.7.0",
+    "normalize-scss": "^7.0.1"
   }
 }

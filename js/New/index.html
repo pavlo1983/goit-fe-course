@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Module-11</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <form class="form js-form">
+      <label class="form-label">
+        <input
+          type="text"
+          name="url"
+          class="js-form-input"
+          placeholder="Enter link"
+        />
+      </label>
+      <button type="submit" class="js-button">Add link</button>
+    </form>
+
+    <div class="main"><ul reversed class="js-url-list"></ul></div>
+
+    <template id ="bookmark-item">
+      <li class="bookmark-item">
+        <a href="{{link}}" target="blank" class="link">{{ link }}</a>
+        <button class="js-delBtn" value="">X</button>
+      </li>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
