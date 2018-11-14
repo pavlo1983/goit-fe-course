@@ -44,14 +44,14 @@
 
 //export
 const set = value => {
-  localStorage.setItem("url-finder", JSON.stringify(value));
+  localStorage.setItem("url-search", JSON.stringify(value));
 };
 
 //export
 const get = () => {
-  const date = localStorage.getItem("url-finder");
+  const data = localStorage.getItem("url-search");
 
-  return date ? JSON.parse(date) : null;
+  return data ? JSON.parse(data) : null;
 };
 
 const form = document.querySelector(".js-form");
@@ -59,13 +59,13 @@ const listUrl = document.querySelector(".js-url-list");
 const input = document.querySelector(".js-form-input");
 const formButton = document.querySelector(".js-button");
 const links = { linkSave: [] };
-const persisted = get();
+const savedLocal = get();
 
 const source = document.querySelector("#bookmark-item").innerHTML.trim();
 const template = Handlebars.compile(source);
 
-if (persisted) {
-  links.linkSave = persisted;
+if (savedLocal) {
+  links.linkSave = savedLocal;
   create();
 }
 
@@ -86,11 +86,12 @@ formButton.addEventListener("click", onSubmit);
 function onDelete(e) {
   e.preventDefault();
   let listItem = e.target.parentElement;
-  let updateStorage = get().filter(el => {
+  /*let updateStorage = get().filter(el => {
     return el != document.querySelector(".link").innerHTML.trim();
   });
-  set(updateStorage);
+  set(updateStorage);*/
   listItem.remove();
+
 }
 
 
