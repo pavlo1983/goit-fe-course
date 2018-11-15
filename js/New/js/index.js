@@ -69,9 +69,18 @@ if (savedLocal) {
   create();
 }
 
+/*if (!s.match(/^[a-zA-Z]+:\/\//))
+{
+    s = 'http://' + s;
+}*/
+
 function addNew() {
-  links.linkSave.push(input.value);
-  set(links.linkSave);
+  if (!savedLocal.includes(String(input.value)) && input.value.textContent !== `https//+${input.value}`) {
+    links.linkSave.unshift(input.value);
+    set(links.linkSave);
+  } else {
+    alert("This Url is in list");
+  }
 }
 
 function onSubmit(e) {
@@ -86,18 +95,20 @@ formButton.addEventListener("click", onSubmit);
 function onDelete(e) {
   e.preventDefault();
   let listItem = e.target.parentElement;
-  /*let updateStorage = get().filter(el => {
+
+  let updateStorage = get().filter(el => {
     return el != document.querySelector(".link").innerHTML.trim();
   });
-  set(updateStorage);*/
-  listItem.remove();
 
+  listItem.remove();
+  set(updateStorage);
 }
 
 
 document.querySelectorAll(".js-delBtn").forEach(el => {
   el.addEventListener("click", onDelete);
 });
+
 
 function create() {
   const markup = links.linkSave.reduce(

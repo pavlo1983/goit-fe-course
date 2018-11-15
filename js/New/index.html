@@ -24,8 +24,13 @@
     <div class="main"><ul reversed class="js-url-list"></ul></div>
 
     <template id ="bookmark-item">
-      <li class="bookmark-item">
-        <a href="{{link}}" target="blank" class="link">{{ link }}</a>
+      <li>
+        <a href="{{link}}" target="blank" class="link">{{ link }}
+          <h1 class="link__title">Lorem ipsum</h3>
+        </a>
+        <div class="bookmarks__image">
+          <img src="./img/www.jpg" alt="posted image">
+        </div>
         <button class="js-delBtn" value="">X</button>
       </li>
     </template>
@@ -34,3 +39,4 @@
     <script src="./js/index.js"></script>
   </body>
 </html>
+
