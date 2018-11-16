@@ -50,25 +50,40 @@ const get = () => {
   const data = localStorage.getItem("url-search");
 
   return data ? JSON.parse(data) : null;
-}*/
+};*/
 let bookmarksList = [];
-const bookmarks = document.querySelector(".js-bookmarks");
 const form = document.querySelector(".js-form");
+const bookmarks = document.querySelector(".js-url-list");
+const input = document.querySelector(".js-form-input");
+const formButton = document.querySelector(".js-button");
+//const links = { linkSave: [] };
+//let savedLocal = get();
 const source = document.querySelector("#bookmark-item").innerHTML.trim();
 const template = Handlebars.compile(source);
-
 const bookmarksFromLocalStorage = JSON.parse(localStorage.getItem("bookmarks"));
+
 if (bookmarksFromLocalStorage) {
   bookmarksList = bookmarksFromLocalStorage;
   makeMarkup(bookmarksFromLocalStorage);
 }
 
 function makeMarkup(array) {
-  const markup = array.reduce((acc, bookmark) => acc + template(bookmark), "");
+  const markup = array.reduce(
+    (acc, item) =>
+      acc +
+      template({
+        link: item
+      }),
+    ""
+  );
   bookmarks.innerHTML = markup;
 }
+/*if (savedLocal) {
+  links.linkSave = savedLocal;
+  create();
+}*/
 
-form.addEventListener("submit", handleButtonAddUrl);
+formButton.addEventListener("submit", handleButtonAddUrl);
 
 function handleButtonAddUrl(event) {
   event.preventDefault();
@@ -79,75 +94,49 @@ function handleButtonAddUrl(event) {
   form.reset();
 }
 
-function makeBookmarks(urlInfo) {
-  bookmarksList.unshift(urlInfo);
-  makeMarkup(bookmarksList);
-  localStorage.setItem("bookmarks", JSON.stringify(bookmarksList));
-}
 
-const deleteBtn = document.querySelector(".delete");
-bookmarks.addEventListener("click", handleButtonDelete);
-function handleButtonDelete(event) {
-  const target = event.target;
-  if (target.nodeName !== "BUTTON") return;
-  event.preventDefault();
-  const bookmarkItem = target.parentNode;
-  const bookmarkItemUrl = bookmarkItem.querySelector(".link");
-  const urlBookmark = bookmarkItemUrl.textContent;
-  const deleteBookmark = bookmarksList.filter(
-    bookmark => bookmark.url !== urlBookmark
-  );
-  bookmarksList = deleteBookmark;
-  makeMarkup(deleteBookmark);
-  localStorage.setItem("bookmarks", JSON.stringify(deleteBookmark));
-}
+/*function onSubmit(e) {
+  //e.preventDefault();
+ // if (!savedLocal.includes(input.value)){
+    links.linkSave.unshift(input.value);
+    set(links.linkSave);
+  /*} else {
+    alert("This Url is in list");
+  }
+  //addNew();
+  create();
+  form.reset();
+}*/
 
-/*
-
-formButton.addEventListener("click", onSubmit);
+//formButton.addEventListener("click", onSubmit);
 
 function onDelete(e) {
-  let target = e.target;
-  if (target.nodeName !== "Button") return;
   e.preventDefault();
+  let listItem = e.target.parentElement;
+  let target = e.target;
+  if (target.nodeName !== "BUTTON") return;
   let bookmarkItem = target.parentNode;
   let bookmarkItemUrl = bookmarkItem.querySelector(".link");
   let urlBookmark = bookmarkItemUrl.textContent;
-  let deleteBookmark = savedLocal.filter(function (bookmark) {
-    return bookmark.url !== urlBookmark;
-  })
-  savedLocal = deleteBookamrk;
+  let deleteBookmark = savedLocal.filter(bookmark =>
+    bookmark.textContent !== urlBookmark)
+  savedLocal = deleteBookmark;
   create(deleteBookmark);
   set(deleteBookmark);
-}
-
-
-/*function onDelete(e) {
-  e.preventDefault();
-  let listItem = e.target.parentElement;
   //listUrl.innerHTML = "";
-  let updateStorage = get().filter(el => {
-    return el !== document.querySelector(".link").innerHTML.trim();
-  });
-  // localStorage.clear();
+  //let updateStorage = get().filter(el => {
+    ;
+    
+    //return el !== document.querySelector('.link').innerHTML.trim();
+  //});
+ // localStorage.clear();
   listItem.remove();
-  set(updateStorage);
+  //set(updateStorage);
 }
-console.log(get());
+
 
 document.querySelectorAll(".js-delBtn").forEach(el => {
   el.addEventListener("click", onDelete);
 });
 
-function create() {
-  const markup = links.linkSave.reduce(
-    (acc, item) =>
-      acc +
-      template({
-        link: item
-      }),
-    ""
-  );
-  listUrl.innerHTML = markup;
-}
-*/
+

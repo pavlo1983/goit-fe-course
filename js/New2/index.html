@@ -16,15 +16,15 @@
           name="url"
           class="js-form-input"
           placeholder="Enter link"
-        />
+        >
       </label>
       <button type="submit" class="js-button">Add link</button>
     </form>
 
-    <ul class="js-bookmarks"></ul>
+    <div class="main"><ul reversed class="js-url-list"></ul></div>
 
     <template id ="bookmark-item">
-      <li class ="bookmark">
+      <li>
         <a href="{{link}}" target="blank" class="link">{{ link }}
           <h1 class="link__title">Lorem ipsum</h3>
         </a>
