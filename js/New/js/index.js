@@ -122,7 +122,6 @@ function handleButtonDelete(event) {
   const urlBookmark = bookmarkItemUrl.textContent;
   const deleteBookmark = bookmarksList.filter(
     bookmark => bookmark.url !== urlBookmark
-    
   );
   bookmarksList = deleteBookmark;
   makeMarkup(deleteBookmark);

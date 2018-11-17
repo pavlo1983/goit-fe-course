@@ -88,10 +88,10 @@ function onDelete(e) {
   bookmarkItem.remove();
   const itemUrl = bookmarkItem.querySelector(".link");
   const textItemUrl = itemUrl.textContent;
-  let updateStorage = savedLocal.filter(el => el !== textItemUrl);
+  let updateStorage = savedLocal.filter(el => 
+  el !== textItemUrl);
   links.linkSave = updateStorage;
   set(updateStorage);
-  console.log(updateStorage);
 }
 
 document.querySelectorAll(".js-delBtn").forEach(el => {
