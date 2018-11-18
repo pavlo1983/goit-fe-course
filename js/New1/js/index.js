@@ -88,7 +88,7 @@ function onDelete(e) {
   bookmarkItem.remove();
   const itemUrl = bookmarkItem.querySelector(".link");
   const textItemUrl = itemUrl.textContent;
-  let updateStorage = savedLocal.filter(el => 
+  const updateStorage = savedLocal.filter(el => 
   el !== textItemUrl);
   links.linkSave = updateStorage;
   set(updateStorage);
