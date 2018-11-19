@@ -39,28 +39,27 @@
     - Каждая карточка содержит превью изображение и базовую информацию о странице по адресу закладки,
       для получения этой информации воспользуйтесь этим Rest API - https://www.linkpreview.net/
 */
-
 "use strict";
 
-const set = value => {
+var set = function set(value) {
   localStorage.setItem("url-search", JSON.stringify(value));
 };
 
-const get = () => {
-  const data = localStorage.getItem("url-search");
-
+var get = function get() {
+  var data = localStorage.getItem("url-search");
   return data ? JSON.parse(data) : null;
 };
 
-const form = document.querySelector(".js-form");
-const listUrl = document.querySelector(".js-url-list");
-const input = document.querySelector(".js-form-input");
-const formButton = document.querySelector(".js-button");
-const links = { linkSave: [] };
-const savedLocal = get();
-
-const source = document.querySelector("#bookmark-item").innerHTML.trim();
-const template = Handlebars.compile(source);
+var form = document.querySelector(".js-form");
+var listUrl = document.querySelector(".js-url-list");
+var input = document.querySelector(".js-form-input");
+var formButton = document.querySelector(".js-button");
+var links = {
+  linkSave: []
+};
+var savedLocal = get();
+var source = document.querySelector("#bookmark-item").innerHTML.trim();
+var template = Handlebars.compile(source);
 
 if (savedLocal) {
   links.linkSave = savedLocal;
@@ -68,7 +67,8 @@ if (savedLocal) {
 }
 
 function onSubmit() {
-  const pattern = /^(https?:\/\/)?([\da-zа-яё0-9\.:-]+)\.([a-zа-яё\.]{2,6})([\/\w \.\/_|?!%@=&#:-]*)*\/?$/gi;
+  var pattern = /^(https?:\/\/)?([\da-zа-яё0-9\.:-]+)\.([a-zа-яё\.]{2,6})([\/\w \.\/_|?!%@=&#:-]*)*\/?$/gi;
+
   if (input.value.match(pattern)) {
     if (!links.linkSave.includes(input.value)) {
       links.linkSave.unshift(input.value);
@@ -76,6 +76,7 @@ function onSubmit() {
     } else {
       alert("This Url is in list");
     }
+
     create();
     form.reset();
   } else {
@@ -86,30 +87,29 @@ function onSubmit() {
 formButton.addEventListener("click", onSubmit);
 
 function onDelete(e) {
-  const target = e.target;
+  var target = e.target;
   if (target.nodeName !== "BUTTON") return;
   e.preventDefault();
-  const bookmarkItem = target.parentNode;
+  var bookmarkItem = target.parentNode;
   bookmarkItem.remove();
-  const itemUrl = bookmarkItem.querySelector(".link");
-  const textItemUrl = itemUrl.textContent;
-  const updateStorage = links.linkSave.filter(el => el !== textItemUrl);
+  var itemUrl = bookmarkItem.querySelector(".link");
+  var textItemUrl = itemUrl.textContent;
+  var updateStorage = links.linkSave.filter(function (el) {
+    return el !== textItemUrl;
+  });
   links.linkSave = updateStorage;
   set(updateStorage);
 }
 
-document.querySelectorAll(".js-delBtn").forEach(el => {
+document.querySelectorAll(".js-delBtn").forEach(function (el) {
   el.addEventListener("click", onDelete);
 });
 
 function create() {
-  const markup = links.linkSave.reduce(
-    (acc, item) =>
-      acc +
-      template({
-        link: item
-      }),
-    ""
-  );
+  var markup = links.linkSave.reduce(function (acc, item) {
+    return acc + template({
+      link: item
+    });
+  }, "");
   listUrl.innerHTML = markup;
 }

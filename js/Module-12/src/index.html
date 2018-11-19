@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="copyright" content="Author" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
+    <meta name="apple-mobile-web-app-title" content="Application Name" />
+    <meta
+      name="msapplication-TileImage"
+      content="images/favicons/144x144.png"
+    />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="format-detection" content="telephone=no" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="theme-color" content="#000000">
-  <meta name="copyright" content="Author">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
-  <meta name="apple-mobile-web-app-title" content="Application Name">
-  <meta name="msapplication-TileImage" content="images/favicons/144x144.png">
-  <meta name="msapplication-TileColor" content="#000000">
-  <meta name="format-detection" content="telephone=no">
+    <title>Module-12</title>
 
-  <title>Module-12</title>
-  <!--<link rel="stylesheet" href="css/styles.min.css">-->
-</head>
+    <link rel="stylesheet" href="css/styles.min.css"> 
+  </head>
 
-<body>
-
-    <form class="form js-form">
+  <body>
+    <div class="bookmark">
+      <form name="form" method="post" action="#" class="form js-form">
         <label class="form-label">
           <input
-            type="url"
+            type="text"
             name="link"
             class="js-form-input"
             placeholder="Enter link"
           />
         </label>
-        <button type="submit" class="js-button">Add link</button>
+        <button type="submit" class="button js-button">ADD LINK</button>
       </form>
-  
-      <div class="main"><ul reversed class="js-url-list"></ul></div>
-  
-      <template id ="bookmark-item">
-        <li>
-          <a href="{{link}}" target="blank" class="link">{{link}}</a>
-          <h1 class="link__title">Lorem ipsum</h1>
-          <div class="bookmarks__image">
-            <img src="./images/www.jpg" alt="Image">
-          </div>
-          <button class="js-delBtn" value="">X</button>
-        </li>
-      </template>
-  
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-      <!--<script src="./js/index.js"></script>-->
+      <ul class="js-url-list"></ul>
+    </div>
 
-  <script src="js/scripts.min.js"></script>
-</body>
+    <template id="bookmark-item">
+      <li>
+        <a href="{{link}}" target="blank" class="link">{{ link }}</a>
+        <h1 class="link__title">Lorem ipsum</h1>
+        <div class="bookmarks__image">
+          <img src="./images/www.jpg" alt="Image" />
+        </div>
+        <button class="js-delBtn" value="">DELETE</button>
+      </li>
+    </template>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <script src="js/scripts.min.js"></script>
+  </body>
 </html>
