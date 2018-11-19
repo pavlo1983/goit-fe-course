@@ -374,3 +374,12 @@ template {
 [hidden] {
   display: none;
 }
+
+.form {
+  padding-left: 35%;
+  padding-top: 50px;
+}
+
+.bookmark {
+  margin: 0 auto;
+}

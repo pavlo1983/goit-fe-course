@@ -25,7 +25,7 @@
 
   <body>
     <div class="bookmark">
-      <form name="form" method="post" class="form js-form">
+      <form name="form" class="form js-form">
         <label class="form-label">
           <input
             type="text"
@@ -36,11 +36,11 @@
         </label>
         <button type="submit" class="button js-button">ADD LINK</button>
       </form>
-      <ul class="js-url-list"></ul>
+      <ul class="js-url-list list"></ul>
     </div>
 
-    <template id="bookmark-item">
-      <li>
+    <template id="bookmark-item" >
+      <li class="item">
         <a href="{{link}}" target="blank" class="link">{{ link }}</a>
         <h1 class="link__title">Lorem ipsum</h1>
         <div class="bookmarks__image">
