@@ -1,10 +1,10 @@
 'use strict';
 
-import Model from './model';
-import View from './view';
-import Controller from './controller';
+import Model from '../src/Model';
+//import View from './view';
+//import Controller from './controller';
 
 const model = new Model();
-const view = new View();
+//const view = new View();
 
-new Controller(model, view);
+//new Controller(model, view);

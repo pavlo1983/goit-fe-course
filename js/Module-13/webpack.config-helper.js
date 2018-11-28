@@ -8,7 +8,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractSASS = new ExtractTextPlugin('./[name].[hash].css');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const webpack = require('webpack');
+const uuid = require('random-uuid-v4');
+const uuidv4 = uuid();
 
 const pages = require('./src/pages');
 let renderedPages = [];
