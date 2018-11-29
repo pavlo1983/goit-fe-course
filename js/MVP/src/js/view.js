@@ -1,56 +1,69 @@
-export default class View {
-	constructor() {
-		this.form = document.querySelector(".js-form");
-        this.input = this.form.querySelector(".js-form-input");
-        this.itemList = document.querySelector(".js-url-list")
+import EventEmitter from "../services/event-emitter";
 
-        this.form.addEventListener('submit', this.handleAdd.bind(this))
-    }
-    handleAdd(e) {
-      e.preventDefault();
+export default class View extends EventEmitter {
+  constructor() {
+    super();
+    this.form = document.querySelector(".js-form");
+    this.input = this.form.querySelector(".js-form-input");
+    this.itemList = document.querySelector(".js-url-list");
 
-      if(this.input.value === "") return;
-    }
-    createNote(note) {
-      const li = document.createElement('li');
-      li.classList.add('item');
-      li.dataset.id = note.id;
+    this.form.addEventListener("submit", this.handleAdd.bind(this));
+  }
+  handleAdd(e) {
+    e.preventDefault();
 
-      const text = document.createElement('p');
-      text.textContent = note.text;
-      text.classList.add('text');
+    const {value} = this.input
 
-      const button = document.createElement('button');
-      button.textContent = "Delete";
-      button.dataset.action = "Remove"
-      button.classList.add('button');
+    if (value === "") return;
 
+    this.emit('add', value)
+  }
+  createNote(note) {
+    const li = document.createElement("li");
+    li.classList.add("item");
+    li.dataset.id = note.id;
 
-      li.append(text, button);
+    const text = document.createElement("p");
+    text.textContent = note.text;
+    text.classList.add("text");
 
-      this.appendEventListeners(li);
+    const button = document.createElement("button");
+    button.textContent = "Delete";
+    button.dataset.action = "Remove";
+    button.classList.add("button");
 
-      return li;
-    }
-    addNote(note) {
-      const item = this.createNote(note);
-      this.form.reset();
-      this.itemList.appendChild(item);
-    }
+    li.append(text, button);
 
+    this.appendEventListeners(li);
 
-    appendEventListeners(item) {
-      const removeBtn = item.querySelector('[data-action="Remove"]');
+    return li;
+  }
+  addNote(note) {
+    const item = this.createNote(note);
+    this.form.reset();
+    this.itemList.appendChild(item);
+  }
 
-      removeBtn.addEventListener('click', this.handleRemove.bind(this));
-    }
+  appendEventListeners(item) {
+    const removeBtn = item.querySelector('[data-action="Remove"]');
 
-    handleRemove({target}) {
-      const item = target.closest('.item');
+    removeBtn.addEventListener("click", this.handleRemove.bind(this));
+  }
 
-      this.itemList.removeChild(item);
-    }
+  handleRemove({ target }) {
+    const item = target.closest(".item");
+
+    this.itemList.removeChild(item);
+  }
+
+  removeNote(id) {
+    const item = this.itemList.querySelector(`[data-id = "${id}"]`);
+
+    this.this.itemList.removeChild(items);
+  }
+
 }
+
 
 
 /*<template id="bookmark-item" >
@@ -63,4 +76,3 @@ export default class View {
         <button class="js-delBtn" value="">DELETE</button>
       </li>
     </template>*/
-
