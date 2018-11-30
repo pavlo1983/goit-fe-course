@@ -51,15 +51,15 @@ export default class View extends EventEmitter {
   }
 
   handleRemove({ target }) {
-    const item = target.closest(".item");
+    const parent = target.closest(".item");
 
-    this.itemList.removeChild(item);
+    this.emit('remove', parent.dataset.id);
   }
 
   removeNote(id) {
     const item = this.itemList.querySelector(`[data-id = "${id}"]`);
 
-    this.this.itemList.removeChild(items);
+    this.itemList.removeChild(item);
   }
 
 }
