@@ -1,20 +1,24 @@
+import { get, set } from '../services/localStorage';
+
 export default class Controller {
   constructor(view, model) {
     this.model = model;
     this.view = view;
 
-    view.on('add', this.addNote.bind(this));
-    view.on('remove', this.removeNote.bind(this))
+    view.on('add', this.addBookmark.bind(this));
+    view.on('remove', this.removeBookmark.bind(this))
   }
 
-  addNote(text) {
-    const item = this.model.addItem(text);
+  addBookmark(link) {
+    
+    
+    const item = this.model.addItem(link);
 
-    this.view.addNote(item);
+    this.view.addBookmark(item);
   }
 
-  removeNote(id) {
+  removeBookmark(id) {
     this.model.removeItem(id);
-    this.view.removeNote(id);
+    this.view.removeBookmark(id);
   }
 }

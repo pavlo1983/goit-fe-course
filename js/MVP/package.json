@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server  --mode development"
+    "start": "webpack-dev-server  --mode development",
+    "watch": "webpack --watch"
   },
   "keywords": [],
   "author": "",
@@ -36,3 +37,6 @@
     "random-uuid-v4": "0.0.8"
   }
 }
+
+
+  

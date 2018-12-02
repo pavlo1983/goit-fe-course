@@ -1,3 +1,4 @@
+import { get, set } from "../services/localStorage";
 import EventEmitter from "../services/event-emitter";
 
 export default class View extends EventEmitter {
@@ -9,39 +10,73 @@ export default class View extends EventEmitter {
 
     this.form.addEventListener("submit", this.handleAdd.bind(this));
   }
+
   handleAdd(e) {
     e.preventDefault();
 
-    const {value} = this.input
+    const { value } = this.input;
 
-    if (value === "") return;
+   const links = { linkSave: [] };
+    
+   if (get()) {
+      links.linkSave = get();
+    }
+    
+    const pattern = /^(https?:\/\/)?([\da-zа-яё0-9\.:-]+)\.([a-zа-яё\.]{2,6})([\/\w \.\/_|?!%@=&#:-]*)*\/?$/gi;
+    
+    if (value.match(pattern)) {
+      if (!links.linkSave.includes(value)) {
+        links.linkSave.unshift(value);
+        set(links.linkSave);
+      } else {
+        alert("This Url is in list");
+        this.form.reset();
+        return
+      }
+    } else {
+      alert("Invalid Url");
+      this.form.reset();
+      return
+    }
 
-    this.emit('add', value)
+
+ 
+    this.emit("add", value);
   }
-  createNote(note) {
+  createBookmark(link) {
     const li = document.createElement("li");
     li.classList.add("item");
-    li.dataset.id = note.id;
+    li.dataset.id = link.id;
 
-    const text = document.createElement("p");
-    text.textContent = note.text;
-    text.classList.add("text");
+    const url = document.createElement("a");
+    url.textContent = link.text;
+    url.setAttribute("href", `${link.text}`);
+    url.classList.add("link");
+
+    const title = document.createElement("h1");
+    title.textContent = "Lorem ipsum";
+    title.classList.add("link_title");
+
+    const image = document.createElement("img");
+    image.setAttribute("src", "https://placeimg.com/200/150/tech");
+    image.setAttribute("alt", "image");
 
     const button = document.createElement("button");
     button.textContent = "Delete";
     button.dataset.action = "Remove";
     button.classList.add("button");
 
-    li.append(text, button);
+    li.append(url, title, image, button);
 
     this.appendEventListeners(li);
 
     return li;
   }
-  addNote(note) {
-    const item = this.createNote(note);
+
+  addBookmark(link) {
+    const item = this.createBookmark(link);
     this.form.reset();
-    this.itemList.appendChild(item);
+    this.itemList.prepend(item);
   }
 
   appendEventListeners(item) {
@@ -51,28 +86,22 @@ export default class View extends EventEmitter {
   }
 
   handleRemove({ target }) {
+    
     const parent = target.closest(".item");
+    const links = { linkSave: [] };
+    
+    const itemUrl = parent.querySelector(".link");
+    const textItemUrl = itemUrl.textContent;
+    const updateStorage = get().filter(el => el !== textItemUrl);
+    links.linkSave = updateStorage;
+    set(updateStorage);
 
-    this.emit('remove', parent.dataset.id);
+    this.emit("remove", parent.dataset.id);
   }
 
-  removeNote(id) {
+  removeBookmark(id) {
     const item = this.itemList.querySelector(`[data-id = "${id}"]`);
 
     this.itemList.removeChild(item);
   }
-
 }
-
-
-
-/*<template id="bookmark-item" >
-      <li class="item">
-        <a href="{{link}}" target="blank" class="link">{{ link }}</a>
-        <h1 class="link__title">Lorem ipsum</h1>
-        <div class="bookmarks__image">
-          <img src="./images/www.jpg" alt="Image" />
-        </div>
-        <button class="js-delBtn" value="">DELETE</button>
-      </li>
-    </template>*/
