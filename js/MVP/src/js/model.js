@@ -7,17 +7,18 @@ export default class Model {
     this.items = items;
   }
 
-  addItem(url) {
+  addItem(text) {
     const item = {
       id: v4(),
-      url
+      text,
+      title: "Lorem Ipsum",
+      img: "https://placeimg.com/200/150/tech"
     };
 
     this.items.push(item);
 
     links.linkSave.push(item);
     set(links.linkSave);
-
     return item;
   }
   removeItem(id) {
