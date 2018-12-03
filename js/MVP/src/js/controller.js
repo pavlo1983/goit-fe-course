@@ -1,4 +1,3 @@
-import { get, set } from '../services/localStorage';
 
 export default class Controller {
   constructor(view, model) {
@@ -10,7 +9,6 @@ export default class Controller {
   }
 
   addBookmark(link) {
-    
     
     const item = this.model.addItem(link);
 

@@ -16,31 +16,24 @@ export default class View extends EventEmitter {
 
     const { value } = this.input;
 
-   const links = { linkSave: [] };
-    
-   if (get()) {
-      links.linkSave = get();
-    }
-    
     const pattern = /^(https?:\/\/)?([\da-zа-яё0-9\.:-]+)\.([a-zа-яё\.]{2,6})([\/\w \.\/_|?!%@=&#:-]*)*\/?$/gi;
     
-    if (value.match(pattern)) {
-      if (!links.linkSave.includes(value)) {
+    if (!value.match(pattern)) {
+      alert("Invalid Url");
+      this.form.reset();
+      return
+    } 
+
+    
+    /*if (!links.linkSave.includes(value)) {
         links.linkSave.unshift(value);
         set(links.linkSave);
       } else {
         alert("This Url is in list");
         this.form.reset();
         return
-      }
-    } else {
-      alert("Invalid Url");
-      this.form.reset();
-      return
-    }
+      }*/
 
-
- 
     this.emit("add", value);
   }
   createBookmark(link) {
@@ -88,13 +81,13 @@ export default class View extends EventEmitter {
   handleRemove({ target }) {
     
     const parent = target.closest(".item");
-    const links = { linkSave: [] };
+    /*const links = { linkSave: [] };
     
     const itemUrl = parent.querySelector(".link");
     const textItemUrl = itemUrl.textContent;
     const updateStorage = get().filter(el => el !== textItemUrl);
     links.linkSave = updateStorage;
-    set(updateStorage);
+    set(updateStorage);*/
 
     this.emit("remove", parent.dataset.id);
   }
